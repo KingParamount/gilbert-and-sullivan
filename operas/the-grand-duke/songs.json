@@ -1,0 +1,473 @@
+{
+  "meta": {
+    "opera": "The Grand Duke",
+    "composer": "Arthur Sullivan",
+    "librettist": "W. S. Gilbert",
+    "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
+  },
+  "accompaniment": [
+    "Right Hand",
+    "Left Hand",
+    "Piano right",
+    "Piano left",
+    "Piano 1",
+    "Piano 2",
+    "piano",
+    "piano-2",
+    "piano-3",
+    "Tempo",
+    "Tempo Track"
+  ],
+  "choralTracks": [
+    "SA",
+    "TB",
+    "Women",
+    "Men"
+  ],
+  "soloistTracks": [],
+  "parts": [
+    {
+      "id": "rudolph",
+      "label": "Rudolph, Grand Duke",
+      "candidates": [
+        "Rudolf",
+        "Rudolph",
+        "Vocal"
+      ]
+    },
+    {
+      "id": "ernest",
+      "label": "Ernest Dummkopf",
+      "candidates": [
+        "Ernest",
+        "Ernest/Ludwig"
+      ]
+    },
+    {
+      "id": "ludwig",
+      "label": "Ludwig",
+      "candidates": [
+        "Ludwig",
+        "Ernest/Ludwig"
+      ]
+    },
+    {
+      "id": "dr-tannhauser",
+      "label": "Dr Tannäuser (Notary)",
+      "candidates": [
+        "Notary"
+      ]
+    },
+    {
+      "id": "prince",
+      "label": "Prince of Monte Carlo",
+      "candidates": [
+        "Prince"
+      ]
+    },
+    {
+      "id": "princess",
+      "label": "Princess of Monte Carlo",
+      "candidates": [
+        "Princess"
+      ]
+    },
+    {
+      "id": "herald",
+      "label": "Viscount Mentschikoff (Herald)",
+      "candidates": [
+        "Herald"
+      ]
+    },
+    {
+      "id": "costumier",
+      "label": "Costumier",
+      "candidates": [
+        "Costumier"
+      ]
+    },
+    {
+      "id": "baroness",
+      "label": "Baroness von Krakenfeldt",
+      "candidates": [
+        "Baroness",
+        "Baroness/Julia"
+      ]
+    },
+    {
+      "id": "julia",
+      "label": "Julia Jellicoe",
+      "candidates": [
+        "Julia",
+        "Baroness/Julia"
+      ]
+    },
+    {
+      "id": "lisa",
+      "label": "Lisa",
+      "candidates": [
+        "Lisa"
+      ]
+    },
+    {
+      "id": "soprano",
+      "label": "Soprano",
+      "candidates": [
+        "Sopranos",
+        "Soprano",
+        "SA",
+        "Women"
+      ]
+    },
+    {
+      "id": "alto",
+      "label": "Alto",
+      "candidates": [
+        "Altos",
+        "Alto",
+        "SA",
+        "Women"
+      ]
+    },
+    {
+      "id": "tenor",
+      "label": "Tenor",
+      "candidates": [
+        "Tenors",
+        "Tenor",
+        "TT",
+        "TB",
+        "Men"
+      ]
+    },
+    {
+      "id": "bass",
+      "label": "Bass",
+      "candidates": [
+        "Basses",
+        "Bass",
+        "BB",
+        "TB",
+        "Men"
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": "gd01a",
+      "number": "1a",
+      "title": "Won't it be a pretty wedding?",
+      "type": "Opening Chorus",
+      "file": "gd01a.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "gd01b",
+      "number": "1b",
+      "title": "Pretty Lisa, fair and tasty",
+      "type": "Song (Ludwig & Lisa) & Chorus",
+      "file": "gd01b.kar",
+      "voiceTracks": [
+        "Lisa",
+        "Ludwig",
+        "Sopranos",
+        "Staff-2",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "gd02",
+      "number": "2",
+      "title": "By the mystic regulation",
+      "type": "Song (Ludwig) & Chorus",
+      "file": "gd02.kar",
+      "voiceTracks": [
+        "Ludwig",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "gd03",
+      "number": "3",
+      "title": "Were I a king in very truth",
+      "type": "Song (Ernest) & Chorus",
+      "file": "gd03.kar",
+      "voiceTracks": [
+        "Ernest",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "gd04",
+      "number": "4",
+      "title": "How would I play this part",
+      "type": "Duet (Julia & Ernest)",
+      "file": "gd04.kar",
+      "voiceTracks": [
+        "Julia",
+        "Ernest"
+      ]
+    },
+    {
+      "id": "gd05",
+      "number": "5",
+      "title": "My goodness me! What shall we do?",
+      "type": "Finaletto / Ensemble",
+      "file": "gd05.kar",
+      "voiceTracks": [
+        "Ernest/Ludwig",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "gd06",
+      "number": "6",
+      "title": "About a century since",
+      "type": "Ensemble (Notary, Ludwig, Ernest, Julia, Lisa)",
+      "file": "gd06.kar",
+      "voiceTracks": [
+        "Julia",
+        "Lisa",
+        "Ernest",
+        "Notary",
+        "Ludwig"
+      ]
+    },
+    {
+      "id": "gd07",
+      "number": "7",
+      "title": "Strange the views some people hold!",
+      "type": "Quintet",
+      "file": "gd07.kar",
+      "voiceTracks": [
+        "Julia",
+        "Lisa",
+        "Ernest",
+        "Notary",
+        "Ludwig"
+      ]
+    },
+    {
+      "id": "gd09",
+      "number": "9",
+      "title": "The good Grand Duke of Pfennig Halbpfennig",
+      "type": "Song (Rudolph) & Chorus",
+      "file": "gd09.kar",
+      "voiceTracks": [
+        "Rudolf",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "gd10",
+      "number": "10",
+      "title": "As o'er our penny roll we sing",
+      "type": "Duet (Baroness & Rudolph)",
+      "file": "gd10.kar",
+      "voiceTracks": [
+        "Baroness",
+        "Rudolph"
+      ]
+    },
+    {
+      "id": "gd11",
+      "number": "11",
+      "title": "When you find you're a broken-down critter",
+      "type": "Song (Rudolph)",
+      "file": "gd11.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "gd12",
+      "number": "12",
+      "title": "Come hither, all you people",
+      "type": "Finale Act I",
+      "file": "gd12.kar",
+      "voiceTracks": [
+        "Notary",
+        "Rudolph",
+        "Ludwig",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "gd13",
+      "number": "13",
+      "title": "As before you we defile",
+      "type": "Chorus",
+      "file": "gd13.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "gd14",
+      "number": "14",
+      "title": "Your loyalty our Ducal heartstrings touches",
+      "type": "Song (Ludwig) & Chorus",
+      "file": "gd14.kar",
+      "voiceTracks": [
+        "Ludwig",
+        "Women",
+        "Men"
+      ]
+    },
+    {
+      "id": "gd15",
+      "number": "15",
+      "title": "Yes, Ludwig and his Julia are mated!",
+      "type": "Recit. & Duet (Ludwig & Lisa)",
+      "file": "gd15.kar",
+      "voiceTracks": [
+        "Lisa",
+        "Ludwig"
+      ]
+    },
+    {
+      "id": "gd16",
+      "number": "16",
+      "title": "Now Julia, come",
+      "type": "Duet (Ludwig & Julia)",
+      "file": "gd16.kar",
+      "voiceTracks": [
+        "Julia",
+        "Ludwig"
+      ]
+    },
+    {
+      "id": "gd17",
+      "number": "17",
+      "title": "Your Highness, there's a party at the door",
+      "type": "Chorus & Ensemble",
+      "file": "gd17.kar",
+      "voiceTracks": [
+        "Baroness",
+        "Ludwig",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "gd18",
+      "number": "18",
+      "title": "Now away to the wedding we go",
+      "type": "Duet (Baroness & Julia) & Chorus",
+      "file": "gd18.kar",
+      "voiceTracks": [
+        "Baroness/Julia",
+        "SA",
+        "TB"
+      ]
+    },
+    {
+      "id": "gd20",
+      "number": "20",
+      "title": "If the light of love's lingering ember",
+      "type": "Ensemble",
+      "file": "gd20.kar",
+      "voiceTracks": [
+        "Julia",
+        "Baroness",
+        "Ernest",
+        "Staff-2",
+        "SA",
+        "Staff-1",
+        "TB"
+      ]
+    },
+    {
+      "id": "gd22",
+      "number": "22-24",
+      "title": "Why, who is this approaching",
+      "type": "Scene & Ensemble",
+      "file": "gd22.kar",
+      "voiceTracks": [
+        "Herald",
+        "Ludwig",
+        "SA",
+        "TB"
+      ]
+    },
+    {
+      "id": "gd25",
+      "number": "25",
+      "title": "We're rigged out in magnificent array",
+      "type": "Song (Prince & Princess) & Chorus",
+      "file": "gd25.kar",
+      "voiceTracks": [
+        "Princess",
+        "Prince",
+        "Costumier",
+        "TT",
+        "BB"
+      ]
+    },
+    {
+      "id": "gd27",
+      "number": "27",
+      "title": "Take my advice, when deep in debt",
+      "type": "Roulette Song (Prince) & Chorus",
+      "file": "gd27.kar",
+      "voiceTracks": [
+        "Prince",
+        "Women",
+        "Men"
+      ]
+    },
+    {
+      "id": "gd28",
+      "number": "28",
+      "title": "Now away to the wedding we'll go",
+      "type": "Ensemble & Chorus",
+      "file": "gd28.kar",
+      "voiceTracks": [
+        "Ernest",
+        "Notary",
+        "Rudolph",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "gd29",
+      "number": "29",
+      "title": "Happy couples, lightly treading",
+      "type": "Finale Act II",
+      "file": "gd29.kar",
+      "voiceTracks": [
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
+      ]
+    }
+  ]
+}

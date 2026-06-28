@@ -1,0 +1,398 @@
+{
+  "meta": {
+    "opera": "The Pirates of Penzance",
+    "composer": "Arthur Sullivan",
+    "librettist": "W. S. Gilbert",
+    "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
+  },
+  "accompaniment": [
+    "Right Hand",
+    "Left Hand",
+    "Piano Right",
+    "Piano Left",
+    "Tempo Track",
+    "Tempo"
+  ],
+  "choralTracks": [
+    "Girls",
+    "Chorus of Girls",
+    "Pirates"
+  ],
+  "soloistTracks": [],
+  "parts": [
+    {
+      "id": "frederic",
+      "label": "Frederic",
+      "candidates": [
+        "Frederic",
+        "Fred"
+      ]
+    },
+    {
+      "id": "mabel",
+      "label": "Mabel",
+      "candidates": [
+        "Mabel"
+      ]
+    },
+    {
+      "id": "ruth",
+      "label": "Ruth",
+      "candidates": [
+        "Ruth"
+      ]
+    },
+    {
+      "id": "major-general",
+      "label": "Major-General Stanley",
+      "candidates": [
+        "Major-General",
+        "Major General"
+      ]
+    },
+    {
+      "id": "pirate-king",
+      "label": "The Pirate King",
+      "candidates": [
+        "King"
+      ]
+    },
+    {
+      "id": "samuel",
+      "label": "Samuel",
+      "candidates": [
+        "Samuel",
+        "Sam"
+      ]
+    },
+    {
+      "id": "edith",
+      "label": "Edith",
+      "candidates": [
+        "Edith",
+        "Edith & Kate"
+      ]
+    },
+    {
+      "id": "kate",
+      "label": "Kate",
+      "candidates": [
+        "Kate",
+        "Edith & Kate"
+      ]
+    },
+    {
+      "id": "sergeant",
+      "label": "Sergeant of Police",
+      "candidates": [
+        "Sergeant"
+      ]
+    },
+    {
+      "id": "soprano",
+      "label": "Soprano",
+      "candidates": [
+        "Chorus Soprano",
+        "Sopranos",
+        "Girls",
+        "Chorus of Girls"
+      ]
+    },
+    {
+      "id": "alto",
+      "label": "Alto",
+      "candidates": [
+        "Chorus Alto",
+        "Altos",
+        "Girls",
+        "Chorus of Girls"
+      ]
+    },
+    {
+      "id": "tenor",
+      "label": "Tenor",
+      "candidates": [
+        "Chorus Tenor",
+        "Tenor",
+        "Tenors",
+        "Pirates Tenor",
+        "Pirates Tenor 1",
+        "Pirates Tenor 2",
+        "Pirates",
+        "Pirates No. 8"
+      ]
+    },
+    {
+      "id": "bass",
+      "label": "Bass",
+      "candidates": [
+        "Chorus Bass",
+        "Bass",
+        "Basses",
+        "Police Baritone",
+        "Police Bass",
+        "Pirates Bass 1 and 2",
+        "Pirates",
+        "Pirates No. 8",
+        "Staff-10"
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": "pp01",
+      "number": "1",
+      "title": "Pour, O pour the pirate sherry",
+      "type": "Introduction & Chorus",
+      "file": "pp01.kar",
+      "voiceTracks": [
+        "Samuel",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pp02",
+      "number": "2",
+      "title": "When Frederic was a little lad",
+      "type": "Recit. & Song (Ruth)",
+      "file": "pp02.kar",
+      "voiceTracks": [
+        "Ruth"
+      ]
+    },
+    {
+      "id": "pp03",
+      "number": "3",
+      "title": "Oh, better far to live and die",
+      "type": "Song & Chorus (Pirate King)",
+      "file": "pp03.kar",
+      "voiceTracks": [
+        "King",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "pp05",
+      "number": "5",
+      "title": "Climbing over rocky mountain",
+      "type": "Chorus of Girls",
+      "file": "pp05.kar",
+      "voiceTracks": [
+        "Kate",
+        "Edith",
+        "Chorus Soprano",
+        "Chorus Alto"
+      ]
+    },
+    {
+      "id": "pp06_7",
+      "number": "6 & 7",
+      "title": "Stop, ladies, pray!",
+      "type": "Recit. & Chorus",
+      "file": "pp06_7.kar",
+      "voiceTracks": [
+        "Mabel",
+        "Fred",
+        "Edith",
+        "Kate",
+        "Chorus of Girls"
+      ]
+    },
+    {
+      "id": "pp08",
+      "number": "8",
+      "title": "Poor wand'ring one!",
+      "type": "Song (Mabel) & Chorus",
+      "file": "pp08.kar",
+      "voiceTracks": []
+    },
+    {
+      "id": "pp11",
+      "number": "11",
+      "title": "Stay, we must not lose our senses",
+      "type": "Recit. & Chorus",
+      "file": "pp11.kar",
+      "voiceTracks": [
+        "Fred",
+        "Chorus Soprano",
+        "Chorus Alto",
+        "Chorus Tenor",
+        "Chorus Bass"
+      ]
+    },
+    {
+      "id": "pp12",
+      "number": "12",
+      "title": "Hold, Monsters!",
+      "type": "Recit. & Ensemble",
+      "file": "pp12.kar",
+      "voiceTracks": [
+        "Mabel",
+        "Samuel",
+        "Major General",
+        "Girls",
+        "Pirates"
+      ]
+    },
+    {
+      "id": "pp13",
+      "number": "13",
+      "title": "I am the very model of a modern Major-General",
+      "type": "Song (Major-General) & Chorus",
+      "file": "pp13.kar",
+      "voiceTracks": [
+        "Major General",
+        "Chorus Soprano",
+        "Chorus Alto",
+        "Chorus Tenor",
+        "Chorus Bass"
+      ]
+    },
+    {
+      "id": "pp14",
+      "number": "14",
+      "title": "Oh, men of dark and dismal fate",
+      "type": "Finale Act I",
+      "file": "pp14.kar",
+      "voiceTracks": [
+        "Major General",
+        "Mabel",
+        "Kate",
+        "Edith",
+        "Ruth",
+        "Fred",
+        "Sam",
+        "King",
+        "Chorus Soprano",
+        "Chorus Alto",
+        "Pirates Tenor",
+        "Pirates Bass 1 and 2"
+      ]
+    },
+    {
+      "id": "pp15",
+      "number": "15",
+      "title": "Oh, dry the glist'ning tear",
+      "type": "Chorus",
+      "file": "pp15.kar",
+      "voiceTracks": [
+        "Mabel",
+        "Chorus Soprano",
+        "Chorus Alto"
+      ]
+    },
+    {
+      "id": "pp16_17",
+      "number": "16 & 17",
+      "title": "Then, Frederic, let your escort lion-hearted",
+      "type": "Recit. & Chorus (Policemen)",
+      "file": "pp16_17.kar",
+      "voiceTracks": [
+        "Mabel",
+        "Edith",
+        "Fred",
+        "Major General",
+        "Sergeant",
+        "Chorus Soprano",
+        "Chorus Alto",
+        "Police Baritone",
+        "Police Bass"
+      ]
+    },
+    {
+      "id": "pp18_19",
+      "number": "18 & 19",
+      "title": "Now for the pirates' lair!",
+      "type": "Recit. & Trio",
+      "file": "pp18_19.kar",
+      "voiceTracks": [
+        "Ruth",
+        "Frederic",
+        "King"
+      ]
+    },
+    {
+      "id": "pp20",
+      "number": "20",
+      "title": "Away, away! my heart's on fire",
+      "type": "Duet (Ruth & Pirate King)",
+      "file": "pp20.kar",
+      "voiceTracks": [
+        "Ruth",
+        "Fred",
+        "King"
+      ]
+    },
+    {
+      "id": "pp21_2",
+      "number": "21 & 22",
+      "title": "All is prepared, your gallant crew await you",
+      "type": "Recit. & Duet (Mabel & Frederic)",
+      "file": "pp21_2.kar",
+      "voiceTracks": [
+        "Mabel",
+        "Frederic"
+      ]
+    },
+    {
+      "id": "pp23",
+      "number": "23",
+      "title": "No, I'll be brave!",
+      "type": "Recit. & Chorus (Mabel & Police)",
+      "file": "pp23.kar",
+      "voiceTracks": [
+        "Mabel",
+        "Sergeant",
+        "Police Baritone",
+        "Police Bass"
+      ]
+    },
+    {
+      "id": "pp24",
+      "number": "24",
+      "title": "When a felon's not engaged in his employment",
+      "type": "Song (Sergeant) & Chorus",
+      "file": "pp24.kar",
+      "voiceTracks": [
+        "Sergeant",
+        "Police Baritone"
+      ]
+    },
+    {
+      "id": "pp25",
+      "number": "25 & 26",
+      "title": "A rollicking band of pirates we",
+      "type": "Chorus & Recit.",
+      "file": "pp25.kar",
+      "voiceTracks": [
+        "Pirates Tenor 1",
+        "Pirates Tenor 2",
+        "Sergeant",
+        "Police Baritone",
+        "Police Bass"
+      ]
+    },
+    {
+      "id": "pp27",
+      "number": "27 & 28",
+      "title": "Hush, hush! not a word",
+      "type": "Finale Act II",
+      "file": "pp27.kar",
+      "voiceTracks": [
+        "Mabel",
+        "Edith & Kate",
+        "Ruth",
+        "Frederic",
+        "Major-General",
+        "King",
+        "Samuel",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Staff-10"
+      ]
+    }
+  ]
+}

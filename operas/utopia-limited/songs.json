@@ -1,0 +1,499 @@
+{
+  "meta": {
+    "opera": "Utopia, Limited",
+    "composer": "Arthur Sullivan",
+    "librettist": "W. S. Gilbert",
+    "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
+  },
+  "accompaniment": [
+    "Right Hand",
+    "Left Hand",
+    "Piano (RH)",
+    "Piano (LH)",
+    "Piano RH",
+    "Piano LH",
+    "Tempo",
+    "Tempo Track"
+  ],
+  "choralTracks": [
+    "Women",
+    "Troopers",
+    "Flowers"
+  ],
+  "soloistTracks": [],
+  "parts": [
+    {
+      "id": "king-paramount",
+      "label": "King Paramount",
+      "candidates": [
+        "Paramount",
+        "King",
+        "Vocal"
+      ]
+    },
+    {
+      "id": "scaphio",
+      "label": "Scaphio",
+      "candidates": [
+        "Scaphio",
+        "Women/Scaphio"
+      ]
+    },
+    {
+      "id": "phantis",
+      "label": "Phantis",
+      "candidates": [
+        "Phantis",
+        "Men/Phantis"
+      ]
+    },
+    {
+      "id": "lord-dramaleigh",
+      "label": "Lord Dramaleigh",
+      "candidates": [
+        "Lord Dramaleigh"
+      ]
+    },
+    {
+      "id": "mr-goldbury",
+      "label": "Mr Goldbury",
+      "candidates": [
+        "Goldbury",
+        "Mr. Goldbury"
+      ]
+    },
+    {
+      "id": "captain-fitzbattleaxe",
+      "label": "Captain Fitzbattleaxe",
+      "candidates": [
+        "Capt. Fitzbattleaxe",
+        "Fitzbattleaxe",
+        "Firzbattleaxe"
+      ]
+    },
+    {
+      "id": "captain-corcoran",
+      "label": "Captain Sir Edward Corcoran",
+      "candidates": [
+        "Captain Corcoran"
+      ]
+    },
+    {
+      "id": "mr-blushington",
+      "label": "Mr Blushington",
+      "candidates": [
+        "Mr. Blushington"
+      ]
+    },
+    {
+      "id": "sir-bailey-barre",
+      "label": "Sir Bailey Barre",
+      "candidates": [
+        "Sir B. Barre"
+      ]
+    },
+    {
+      "id": "zara",
+      "label": "the Princess Zara",
+      "candidates": [
+        "Zara"
+      ]
+    },
+    {
+      "id": "nekaya",
+      "label": "Princess Nekaya",
+      "candidates": [
+        "Nekaya"
+      ]
+    },
+    {
+      "id": "kalyba",
+      "label": "Princess Kalyba",
+      "candidates": [
+        "Kalyba"
+      ]
+    },
+    {
+      "id": "lady-sophy",
+      "label": "the Lady Sophy",
+      "candidates": [
+        "Lady Sophy"
+      ]
+    },
+    {
+      "id": "phylla",
+      "label": "Phylla",
+      "candidates": [
+        "Phylla"
+      ]
+    },
+    {
+      "id": "soprano",
+      "label": "Soprano",
+      "candidates": [
+        "Soprano",
+        "Soprano I",
+        "Soprano II",
+        "Soprano 1",
+        "Soprano 2",
+        "Sopranos 1",
+        "Sopranos 2",
+        "Women",
+        "Women/Scaphio"
+      ]
+    },
+    {
+      "id": "alto",
+      "label": "Alto",
+      "candidates": [
+        "Alto",
+        "Altos",
+        "Women",
+        "Women/Scaphio"
+      ]
+    },
+    {
+      "id": "tenor",
+      "label": "Tenor",
+      "candidates": [
+        "Tenor",
+        "Tenors",
+        "Troopers",
+        "Flowers",
+        "Men/Phantis"
+      ]
+    },
+    {
+      "id": "bass",
+      "label": "Bass",
+      "candidates": [
+        "Bass",
+        "Basses",
+        "Troopers",
+        "Flowers",
+        "Men/Phantis"
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": "001",
+      "number": "1",
+      "title": "In lazy languor, motionless",
+      "type": "Opening Chorus",
+      "file": "001.kar",
+      "voiceTracks": [
+        "Phylla",
+        "Soprano I",
+        "Soprano II"
+      ]
+    },
+    {
+      "id": "002",
+      "number": "2",
+      "title": "O make way for the Wise Men",
+      "type": "Chorus",
+      "file": "002.kar",
+      "voiceTracks": [
+        "Women/Scaphio",
+        "Men/Phantis"
+      ]
+    },
+    {
+      "id": "003",
+      "number": "3",
+      "title": "Let all your doubts take wing",
+      "type": "Duet (Scaphio & Phantis)",
+      "file": "003.kar",
+      "voiceTracks": [
+        "Scaphio",
+        "Phantis"
+      ]
+    },
+    {
+      "id": "004",
+      "number": "4",
+      "title": "La, la, la, la",
+      "type": "Chorus",
+      "file": "004.kar",
+      "voiceTracks": [
+        "Women"
+      ]
+    },
+    {
+      "id": "004a",
+      "number": "4a",
+      "title": "A King of autocratic power we",
+      "type": "Song with Chorus (King Paramount)",
+      "file": "004a.kar",
+      "voiceTracks": [
+        "Paramount",
+        "Sopranos 1",
+        "Sopranos 2",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "004b",
+      "number": "4b",
+      "title": "How fair! how modest! how discreet!",
+      "type": "Chorus",
+      "file": "004b.kar",
+      "voiceTracks": [
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "004c",
+      "number": "4c",
+      "title": "This morning we propose to illustrate",
+      "type": "Scena (Lady Sophy & Chorus)",
+      "file": "004c.kar",
+      "voiceTracks": [
+        "Lady Sophy",
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "005",
+      "number": "5",
+      "title": "First you're born, and I'll be bound",
+      "type": "Song (King Paramount)",
+      "file": "005.kar",
+      "voiceTracks": [
+        "Scaphio",
+        "Phantis",
+        "Vocal"
+      ]
+    },
+    {
+      "id": "006",
+      "number": "6",
+      "title": "Subjected to your heavenly gaze",
+      "type": "Trio (King, Scaphio & Phantis)",
+      "file": "006.kar",
+      "voiceTracks": [
+        "Scaphio",
+        "Phantis"
+      ]
+    },
+    {
+      "id": "007",
+      "number": "7",
+      "title": "Oh maiden rich in Girton lore",
+      "type": "Chorus & Solo (Entrance of Zara)",
+      "file": "007.kar",
+      "voiceTracks": [
+        "Zara",
+        "Capt. Fitzbattleaxe",
+        "Troopers",
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "008",
+      "number": "8",
+      "title": "Ah! gallant soldier, brave and true",
+      "type": "Duet (Zara & Fitzbattleaxe)",
+      "file": "008.kar",
+      "voiceTracks": [
+        "Zara",
+        "Capt. Fitzbattleaxe",
+        "Troopers",
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "009",
+      "number": "9",
+      "title": "It's understood, I think, all round",
+      "type": "Quartet (Zara, Fitzbattleaxe, Scaphio & Phantis)",
+      "file": "009.kar",
+      "voiceTracks": [
+        "Scaphio",
+        "Phantis",
+        "Zara",
+        "Firzbattleaxe"
+      ]
+    },
+    {
+      "id": "011",
+      "number": "11",
+      "title": "Altho' your Royal summons to appear",
+      "type": "Finale Act I",
+      "file": "011.kar",
+      "voiceTracks": [
+        "Zara",
+        "Lady Sophy",
+        "Scaphio",
+        "Phantis",
+        "Flowers",
+        "King",
+        "Soprano 1",
+        "Soprano 2",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "012",
+      "number": "12",
+      "title": "Oh, Zara, my beloved one, bear with me!",
+      "type": "Song (Fitzbattleaxe)",
+      "file": "012.kar",
+      "voiceTracks": [
+        "Fitzbattleaxe"
+      ]
+    },
+    {
+      "id": "013",
+      "number": "13",
+      "title": "Words of love too loudly spoken",
+      "type": "Duet (Zara & Fitzbattleaxe)",
+      "file": "013.kar",
+      "voiceTracks": [
+        "Zara",
+        "Fitzbattleaxe"
+      ]
+    },
+    {
+      "id": "014",
+      "number": "14",
+      "title": "Society has quite forsaken all her wicked courses",
+      "type": "Song (King) & Ensemble",
+      "file": "014.kar",
+      "voiceTracks": [
+        "King",
+        "Mr. Blushington",
+        "Lord Dramaleigh",
+        "Sir B. Barre",
+        "Capt. Fitzbattleaxe",
+        "Mr. Goldbury",
+        "Captain Corcoran"
+      ]
+    },
+    {
+      "id": "017",
+      "number": "17",
+      "title": "This ceremonial our wish displays",
+      "type": "Chorus (Drawing Room)",
+      "file": "017.kar",
+      "voiceTracks": [
+        "King",
+        "Soprano 1",
+        "Altos",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "018",
+      "number": "18",
+      "title": "With fury deep we burn",
+      "type": "Trio (Scaphio, Phantis & King)",
+      "file": "018.kar",
+      "voiceTracks": [
+        "Scaphio",
+        "Phantis",
+        "King"
+      ]
+    },
+    {
+      "id": "019",
+      "number": "19",
+      "title": "If you think that, when banded in unity",
+      "type": "Duet (Scaphio & Phantis)",
+      "file": "019.kar",
+      "voiceTracks": [
+        "Scaphio",
+        "Phantis"
+      ]
+    },
+    {
+      "id": "020",
+      "number": "20",
+      "title": "With wily brain upon the spot",
+      "type": "Trio (Scaphio & Phantis)",
+      "file": "020.kar",
+      "voiceTracks": [
+        "Scaphio",
+        "Phantis"
+      ]
+    },
+    {
+      "id": "021",
+      "number": "21",
+      "title": "A wonderful joy our eyes to bless",
+      "type": "Song (Mr Goldbury)",
+      "file": "021.kar",
+      "voiceTracks": [
+        "Goldbury"
+      ]
+    },
+    {
+      "id": "022",
+      "number": "22",
+      "title": "Then I may sing and play?",
+      "type": "Quartet (Nekaya, Kalyba, Lord Dramaleigh & Mr Goldbury)",
+      "file": "022.kar",
+      "voiceTracks": [
+        "Nekaya",
+        "Kalyba",
+        "Lord Dramaleigh",
+        "Mr. Goldbury"
+      ]
+    },
+    {
+      "id": "023",
+      "number": "23 & 24",
+      "title": "Oh, would some demon power the gift impart",
+      "type": "Recit. & Duet (Lady Sophy & King)",
+      "file": "023.kar",
+      "voiceTracks": [
+        "Lady Sophy",
+        "King"
+      ]
+    },
+    {
+      "id": "025",
+      "number": "25",
+      "title": "Upon our sea-girt land",
+      "type": "Chorus",
+      "file": "025.kar",
+      "voiceTracks": [
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "026",
+      "number": "26",
+      "title": "There's a little group of isles beyond the wave",
+      "type": "Song (Zara) & Finale",
+      "file": "026.kar",
+      "voiceTracks": [
+        "Zara",
+        "King",
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
+      ]
+    }
+  ]
+}

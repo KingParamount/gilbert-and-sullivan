@@ -1,0 +1,425 @@
+{
+  "meta": {
+    "opera": "Ruddigore",
+    "composer": "Arthur Sullivan",
+    "librettist": "W. S. Gilbert",
+    "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
+  },
+  "accompaniment": [
+    "Right Hand",
+    "Left Hand",
+    "Tempo",
+    "Piano R. H.",
+    "Piano L.H.",
+    "R.Hand",
+    "L.Hand",
+    "Piano RH",
+    "Piano LH"
+  ],
+  "choralTracks": [
+    "Bridesmaids"
+  ],
+  "soloistTracks": [
+    "Vocal"
+  ],
+  "parts": [
+    {
+      "id": "robin-oakapple",
+      "label": "Robin Oakapple / Sir Ruthven",
+      "candidates": [
+        "Robin",
+        "Sir Ruthven"
+      ]
+    },
+    {
+      "id": "richard-dauntless",
+      "label": "Richard Dauntless",
+      "candidates": [
+        "Richard"
+      ]
+    },
+    {
+      "id": "sir-despard",
+      "label": "Sir Despard Murgatroyd",
+      "candidates": [
+        "Sir Despard",
+        "Despard"
+      ]
+    },
+    {
+      "id": "sir-roderic",
+      "label": "Sir Roderic Murgatroyd",
+      "candidates": [
+        "Sir Roderic"
+      ]
+    },
+    {
+      "id": "old-adam",
+      "label": "Old Adam",
+      "candidates": [
+        "Adam"
+      ]
+    },
+    {
+      "id": "rose-maybud",
+      "label": "Rose Maybud",
+      "candidates": [
+        "Rose",
+        "Rose / Zorah"
+      ]
+    },
+    {
+      "id": "mad-margaret",
+      "label": "Mad Margaret",
+      "candidates": [
+        "Margaret"
+      ]
+    },
+    {
+      "id": "dame-hannah",
+      "label": "Dame Hannah",
+      "candidates": [
+        "Hannah",
+        "Dame Hannah"
+      ]
+    },
+    {
+      "id": "zorah",
+      "label": "Zorah",
+      "candidates": [
+        "Zorah",
+        "Rose / Zorah"
+      ]
+    },
+    {
+      "id": "soprano",
+      "label": "Soprano",
+      "candidates": [
+        "Sopranos",
+        "Sopranos I",
+        "Sopranos II",
+        "Bridesmaids"
+      ]
+    },
+    {
+      "id": "alto",
+      "label": "Alto",
+      "candidates": [
+        "Contraltos",
+        "Bridesmaids"
+      ]
+    },
+    {
+      "id": "tenor",
+      "label": "Tenor",
+      "candidates": [
+        "Tenors",
+        "Tenors I",
+        "Tenors II"
+      ]
+    },
+    {
+      "id": "bass",
+      "label": "Bass",
+      "candidates": [
+        "Basses",
+        "Basses I",
+        "Basses II"
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": "rudd01",
+      "number": "1",
+      "title": "Fair is Rose",
+      "type": "Opening Chorus",
+      "file": "rudd01.kar",
+      "voiceTracks": [
+        "Zorah",
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "rudd02",
+      "number": "2",
+      "title": "Sir Rupert Murgatroyd",
+      "type": "Song (Dame Hannah)",
+      "file": "rudd02.kar",
+      "voiceTracks": [
+        "Hannah",
+        "Bridesmaids"
+      ]
+    },
+    {
+      "id": "rudd03",
+      "number": "3",
+      "title": "If somebody there chanced to be",
+      "type": "Song (Rose)",
+      "file": "rudd03.kar",
+      "voiceTracks": [
+        "Rose"
+      ]
+    },
+    {
+      "id": "rudd04",
+      "number": "4",
+      "title": "I know a youth who loves a little maid",
+      "type": "Duet (Rose & Robin)",
+      "file": "rudd04.kar",
+      "voiceTracks": [
+        "Rose",
+        "Robin"
+      ]
+    },
+    {
+      "id": "rudd056",
+      "number": "5 & 6",
+      "title": "From the briny sea",
+      "type": "Chorus & Song (Richard)",
+      "file": "rudd056.kar",
+      "voiceTracks": [
+        "Richard",
+        "Sopranos I",
+        "Sopranos II",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "rudd07",
+      "number": "7",
+      "title": "My boy, you may take it from me",
+      "type": "Duet (Robin & Richard)",
+      "file": "rudd07.kar",
+      "voiceTracks": [
+        "Robin",
+        "Richard"
+      ]
+    },
+    {
+      "id": "rudd08",
+      "number": "8",
+      "title": "The battle's roar is over",
+      "type": "Duet (Richard & Rose)",
+      "file": "rudd08.kar",
+      "voiceTracks": [
+        "Richard"
+      ]
+    },
+    {
+      "id": "rudd09",
+      "number": "9",
+      "title": "If well his suit has sped",
+      "type": "Chorus (Entrance of Bridesmaids)",
+      "file": "rudd09.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "rudd10",
+      "number": "10",
+      "title": "In sailing o'er life's ocean wide",
+      "type": "Trio (Rose, Richard & Robin)",
+      "file": "rudd10.kar",
+      "voiceTracks": [
+        "Rose",
+        "Richard",
+        "Robin"
+      ]
+    },
+    {
+      "id": "rudd11",
+      "number": "11",
+      "title": "Cheerily carols the lark",
+      "type": "Song (Mad Margaret)",
+      "file": "rudd11.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "rudd12-13",
+      "number": "12 & 13",
+      "title": "Welcome, gentry",
+      "type": "Chorus & Song (Sir Despard)",
+      "file": "rudd12-13.kar",
+      "voiceTracks": [
+        "Sir Despard",
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "rudd14",
+      "number": "14",
+      "title": "You understand?",
+      "type": "Duet (Richard & Sir Despard)",
+      "file": "rudd14.kar",
+      "voiceTracks": [
+        "Richard",
+        "Sir Despard"
+      ]
+    },
+    {
+      "id": "rudd15",
+      "number": "15",
+      "title": "Hail the bride of seventeen summers",
+      "type": "Finale Act I",
+      "file": "rudd15.kar",
+      "voiceTracks": [
+        "Rose / Zorah",
+        "Margaret",
+        "Dame Hannah",
+        "Richard",
+        "Adam",
+        "Robin",
+        "Sir Despard",
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "rudd16",
+      "number": "16",
+      "title": "I once was as meek as a new-born lamb",
+      "type": "Duet (Robin & Adam)",
+      "file": "rudd16.kar",
+      "voiceTracks": [
+        "Robin",
+        "Adam"
+      ]
+    },
+    {
+      "id": "rudd17",
+      "number": "17",
+      "title": "Happily coupled are we",
+      "type": "Duet & Chorus",
+      "file": "rudd17.kar",
+      "voiceTracks": [
+        "Rose",
+        "Richard",
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "rudd18",
+      "number": "18",
+      "title": "In bygone days I had thy love",
+      "type": "Madrigal",
+      "file": "rudd18.kar",
+      "voiceTracks": [
+        "Rose",
+        "Richard",
+        "Sir Ruthven",
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "rudd19",
+      "number": "19",
+      "title": "Painted emblems of a race",
+      "type": "Chorus & Scene",
+      "file": "rudd19.kar",
+      "voiceTracks": [
+        "Sir Roderic",
+        "Tenors I",
+        "Tenors II",
+        "Basses I",
+        "Basses II"
+      ]
+    },
+    {
+      "id": "rudd21",
+      "number": "21",
+      "title": "He yields! He yields!",
+      "type": "Chorus",
+      "file": "rudd21.kar",
+      "voiceTracks": [
+        "Sir Ruthven",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "rudd22",
+      "number": "22",
+      "title": "Away, Remorse!",
+      "type": "Recit. & Song (Robin)",
+      "file": "rudd22.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "rudd22a",
+      "number": "22",
+      "title": "Away, Remorse!",
+      "type": "Recit. & Song (Robin) — alternate version",
+      "file": "rudd22a.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "rudd23",
+      "number": "23",
+      "title": "I once was a very abandoned person",
+      "type": "Duet (Sir Despard & Mad Margaret)",
+      "file": "rudd23.kar",
+      "voiceTracks": [
+        "Margaret",
+        "Sir Despard"
+      ]
+    },
+    {
+      "id": "rudd24",
+      "number": "24",
+      "title": "My eyes are fully open",
+      "type": "Patter Trio",
+      "file": "rudd24.kar",
+      "voiceTracks": [
+        "Margaret",
+        "Robin",
+        "Despard"
+      ]
+    },
+    {
+      "id": "rudd25",
+      "number": "26",
+      "title": "There grew a little flower",
+      "type": "Ballad (Dame Hannah)",
+      "file": "rudd25.kar",
+      "voiceTracks": [
+        "Dame Hannah",
+        "Sir Roderic"
+      ]
+    },
+    {
+      "id": "rudd27",
+      "number": "27",
+      "title": "When a man has been a naughty baronet",
+      "type": "Finale Act II (original version)",
+      "file": "rudd27.kar",
+      "voiceTracks": [
+        "Rose",
+        "Margaret",
+        "Richard",
+        "Robin",
+        "Sir Despard",
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,433 @@
+{
+  "meta": {
+    "opera": "H.M.S. Pinafore",
+    "composer": "Arthur Sullivan",
+    "librettist": "W. S. Gilbert",
+    "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
+  },
+  "accompaniment": [
+    "Piano",
+    "Piano-2",
+    "Piano-3",
+    "Piano RH",
+    "Piano LH",
+    "Piano-RH",
+    "Piano-LH",
+    "Right Hand",
+    "Left Hand",
+    "Tempo",
+    "Tempo Track"
+  ],
+  "choralTracks": [],
+  "soloistTracks": [
+    "Soloist"
+  ],
+  "parts": [
+    {
+      "id": "sir-joseph-porter",
+      "label": "Sir Joseph Porter",
+      "candidates": [
+        "Sir Joseph",
+        "Bo's'n/Sir J.",
+        "Sir J/Mrs. C",
+        "Soloist"
+      ]
+    },
+    {
+      "id": "captain-corcoran",
+      "label": "Captain Corcoran",
+      "candidates": [
+        "Captain Corcoran",
+        "Captain",
+        "Captain C.",
+        "Vocal"
+      ]
+    },
+    {
+      "id": "ralph-rackstraw",
+      "label": "Ralph Rackstraw",
+      "candidates": [
+        "Ralph",
+        "Boatswain/Ralph",
+        "Soloist"
+      ]
+    },
+    {
+      "id": "dick-deadeye",
+      "label": "Dick Deadeye",
+      "candidates": [
+        "Deadeye",
+        "Dick Deadeye",
+        "Soprano/Deadeye",
+        "Soloist"
+      ]
+    },
+    {
+      "id": "boatswain",
+      "label": "Bill Bobstay (Boatswain)",
+      "candidates": [
+        "Boatswain",
+        "Bo'sun",
+        "Boatswain/Ralph",
+        "Bo's'n/Sir J."
+      ]
+    },
+    {
+      "id": "carpenter",
+      "label": "Bob Becket (Carpenter)",
+      "candidates": [
+        "Carpenter"
+      ]
+    },
+    {
+      "id": "josephine",
+      "label": "Josephine",
+      "candidates": [
+        "Josephine",
+        "Soloist"
+      ]
+    },
+    {
+      "id": "cousin-hebe",
+      "label": "Cousin Hebe",
+      "candidates": [
+        "Cousin Hebe",
+        "Hebe",
+        "Soloist"
+      ]
+    },
+    {
+      "id": "little-buttercup",
+      "label": "Little Buttercup",
+      "candidates": [
+        "Buttercup",
+        "Altos/Buttercup",
+        "Sir J/Mrs. C"
+      ]
+    },
+    {
+      "id": "soprano",
+      "label": "Soprano",
+      "candidates": [
+        "Sopranos",
+        "Soprano/Deadeye"
+      ]
+    },
+    {
+      "id": "alto",
+      "label": "Alto",
+      "candidates": [
+        "Altos",
+        "Contraltos",
+        "Altos/Buttercup"
+      ]
+    },
+    {
+      "id": "tenor",
+      "label": "Tenor",
+      "candidates": [
+        "Tenor",
+        "Tenors"
+      ]
+    },
+    {
+      "id": "bass",
+      "label": "Bass",
+      "candidates": [
+        "Basses",
+        "Bass",
+        "Basses 1",
+        "Basses 2"
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": "pin01",
+      "number": "1",
+      "title": "We sail the ocean blue",
+      "type": "Opening Chorus",
+      "file": "pin01.kar",
+      "voiceTracks": [
+        "Tenor",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pin02",
+      "number": "2",
+      "title": "Hail, men-o'-war's men",
+      "type": "Recit. & Song (Little Buttercup)",
+      "file": "pin02.kar",
+      "voiceTracks": [
+        "Buttercup"
+      ]
+    },
+    {
+      "id": "pin03",
+      "number": "3",
+      "title": "But tell me who's the youth",
+      "type": "Recit. & Chorus",
+      "file": "pin03.kar",
+      "voiceTracks": [
+        "Buttercup",
+        "Boatswain/Ralph",
+        "Tenors"
+      ]
+    },
+    {
+      "id": "pin04",
+      "number": "4",
+      "title": "My gallant crew, good morning",
+      "type": "Recit. (Captain & Crew)",
+      "file": "pin04.kar",
+      "voiceTracks": [
+        "Vocal",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pin04a",
+      "number": "4a",
+      "title": "Sir, you are sad",
+      "type": "Recit. (Buttercup & Captain)",
+      "file": "pin04a.kar",
+      "voiceTracks": [
+        "Buttercup",
+        "Captain Corcoran"
+      ]
+    },
+    {
+      "id": "pin05",
+      "number": "5",
+      "title": "Sorry her lot who loves too well",
+      "type": "Ballad (Josephine)",
+      "file": "pin05.kar",
+      "voiceTracks": [
+        "Josephine"
+      ]
+    },
+    {
+      "id": "pin06",
+      "number": "6",
+      "title": "Over the bright blue sea",
+      "type": "Chorus of Women",
+      "file": "pin06.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pin08",
+      "number": "8",
+      "title": "Now give three cheers",
+      "type": "Recit. & Chorus",
+      "file": "pin08.kar",
+      "voiceTracks": [
+        "Cousin Hebe",
+        "Captain Corcoran",
+        "Sir Joseph",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pin09",
+      "number": "9",
+      "title": "When I was a lad",
+      "type": "Song (Sir Joseph & Chorus)",
+      "file": "pin09.kar",
+      "voiceTracks": [
+        "Sir Joseph",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pin09a",
+      "number": "9a",
+      "title": "For I hold that on the seas",
+      "type": "Glee (Sir Joseph, Hebe & Chorus)",
+      "file": "pin09a.kar",
+      "voiceTracks": [
+        "Cousin Hebe",
+        "Sir Joseph",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pin10",
+      "number": "10",
+      "title": "A British tar is a soaring soul",
+      "type": "Glee (Ralph, Boatswain & Carpenter)",
+      "file": "pin10.kar",
+      "voiceTracks": [
+        "Ralph",
+        "Bo'sun",
+        "Carpenter",
+        "Tenors",
+        "Basses 1",
+        "Basses 2"
+      ]
+    },
+    {
+      "id": "pin11",
+      "number": "11",
+      "title": "Refrain, audacious tar",
+      "type": "Duet (Josephine & Ralph)",
+      "file": "pin11.kar",
+      "voiceTracks": [
+        "Josephine",
+        "Ralph"
+      ]
+    },
+    {
+      "id": "pin12",
+      "number": "12",
+      "title": "Can I survive this overbearing",
+      "type": "Finale Act I",
+      "file": "pin12.kar",
+      "voiceTracks": [
+        "Josephine",
+        "Buttercup",
+        "Hebe",
+        "Ralph",
+        "Boatswain",
+        "Deadeye",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pin13",
+      "number": "13",
+      "title": "Fair moon, to thee I sing",
+      "type": "Song (Captain)",
+      "file": "pin13.kar",
+      "voiceTracks": [
+        "Captain Corcoran"
+      ]
+    },
+    {
+      "id": "pin14",
+      "number": "14",
+      "title": "Things are seldom what they seem",
+      "type": "Duet (Buttercup & Captain)",
+      "file": "pin14.kar",
+      "voiceTracks": [
+        "Buttercup",
+        "Captain Corcoran"
+      ]
+    },
+    {
+      "id": "pin15",
+      "number": "15",
+      "title": "The hours creep on apace",
+      "type": "Scena (Josephine)",
+      "file": "pin15.kar",
+      "voiceTracks": [
+        "Josephine"
+      ]
+    },
+    {
+      "id": "pin16",
+      "number": "16",
+      "title": "Never mind the why and wherefore",
+      "type": "Trio (Josephine, Captain & Sir Joseph)",
+      "file": "pin16.kar",
+      "voiceTracks": [
+        "Josephine",
+        "Captain",
+        "Sir Joseph"
+      ]
+    },
+    {
+      "id": "pin17",
+      "number": "17",
+      "title": "Kind Captain, I've important information",
+      "type": "Duet (Captain & Dick Deadeye)",
+      "file": "pin17.kar",
+      "voiceTracks": [
+        "Captain",
+        "Dick Deadeye"
+      ]
+    },
+    {
+      "id": "pin18",
+      "number": "18",
+      "title": "Carefully on tiptoe stealing",
+      "type": "Soli & Chorus",
+      "file": "pin18.kar",
+      "voiceTracks": [
+        "Josephine",
+        "Hebe",
+        "Ralph",
+        "Bo's'n/Sir J.",
+        "Captain C.",
+        "Deadeye",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pin19",
+      "number": "19",
+      "title": "Farewell, my own",
+      "type": "Octette & Chorus",
+      "file": "pin19.kar",
+      "voiceTracks": [
+        "Josephine",
+        "Hebe",
+        "Ralph",
+        "Sir Joseph",
+        "Soprano/Deadeye",
+        "Altos/Buttercup",
+        "Tenors",
+        "Bass"
+      ]
+    },
+    {
+      "id": "pin20",
+      "number": "20",
+      "title": "My pain and my distress",
+      "type": "Trio & Chorus (Sir Joseph, Buttercup & Chorus)",
+      "file": "pin20.kar",
+      "voiceTracks": [
+        "Sir J/Mrs. C",
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pin21",
+      "number": "21",
+      "title": "Oh joy, oh rapture unforeseen",
+      "type": "Finale Act II",
+      "file": "pin21.kar",
+      "voiceTracks": [
+        "Soloist",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    }
+  ]
+}

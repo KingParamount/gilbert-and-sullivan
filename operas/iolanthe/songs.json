@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "opera": "Iolanthe",
+    "composer": "Arthur Sullivan",
+    "librettist": "W. S. Gilbert",
+    "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
+  },
+  "accompaniment": [
+    "Right Hand",
+    "Left Hand",
+    "Piano RH",
+    "Piano LH",
+    "Piano",
+    "Piano-2",
+    "Tempo",
+    "Tempo Track",
+    "Staff-1",
+    "Staff-2"
+  ],
+  "choralTracks": [
+    "Fairies",
+    "Ladies' Chorus",
+    "Men's Chorus",
+    "Chorus"
+  ],
+  "soloistTracks": [],
+  "parts": [
+    {
+      "id": "lord-chancellor",
+      "label": "The Lord Chancellor",
+      "candidates": [
+        "Lord Chancellor",
+        "Vocal"
+      ]
+    },
+    {
+      "id": "lord-mountararat",
+      "label": "Earl of Mountararat",
+      "candidates": [
+        "Lord Mountararat"
+      ]
+    },
+    {
+      "id": "lord-tolloller",
+      "label": "Earl Tolloller",
+      "candidates": [
+        "Lord Tolloller",
+        "Lord Tolloller "
+      ]
+    },
+    {
+      "id": "private-willis",
+      "label": "Private Willis",
+      "candidates": [
+        "Sentry",
+        "Vocal"
+      ]
+    },
+    {
+      "id": "strephon",
+      "label": "Strephon",
+      "candidates": [
+        "Strephon"
+      ]
+    },
+    {
+      "id": "fairy-queen",
+      "label": "Queen of the Fairies",
+      "candidates": [
+        "Queen",
+        "Fairy Queen"
+      ]
+    },
+    {
+      "id": "iolanthe",
+      "label": "Iolanthe",
+      "candidates": [
+        "Iolanthe",
+        "Iolanthe / Celia"
+      ]
+    },
+    {
+      "id": "celia",
+      "label": "Celia",
+      "candidates": [
+        "Celia",
+        "Iolanthe / Celia"
+      ]
+    },
+    {
+      "id": "leila",
+      "label": "Leila",
+      "candidates": [
+        "Leila",
+        "Phyllis / Leila"
+      ]
+    },
+    {
+      "id": "phyllis",
+      "label": "Phyllis",
+      "candidates": [
+        "Phyllis",
+        "Phyllis / Leila"
+      ]
+    },
+    {
+      "id": "soprano",
+      "label": "Soprano",
+      "candidates": [
+        "Sopranos",
+        "Fairies",
+        "Ladies' Chorus",
+        "Chorus"
+      ]
+    },
+    {
+      "id": "alto",
+      "label": "Alto",
+      "candidates": [
+        "Altos",
+        "Contraltos",
+        "Fairies",
+        "Ladies' Chorus",
+        "Chorus"
+      ]
+    },
+    {
+      "id": "tenor",
+      "label": "Tenor",
+      "candidates": [
+        "Tenors",
+        "Tenors I",
+        "Tenors II",
+        "Men's Chorus",
+        "Chorus"
+      ]
+    },
+    {
+      "id": "bass",
+      "label": "Bass",
+      "candidates": [
+        "Basses",
+        "Basses I",
+        "Basses II",
+        "Men's Chorus",
+        "Chorus"
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": "iolanthe_01",
+      "number": "1",
+      "title": "Tripping hither, tripping thither",
+      "type": "Opening Chorus",
+      "file": "iolanthe_01.kar",
+      "voiceTracks": [
+        "Celia",
+        "Leila",
+        "Sopranos",
+        "Altos"
+      ]
+    },
+    {
+      "id": "iolanthe_02",
+      "number": "2",
+      "title": "Iolanthe! From thy dark exile thou art summoned!",
+      "type": "Invocation",
+      "file": "iolanthe_02.kar",
+      "voiceTracks": [
+        "Celia",
+        "Leila",
+        "Iolanthe",
+        "Queen",
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "iolanthe_03",
+      "number": "3",
+      "title": "Good morrow, good mother!",
+      "type": "Recitative (Entrance of Strephon)",
+      "file": "iolanthe_03.kar",
+      "voiceTracks": [
+        "Strephon",
+        "Fairies"
+      ]
+    },
+    {
+      "id": "iolanthe_04",
+      "number": "4",
+      "title": "Fare thee well, attractive stranger",
+      "type": "Song & Chorus (Fairy Queen)",
+      "file": "iolanthe_04.kar",
+      "voiceTracks": [
+        "Queen",
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "iolanthe_04a",
+      "number": "4a",
+      "title": "Good morrow, good lover!",
+      "type": "Recitative (Entrance of Phyllis)",
+      "file": "iolanthe_04a.kar",
+      "voiceTracks": [
+        "Phyllis",
+        "Strephon"
+      ]
+    },
+    {
+      "id": "iolanthe_05",
+      "number": "5",
+      "title": "None shall part us from each other",
+      "type": "Duet (Phyllis & Strephon)",
+      "file": "iolanthe_05.kar",
+      "voiceTracks": [
+        "Phyllis",
+        "Strephon"
+      ]
+    },
+    {
+      "id": "iolanthe_06",
+      "number": "6",
+      "title": "Loudly let the trumpet bray!",
+      "type": "Entrance of the Peers (Chorus)",
+      "file": "iolanthe_06.kar",
+      "voiceTracks": [
+        "Tenors I",
+        "Tenors II",
+        "Basses I",
+        "Basses II"
+      ]
+    },
+    {
+      "id": "iolanthe_07",
+      "number": "7",
+      "title": "The Law is the true embodiment",
+      "type": "Song & Chorus (Lord Chancellor)",
+      "file": "iolanthe_07.kar",
+      "voiceTracks": [
+        "Lord Chancellor",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "iolanthe_08-11",
+      "number": "8-11",
+      "title": "My well-loved Lord and Guardian dear",
+      "type": "Ensemble",
+      "file": "iolanthe_08-11.kar",
+      "voiceTracks": [
+        "Phyllis",
+        "Lord Tolloller",
+        "Lord Mountararat",
+        "Strephon",
+        "Lord Chancellor",
+        "Tenors I",
+        "Tenors II",
+        "Basses I",
+        "Basses II"
+      ]
+    },
+    {
+      "id": "iolanthe_12",
+      "number": "12",
+      "title": "When I went to the Bar as a very young man",
+      "type": "Patter Song (Lord Chancellor)",
+      "file": "iolanthe_12.kar",
+      "voiceTracks": [
+        "Lord Chancellor"
+      ]
+    },
+    {
+      "id": "iolanthe_13",
+      "number": "13",
+      "title": "When darkly looms the day",
+      "type": "Finale Act I",
+      "file": "iolanthe_13.kar",
+      "voiceTracks": [
+        "Phyllis / Leila",
+        "Iolanthe / Celia",
+        "Queen",
+        "Lord Tolloller",
+        "Lord Mountararat",
+        "Strephon",
+        "Lord Chancellor",
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "iolanthe_14",
+      "number": "14",
+      "title": "When all night long a chap remains",
+      "type": "Song (Private Willis)",
+      "file": "iolanthe_14.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "iolanthe_15",
+      "number": "15",
+      "title": "Strephon's a Member of Parliament!",
+      "type": "Chorus",
+      "file": "iolanthe_15.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "iolanthe_16",
+      "number": "16",
+      "title": "When Britain really ruled the waves",
+      "type": "Song & Chorus (Lord Mountararat)",
+      "file": "iolanthe_16.kar",
+      "voiceTracks": [
+        "Lord Mountararat",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "iolanthe_17",
+      "number": "17",
+      "title": "In vain to us you plead",
+      "type": "Duet (Leila & Celia)",
+      "file": "iolanthe_17.kar",
+      "voiceTracks": [
+        "Leila",
+        "Celia",
+        "Lord Tolloller",
+        "Lord Mountararat",
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "iolanthe_18",
+      "number": "18",
+      "title": "Oh, foolish fay",
+      "type": "Song (Fairy Queen) & Chorus",
+      "file": "iolanthe_18.kar",
+      "voiceTracks": [
+        "Fairy Queen",
+        "Chorus"
+      ]
+    },
+    {
+      "id": "iolanthe_19",
+      "number": "19",
+      "title": "Though p'r'aps I may incur your blame",
+      "type": "Quartet",
+      "file": "iolanthe_19.kar",
+      "voiceTracks": [
+        "Phyllis",
+        "Lord Tolloller",
+        "Lord Mountararat",
+        "Sentry"
+      ]
+    },
+    {
+      "id": "iolanthe_20",
+      "number": "20",
+      "title": "Love, unrequited, robs me of my rest",
+      "type": "Song (Lord Chancellor) — Nightmare Song",
+      "file": "iolanthe_20.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "iolanthe_21",
+      "number": "21",
+      "title": "If you go in you're sure to win",
+      "type": "Trio",
+      "file": "iolanthe_21.kar",
+      "voiceTracks": [
+        "Lord Tolloller ",
+        "Lord Mountararat",
+        "Lord Chancellor"
+      ]
+    },
+    {
+      "id": "iolanthe_22",
+      "number": "22",
+      "title": "If we're weak enough to tarry",
+      "type": "Duet (Phyllis & Strephon)",
+      "file": "iolanthe_22.kar",
+      "voiceTracks": [
+        "Phyllis",
+        "Strephon"
+      ]
+    },
+    {
+      "id": "iolanthe_23-24",
+      "number": "23-24",
+      "title": "My lord, a suppliant at your feet I kneel",
+      "type": "Recitative & Ensemble",
+      "file": "iolanthe_23-24.kar",
+      "voiceTracks": [
+        "Iolanthe",
+        "Queen",
+        "Lord Chancellor",
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "iolanthe_25",
+      "number": "25",
+      "title": "Soon as we may, off and away!",
+      "type": "Finale Act II",
+      "file": "iolanthe_25.kar",
+      "voiceTracks": [
+        "Phyllis",
+        "Iolanthe",
+        "Queen",
+        "Lord Tolloller",
+        "Lord Mountararat",
+        "Lord Chancellor",
+        "Ladies' Chorus",
+        "Men's Chorus"
+      ]
+    },
+    {
+      "id": "flapping_wings",
+      "number": "?",
+      "title": "Fold your flapping wings",
+      "type": "Song (Strephon) — cut/alternate number",
+      "file": "flapping_wings.kar",
+      "voiceTracks": [
+        "Strephon"
+      ]
+    },
+    {
+      "id": "iolanthe",
+      "number": "25",
+      "title": "Soon as we may, off and away!",
+      "type": "Finale Act II — alternate (duplicate of No. 25)",
+      "file": "iolanthe.kar",
+      "voiceTracks": [
+        "Phyllis",
+        "Iolanthe",
+        "Queen",
+        "Lord Tolloller",
+        "Lord Mountararat",
+        "Lord Chancellor",
+        "Ladies' Chorus",
+        "Men's Chorus"
+      ]
+    }
+  ]
+}

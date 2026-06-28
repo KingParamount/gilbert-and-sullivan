@@ -1,0 +1,395 @@
+{
+  "meta": {
+    "opera": "Patience",
+    "composer": "Arthur Sullivan",
+    "librettist": "W. S. Gilbert",
+    "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
+  },
+  "accompaniment": [
+    "Right Hand",
+    "Left Hand",
+    "Tempo"
+  ],
+  "choralTracks": [
+    "Chorus",
+    "Maidens",
+    "Dragoons"
+  ],
+  "soloistTracks": [
+    "Vocal"
+  ],
+  "parts": [
+    {
+      "id": "patience",
+      "label": "Patience",
+      "candidates": [
+        "Patience",
+        "Vocal"
+      ]
+    },
+    {
+      "id": "bunthorne",
+      "label": "Reginald Bunthorne",
+      "candidates": [
+        "Bunthorne",
+        "Maj/Bun/Gros"
+      ]
+    },
+    {
+      "id": "grosvenor",
+      "label": "Archibald Grosvenor",
+      "candidates": [
+        "Grosvenor",
+        "Maj/Bun/Gros"
+      ]
+    },
+    {
+      "id": "colonel",
+      "label": "Colonel Calverley",
+      "candidates": [
+        "Colonel"
+      ]
+    },
+    {
+      "id": "major",
+      "label": "Major Murgatroyd",
+      "candidates": [
+        "Major",
+        "Maj/Bun/Gros"
+      ]
+    },
+    {
+      "id": "duke",
+      "label": "Duke of Dunstable",
+      "candidates": [
+        "Duke"
+      ]
+    },
+    {
+      "id": "angela",
+      "label": "Lady Angela",
+      "candidates": [
+        "Angela",
+        "Jane/Angela"
+      ]
+    },
+    {
+      "id": "saphir",
+      "label": "Lady Saphir",
+      "candidates": [
+        "Saphir"
+      ]
+    },
+    {
+      "id": "ella",
+      "label": "Lady Ella",
+      "candidates": [
+        "Ella"
+      ]
+    },
+    {
+      "id": "jane",
+      "label": "Lady Jane",
+      "candidates": [
+        "Jane",
+        "Jane/Angela"
+      ]
+    },
+    {
+      "id": "soprano",
+      "label": "Soprano",
+      "candidates": [
+        "Sopranos",
+        "Maidens",
+        "Chorus"
+      ]
+    },
+    {
+      "id": "alto",
+      "label": "Alto",
+      "candidates": [
+        "Altos",
+        "Contraltos",
+        "Maidens",
+        "Chorus"
+      ]
+    },
+    {
+      "id": "tenor",
+      "label": "Tenor",
+      "candidates": [
+        "Tenors",
+        "Dragoons",
+        "Chorus"
+      ]
+    },
+    {
+      "id": "bass",
+      "label": "Bass",
+      "candidates": [
+        "Basses",
+        "Dragoons",
+        "Chorus"
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": "pat01",
+      "number": "1",
+      "title": "Twenty love-sick maidens we",
+      "type": "Introduction & Chorus of Maidens",
+      "file": "pat01.kar",
+      "voiceTracks": [
+        "Ella",
+        "Angela",
+        "Chorus"
+      ]
+    },
+    {
+      "id": "pat02",
+      "number": "2",
+      "title": "Still brooding on their mad infatuation",
+      "type": "Recit. & Aria (Patience)",
+      "file": "pat02.kar",
+      "voiceTracks": [
+        "Patience",
+        "Angela"
+      ]
+    },
+    {
+      "id": "pat02a",
+      "number": "2a",
+      "title": "Twenty love-sick maidens we (reprise)",
+      "type": "Chorus — alternate",
+      "file": "pat02a.kar",
+      "voiceTracks": [
+        "Chorus"
+      ]
+    },
+    {
+      "id": "pat03",
+      "number": "3",
+      "title": "The soldiers of our Queen",
+      "type": "Chorus of Dragoons",
+      "file": "pat03.kar",
+      "voiceTracks": [
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pat04",
+      "number": "4",
+      "title": "In a doleful train",
+      "type": "Chorus (Maidens & Dragoons)",
+      "file": "pat04.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Contraltos",
+        "Dragoons"
+      ]
+    },
+    {
+      "id": "pat05",
+      "number": "5",
+      "title": "When I first put this uniform on",
+      "type": "Song (Colonel) & Chorus",
+      "file": "pat05.kar",
+      "voiceTracks": [
+        "Colonel",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pat06",
+      "number": "6",
+      "title": "Am I alone, and unobserved?",
+      "type": "Recit. & Song (Bunthorne)",
+      "file": "pat06.kar",
+      "voiceTracks": [
+        "Bunthorne"
+      ]
+    },
+    {
+      "id": "pat07",
+      "number": "7",
+      "title": "Long years ago, fourteen, maybe",
+      "type": "Duet (Patience & Angela)",
+      "file": "pat07.kar",
+      "voiceTracks": [
+        "Patience",
+        "Angela"
+      ]
+    },
+    {
+      "id": "pat08",
+      "number": "8",
+      "title": "Prithee, pretty maiden",
+      "type": "Duet (Patience & Grosvenor)",
+      "file": "pat08.kar",
+      "voiceTracks": [
+        "Patience",
+        "Grosvenor"
+      ]
+    },
+    {
+      "id": "pat08a",
+      "number": "8a",
+      "title": "Though to marry you would very selfish be",
+      "type": "Duet (Patience & Grosvenor) — alternate",
+      "file": "pat08a.kar",
+      "voiceTracks": [
+        "Patience",
+        "Grosvenor"
+      ]
+    },
+    {
+      "id": "pat09",
+      "number": "9",
+      "title": "Let the merry cymbals sound",
+      "type": "Finale Act I",
+      "file": "pat09.kar",
+      "voiceTracks": [
+        "Patience",
+        "Saphir",
+        "Jane/Angela",
+        "Duke",
+        "Maj/Bun/Gros",
+        "Colonel",
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pat10",
+      "number": "10",
+      "title": "On such eyes as maidens cherish",
+      "type": "Chorus of Maidens",
+      "file": "pat10.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Altos"
+      ]
+    },
+    {
+      "id": "pat11",
+      "number": "11",
+      "title": "Sad is that woman's lot",
+      "type": "Recit. & Song (Jane)",
+      "file": "pat11.kar",
+      "voiceTracks": [
+        "Jane"
+      ]
+    },
+    {
+      "id": "pat12",
+      "number": "12",
+      "title": "Turn, oh, turn in this direction",
+      "type": "Chorus of Maidens",
+      "file": "pat12.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Altos"
+      ]
+    },
+    {
+      "id": "pat13",
+      "number": "13",
+      "title": "A magnet hung in a hardware shop",
+      "type": "Song (Grosvenor) & Chorus",
+      "file": "pat13.kar",
+      "voiceTracks": [
+        "Grosvenor",
+        "Maidens"
+      ]
+    },
+    {
+      "id": "pat14",
+      "number": "14",
+      "title": "Love is a plaintive song",
+      "type": "Song (Patience)",
+      "file": "pat14.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "pat15",
+      "number": "15",
+      "title": "So go to him and say to him",
+      "type": "Duet (Jane & Bunthorne)",
+      "file": "pat15.kar",
+      "voiceTracks": [
+        "Jane",
+        "Bunthorne"
+      ]
+    },
+    {
+      "id": "pat16",
+      "number": "16",
+      "title": "It's clear that mediaeval art alone retains its zest",
+      "type": "Trio (Duke, Major & Colonel)",
+      "file": "pat16.kar",
+      "voiceTracks": [
+        "Duke",
+        "Major",
+        "Colonel"
+      ]
+    },
+    {
+      "id": "pat17",
+      "number": "17",
+      "title": "If Saphir I choose to marry",
+      "type": "Quintet (Saphir, Angela, Duke, Major & Colonel)",
+      "file": "pat17.kar",
+      "voiceTracks": [
+        "Saphir",
+        "Angela",
+        "Duke",
+        "Major",
+        "Colonel"
+      ]
+    },
+    {
+      "id": "pat18",
+      "number": "18",
+      "title": "When I go out of door",
+      "type": "Duet (Bunthorne & Grosvenor)",
+      "file": "pat18.kar",
+      "voiceTracks": [
+        "Grosvenor",
+        "Bunthorne"
+      ]
+    },
+    {
+      "id": "pat19",
+      "number": "19",
+      "title": "I'm a Waterloo House young man",
+      "type": "Song (Grosvenor) & Chorus",
+      "file": "pat19.kar",
+      "voiceTracks": [
+        "Grosvenor",
+        "Sopranos",
+        "Altos"
+      ]
+    },
+    {
+      "id": "pat20",
+      "number": "20",
+      "title": "After much debate internal",
+      "type": "Finale Act II",
+      "file": "pat20.kar",
+      "voiceTracks": [
+        "Saphir",
+        "Angela",
+        "Duke",
+        "Bunthorne",
+        "Colonel"
+      ]
+    }
+  ]
+}

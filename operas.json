@@ -2,7 +2,18 @@
   "brand": "Learn-O-Matic 4000",
   "default": "trial-by-jury",
   "operas": [
-    { "id": "trial-by-jury", "name": "Trial By Jury", "dir": "operas/trial-by-jury" },
-    { "id": "the-sorcerer",  "name": "The Sorcerer",  "dir": "operas/the-sorcerer" }
+    { "id": "trial-by-jury",            "name": "Trial By Jury",             "dir": "operas/trial-by-jury" },
+    { "id": "the-sorcerer",             "name": "The Sorcerer",              "dir": "operas/the-sorcerer" },
+    { "id": "hms-pinafore",             "name": "H.M.S. Pinafore",           "dir": "operas/hms-pinafore" },
+    { "id": "the-pirates-of-penzance",  "name": "The Pirates of Penzance",   "dir": "operas/the-pirates-of-penzance" },
+    { "id": "patience",                 "name": "Patience",                  "dir": "operas/patience" },
+    { "id": "iolanthe",                 "name": "Iolanthe",                  "dir": "operas/iolanthe" },
+    { "id": "princess-ida",             "name": "Princess Ida",              "dir": "operas/princess-ida" },
+    { "id": "the-mikado",               "name": "The Mikado",                "dir": "operas/the-mikado" },
+    { "id": "ruddigore",                "name": "Ruddigore",                 "dir": "operas/ruddigore" },
+    { "id": "the-yeomen-of-the-guard",  "name": "The Yeomen of the Guard",   "dir": "operas/the-yeomen-of-the-guard" },
+    { "id": "the-gondoliers",           "name": "The Gondoliers",            "dir": "operas/the-gondoliers" },
+    { "id": "utopia-limited",           "name": "Utopia, Limited",           "dir": "operas/utopia-limited" },
+    { "id": "the-grand-duke",           "name": "The Grand Duke",            "dir": "operas/the-grand-duke" }
   ]
 }

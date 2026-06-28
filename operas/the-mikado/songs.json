@@ -1,0 +1,481 @@
+{
+  "meta": {
+    "opera": "The Mikado",
+    "composer": "Arthur Sullivan",
+    "librettist": "W. S. Gilbert",
+    "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
+  },
+  "accompaniment": [
+    "Right Hand",
+    "Left Hand",
+    "Piano (RH)",
+    "Piano (LH)",
+    "Piano RH",
+    "Piano LH",
+    "Tempo"
+  ],
+  "choralTracks": [
+    "Women",
+    "Men"
+  ],
+  "soloistTracks": [
+    "Vocal"
+  ],
+  "parts": [
+    {
+      "id": "mikado",
+      "label": "The Mikado",
+      "candidates": [
+        "Mikado"
+      ]
+    },
+    {
+      "id": "nanki-poo",
+      "label": "Nanki-Poo",
+      "candidates": [
+        "Nanki-Poo"
+      ]
+    },
+    {
+      "id": "ko-ko",
+      "label": "Ko-Ko",
+      "candidates": [
+        "Ko-Ko"
+      ]
+    },
+    {
+      "id": "pooh-bah",
+      "label": "Pooh-Bah",
+      "candidates": [
+        "Pooh-Bah",
+        "Vocal"
+      ]
+    },
+    {
+      "id": "pish-tush",
+      "label": "Pish-Tush",
+      "candidates": [
+        "Pish-Tush"
+      ]
+    },
+    {
+      "id": "go-to",
+      "label": "Go-To",
+      "candidates": [
+        "Go-To"
+      ]
+    },
+    {
+      "id": "yum-yum",
+      "label": "Yum-Yum",
+      "candidates": [
+        "Yum-Yum"
+      ]
+    },
+    {
+      "id": "pitti-sing",
+      "label": "Pitti-Sing",
+      "candidates": [
+        "Pitti-Sing",
+        "Vocal"
+      ]
+    },
+    {
+      "id": "peep-bo",
+      "label": "Peep-Bo",
+      "candidates": [
+        "Peep-Bo"
+      ]
+    },
+    {
+      "id": "katisha",
+      "label": "Katisha",
+      "candidates": [
+        "Katisha"
+      ]
+    },
+    {
+      "id": "soprano",
+      "label": "Soprano",
+      "candidates": [
+        "Sopranos",
+        "Soprano",
+        "Soprano 1",
+        "Soprano 2",
+        "Soprano 3",
+        "Women"
+      ]
+    },
+    {
+      "id": "alto",
+      "label": "Alto",
+      "candidates": [
+        "Contraltos",
+        "Altos",
+        "Women"
+      ]
+    },
+    {
+      "id": "tenor",
+      "label": "Tenor",
+      "candidates": [
+        "Tenors",
+        "Tenor",
+        "Tenor 1",
+        "Tenor 2",
+        "Men"
+      ]
+    },
+    {
+      "id": "bass",
+      "label": "Bass",
+      "candidates": [
+        "Basses",
+        "Bass",
+        "Bass 1",
+        "Bass 2",
+        "Men"
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": "101",
+      "number": "1",
+      "title": "If you want to know who we are",
+      "type": "Introduction & Chorus (Men)",
+      "file": "101.kar",
+      "voiceTracks": [
+        "Nanki-Poo",
+        "Go-To",
+        "Tenor 1",
+        "Tenor 2",
+        "Bass 1",
+        "Bass 2"
+      ]
+    },
+    {
+      "id": "102",
+      "number": "2",
+      "title": "A wand'ring minstrel I",
+      "type": "Song (Nanki-Poo) with Chorus",
+      "file": "102.kar",
+      "voiceTracks": [
+        "Nanki-Poo",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "103",
+      "number": "3",
+      "title": "Our great Mikado, virtuous man",
+      "type": "Song (Pish-Tush) with Chorus",
+      "file": "103.kar",
+      "voiceTracks": [
+        "Pish-Tush",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "104",
+      "number": "4",
+      "title": "Young man, despair",
+      "type": "Trio (Pooh-Bah, Pish-Tush & Ko-Ko)",
+      "file": "104.kar",
+      "voiceTracks": [
+        "Vocal",
+        "Staff-2",
+        "Staff-3"
+      ]
+    },
+    {
+      "id": "104a",
+      "number": "5",
+      "title": "And I have journeyed for a month",
+      "type": "Recit. (Nanki-Poo & Pooh-Bah)",
+      "file": "104a.kar",
+      "voiceTracks": [
+        "Nanki-Poo",
+        "Pooh-Bah"
+      ]
+    },
+    {
+      "id": "105",
+      "number": "6",
+      "title": "Behold the Lord High Executioner",
+      "type": "Chorus & Song (Ko-Ko)",
+      "file": "105.kar",
+      "voiceTracks": [
+        "Ko-Ko",
+        "Tenor 1",
+        "Tenor 2",
+        "Bass 1",
+        "Bass 2"
+      ]
+    },
+    {
+      "id": "105a",
+      "number": "7",
+      "title": "As some day it may happen (I've got a little list)",
+      "type": "Song (Ko-Ko)",
+      "file": "105a.kar",
+      "voiceTracks": [
+        "Ko-Ko"
+      ]
+    },
+    {
+      "id": "106",
+      "number": "8",
+      "title": "Comes a train of little ladies",
+      "type": "Chorus (Women)",
+      "file": "106.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "107",
+      "number": "9",
+      "title": "Three little maids from school",
+      "type": "Trio with Chorus (Yum-Yum, Peep-Bo & Pitti-Sing)",
+      "file": "107.kar",
+      "voiceTracks": [
+        "Yum-Yum",
+        "Peep-Bo",
+        "Pitti-Sing",
+        "Soprano 1",
+        "Soprano 2",
+        "Soprano 3"
+      ]
+    },
+    {
+      "id": "108",
+      "number": "10",
+      "title": "So please you, Sir, we much regret",
+      "type": "Quartet with Chorus",
+      "file": "108.kar",
+      "voiceTracks": [
+        "Yum-Yum",
+        "Peep-Bo",
+        "Pitti-Sing",
+        "Pooh-Bah",
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "109",
+      "number": "11",
+      "title": "Were you not to Ko-Ko plighted",
+      "type": "Duet (Yum-Yum & Nanki-Poo)",
+      "file": "109.kar",
+      "voiceTracks": [
+        "Yum-Yum",
+        "Nanki-Poo"
+      ]
+    },
+    {
+      "id": "110",
+      "number": "12",
+      "title": "I am so proud",
+      "type": "Trio (Pooh-Bah, Ko-Ko & Pish-Tush)",
+      "file": "110.kar",
+      "voiceTracks": [
+        "Pish-Tush",
+        "Ko-Ko",
+        "Pooh-Bah"
+      ]
+    },
+    {
+      "id": "111",
+      "number": "13",
+      "title": "With aspect stern and gloomy stride",
+      "type": "Finale Act I",
+      "file": "111.kar",
+      "voiceTracks": [
+        "Yum-Yum",
+        "Pitti-Sing",
+        "Peep-Bo",
+        "Katisha",
+        "Nanki-Poo",
+        "Ko-Ko",
+        "Pooh-Bah",
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "201",
+      "number": "14",
+      "title": "Braid the raven hair",
+      "type": "Chorus & Solo (Pitti-Sing)",
+      "file": "201.kar",
+      "voiceTracks": [
+        "Staff-1",
+        "Staff-4",
+        "Vocal"
+      ]
+    },
+    {
+      "id": "202",
+      "number": "15",
+      "title": "The sun, whose rays are all ablaze",
+      "type": "Song (Yum-Yum)",
+      "file": "202.kar",
+      "voiceTracks": [
+        "Yum-Yum"
+      ]
+    },
+    {
+      "id": "203",
+      "number": "16",
+      "title": "Brightly dawns our wedding day",
+      "type": "Madrigal (Yum-Yum, Pitti-Sing, Nanki-Poo & Pish-Tush)",
+      "file": "203.kar",
+      "voiceTracks": [
+        "Yum-Yum",
+        "Pitti-Sing",
+        "Nanki-Poo",
+        "Pish-Tush"
+      ]
+    },
+    {
+      "id": "204",
+      "number": "17",
+      "title": "Here's a how-de-do",
+      "type": "Trio (Yum-Yum, Nanki-Poo & Ko-Ko)",
+      "file": "204.kar",
+      "voiceTracks": [
+        "Yum-Yum",
+        "Nanki-Poo",
+        "Ko-Ko"
+      ]
+    },
+    {
+      "id": "205",
+      "number": "18",
+      "title": "Miya sama (Entrance of the Mikado)",
+      "type": "Chorus & Duet (Mikado & Katisha)",
+      "file": "205.kar",
+      "voiceTracks": [
+        "Katisha",
+        "Mikado",
+        "Women",
+        "Men"
+      ]
+    },
+    {
+      "id": "206",
+      "number": "19",
+      "title": "A more humane Mikado",
+      "type": "Song (Mikado) with Chorus",
+      "file": "206.kar",
+      "voiceTracks": [
+        "Mikado",
+        "Soprano",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "207",
+      "number": "20",
+      "title": "The criminal cried, as he dropped him down",
+      "type": "Trio with Chorus (Pitti-Sing, Ko-Ko & Pooh-Bah)",
+      "file": "207.kar",
+      "voiceTracks": [
+        "Pitti-Sing",
+        "Ko-Ko",
+        "Pooh-Bah",
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "208",
+      "number": "21",
+      "title": "See how the Fates their gifts allot",
+      "type": "Glee (Pitti-Sing, Katisha, Pooh-Bah, Ko-Ko & Mikado)",
+      "file": "208.kar",
+      "voiceTracks": [
+        "Pitti-Sing",
+        "Katisha",
+        "Pooh-Bah",
+        "Ko-Ko",
+        "Mikado"
+      ]
+    },
+    {
+      "id": "209",
+      "number": "22",
+      "title": "The flowers that bloom in the spring",
+      "type": "Duet (Nanki-Poo & Ko-Ko)",
+      "file": "209.kar",
+      "voiceTracks": [
+        "Yum-Yum",
+        "Pitti-Sing",
+        "Nanki-Poo",
+        "Ko-Ko",
+        "Pooh-Bah"
+      ]
+    },
+    {
+      "id": "210",
+      "number": "23",
+      "title": "Alone, and yet alive!",
+      "type": "Recit. & Song (Katisha)",
+      "file": "210.kar",
+      "voiceTracks": [
+        "Katisha"
+      ]
+    },
+    {
+      "id": "211",
+      "number": "24",
+      "title": "On a tree by a river (Tit-Willow)",
+      "type": "Song (Ko-Ko)",
+      "file": "211.kar",
+      "voiceTracks": [
+        "Ko-Ko"
+      ]
+    },
+    {
+      "id": "212",
+      "number": "25",
+      "title": "There is beauty in the bellow of the blast",
+      "type": "Duet (Katisha & Ko-Ko)",
+      "file": "212.kar",
+      "voiceTracks": [
+        "Katisha",
+        "Ko-Ko"
+      ]
+    },
+    {
+      "id": "213",
+      "number": "26",
+      "title": "For he's gone and married Yum-Yum",
+      "type": "Finale Act II",
+      "file": "213.kar",
+      "voiceTracks": [
+        "Yum-Yum",
+        "Pitti-Sing",
+        "Peep-Bo",
+        "Nanki-Poo",
+        "Ko-Ko",
+        "Pooh-Bah",
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    }
+  ]
+}

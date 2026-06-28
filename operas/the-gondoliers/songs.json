@@ -1,0 +1,446 @@
+{
+  "meta": {
+    "opera": "The Gondoliers",
+    "composer": "Arthur Sullivan",
+    "librettist": "W. S. Gilbert",
+    "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
+  },
+  "accompaniment": [
+    "Right Hand",
+    "Left Hand",
+    "Piano RH",
+    "Piano LH",
+    "Piano",
+    "Piano-2",
+    "Piano-3",
+    "Piano-4",
+    "Tempo",
+    "Tempo Track",
+    "Staff",
+    "Staff-1",
+    "Staff-3"
+  ],
+  "choralTracks": [],
+  "soloistTracks": [],
+  "parts": [
+    {
+      "id": "duke",
+      "label": "Duke of Plaza-Toro",
+      "candidates": [
+        "Duke"
+      ]
+    },
+    {
+      "id": "duchess",
+      "label": "Duchess of Plaza-Toro",
+      "candidates": [
+        "Duchess"
+      ]
+    },
+    {
+      "id": "casilda",
+      "label": "Casilda",
+      "candidates": [
+        "Casilda"
+      ]
+    },
+    {
+      "id": "luiz",
+      "label": "Luiz",
+      "candidates": [
+        "Luiz"
+      ]
+    },
+    {
+      "id": "don-alhambra",
+      "label": "Don Alhambra",
+      "candidates": [
+        "Don Alhambra"
+      ]
+    },
+    {
+      "id": "marco",
+      "label": "Marco",
+      "candidates": [
+        "Marco"
+      ]
+    },
+    {
+      "id": "giuseppe",
+      "label": "Giuseppe",
+      "candidates": [
+        "Giuseppe"
+      ]
+    },
+    {
+      "id": "francesco",
+      "label": "Francesco",
+      "candidates": [
+        "Francesco"
+      ]
+    },
+    {
+      "id": "gianetta",
+      "label": "Gianetta",
+      "candidates": [
+        "Gianetta"
+      ]
+    },
+    {
+      "id": "tessa",
+      "label": "Tessa",
+      "candidates": [
+        "Tessa"
+      ]
+    },
+    {
+      "id": "vittoria",
+      "label": "Vittoria",
+      "candidates": [
+        "Vittoria"
+      ]
+    },
+    {
+      "id": "giulia",
+      "label": "Giulia",
+      "candidates": [
+        "Guilia"
+      ]
+    },
+    {
+      "id": "soprano",
+      "label": "Soprano",
+      "candidates": [
+        "Sops",
+        "Sopranos",
+        "Soprano",
+        "Sopranos 1",
+        "Sopranos 2",
+        "Soprano 1",
+        "Soprano 2"
+      ]
+    },
+    {
+      "id": "alto",
+      "label": "Alto",
+      "candidates": [
+        "Altos",
+        "Alto"
+      ]
+    },
+    {
+      "id": "tenor",
+      "label": "Tenor",
+      "candidates": [
+        "Tenors",
+        "Tenor",
+        "Tenors 1",
+        "Tenors 2"
+      ]
+    },
+    {
+      "id": "bass",
+      "label": "Bass",
+      "candidates": [
+        "Basses",
+        "Bass",
+        "Basses 1",
+        "Basses 2"
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": "000",
+      "number": "0",
+      "title": "Overture",
+      "type": "Overture",
+      "file": "000.kar",
+      "voiceTracks": []
+    },
+    {
+      "id": "101",
+      "number": "1",
+      "title": "List and learn, ye dainty roses",
+      "type": "Opening Chorus",
+      "file": "101.kar",
+      "voiceTracks": [
+        "Gianetta",
+        "Marco",
+        "Giuseppe",
+        "Guilia",
+        "Vittoria",
+        "Francesco",
+        "Sops",
+        "Altos",
+        "Tenors"
+      ]
+    },
+    {
+      "id": "102",
+      "number": "2",
+      "title": "From the sunny Spanish shore",
+      "type": "Quartet (Duke, Duchess, Casilda, Luiz)",
+      "file": "102.kar",
+      "voiceTracks": [
+        "Casilda",
+        "Duchess",
+        "Luiz",
+        "Duke"
+      ]
+    },
+    {
+      "id": "103",
+      "number": "3",
+      "title": "In enterprise of martial kind",
+      "type": "Song (Duke)",
+      "file": "103.kar",
+      "voiceTracks": [
+        "Casilda",
+        "Duchess",
+        "Luiz",
+        "Duke"
+      ]
+    },
+    {
+      "id": "104",
+      "number": "4",
+      "title": "O rapture, when alone together",
+      "type": "Duet (Casilda & Luiz)",
+      "file": "104.kar",
+      "voiceTracks": [
+        "Casilda",
+        "Luiz"
+      ]
+    },
+    {
+      "id": "105",
+      "number": "5",
+      "title": "There was a time",
+      "type": "Duet (Casilda & Luiz)",
+      "file": "105.kar",
+      "voiceTracks": [
+        "Casilda",
+        "Luiz"
+      ]
+    },
+    {
+      "id": "106",
+      "number": "6",
+      "title": "I stole the Prince",
+      "type": "Song (Don Alhambra)",
+      "file": "106.kar",
+      "voiceTracks": [
+        "Don Alhambra",
+        "Casilda",
+        "Duchess",
+        "Luiz",
+        "Duke"
+      ]
+    },
+    {
+      "id": "107-8",
+      "number": "7 & 8",
+      "title": "But, bless my heart, consider my position!",
+      "type": "Recit. & Quintet",
+      "file": "107-8.kar",
+      "voiceTracks": [
+        "Casilda",
+        "Duchess",
+        "Luiz",
+        "Duke",
+        "Don Alhambra"
+      ]
+    },
+    {
+      "id": "109",
+      "number": "9",
+      "title": "Bridegroom and bride!",
+      "type": "Chorus & Solo (Tessa)",
+      "file": "109.kar",
+      "voiceTracks": [
+        "Tessa",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "110",
+      "number": "10",
+      "title": "Kind sir, you cannot have the heart",
+      "type": "Finale Act I",
+      "file": "110.kar",
+      "voiceTracks": [
+        "Don Alhambra",
+        "Gianetta",
+        "Tessa",
+        "Marco",
+        "Giuseppe",
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "201",
+      "number": "11",
+      "title": "Of happiness the very pith",
+      "type": "Chorus",
+      "file": "201.kar",
+      "voiceTracks": [
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "202",
+      "number": "12",
+      "title": "Rising early in the morning",
+      "type": "Song (Giuseppe)",
+      "file": "202.kar",
+      "voiceTracks": [
+        "Giuseppe"
+      ]
+    },
+    {
+      "id": "203",
+      "number": "13",
+      "title": "Take a pair of sparkling eyes",
+      "type": "Song (Marco)",
+      "file": "203.kar",
+      "voiceTracks": [
+        "Marco"
+      ]
+    },
+    {
+      "id": "204",
+      "number": "14",
+      "title": "Here we are, at the risk of our lives",
+      "type": "Chorus",
+      "file": "204.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "205",
+      "number": "15",
+      "title": "Dance a cachucha",
+      "type": "Chorus",
+      "file": "205.kar",
+      "voiceTracks": [
+        "Sopranos 1",
+        "Sopranos 2",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "206",
+      "number": "16",
+      "title": "There lived a King, as I've been told",
+      "type": "Song (Don Alhambra, Marco & Giuseppe)",
+      "file": "206.kar",
+      "voiceTracks": [
+        "Don Alhambra",
+        "Marco",
+        "Giuseppe"
+      ]
+    },
+    {
+      "id": "207",
+      "number": "17",
+      "title": "In a contemplative fashion",
+      "type": "Quartet (Gianetta, Tessa, Marco & Giuseppe)",
+      "file": "207.kar",
+      "voiceTracks": [
+        "Gianetta",
+        "Tessa",
+        "Marco",
+        "Giuseppe"
+      ]
+    },
+    {
+      "id": "208",
+      "number": "18",
+      "title": "With ducal pomp and ducal pride",
+      "type": "Chorus",
+      "file": "208.kar",
+      "voiceTracks": [
+        "Tenors 1",
+        "Tenors 2",
+        "Basses 1",
+        "Basses 2"
+      ]
+    },
+    {
+      "id": "209",
+      "number": "19",
+      "title": "On the day when I was wedded",
+      "type": "Song (Duchess)",
+      "file": "209.kar",
+      "voiceTracks": [
+        "Duchess"
+      ]
+    },
+    {
+      "id": "210",
+      "number": "20",
+      "title": "To help unhappy commoners",
+      "type": "Duet (Duke & Duchess)",
+      "file": "210.kar",
+      "voiceTracks": [
+        "Duchess",
+        "Duke"
+      ]
+    },
+    {
+      "id": "211",
+      "number": "21",
+      "title": "I am a courtier grave and serious",
+      "type": "Gavotte",
+      "file": "211.kar",
+      "voiceTracks": [
+        "Casilda",
+        "Duchess",
+        "Marco",
+        "Giuseppe",
+        "Duke"
+      ]
+    },
+    {
+      "id": "212a",
+      "number": "22a",
+      "title": "Here is a case unprecedented!",
+      "type": "Finale Act II (part 1)",
+      "file": "212a.kar",
+      "voiceTracks": [
+        "Casilda",
+        "Gianetta",
+        "Tessa",
+        "Marco",
+        "Giuseppe"
+      ]
+    },
+    {
+      "id": "212b",
+      "number": "22b",
+      "title": "Now let the loyal lieges gather round",
+      "type": "Finale Act II (part 2)",
+      "file": "212b.kar",
+      "voiceTracks": [
+        "Don Alhambra",
+        "Soprano 1",
+        "Soprano 2",
+        "Tenor",
+        "Bass"
+      ]
+    }
+  ]
+}

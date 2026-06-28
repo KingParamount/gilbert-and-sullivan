@@ -1,0 +1,493 @@
+{
+  "meta": {
+    "opera": "Princess Ida",
+    "composer": "Arthur Sullivan",
+    "librettist": "W. S. Gilbert",
+    "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
+  },
+  "accompaniment": [
+    "Right Hand",
+    "Left Hand",
+    "Piano Right Hand",
+    "Piano Left Hand",
+    "Tempo",
+    "Tempo Track"
+  ],
+  "choralTracks": [
+    "Girls",
+    "Ladies",
+    "Women",
+    "Men"
+  ],
+  "soloistTracks": [
+    "Solos"
+  ],
+  "parts": [
+    {
+      "id": "princess-ida",
+      "label": "Princess Ida",
+      "candidates": [
+        "Ida",
+        "Princess Ida"
+      ]
+    },
+    {
+      "id": "king-hildebrand",
+      "label": "King Hildebrand",
+      "candidates": [
+        "Hildebrand"
+      ]
+    },
+    {
+      "id": "hilarion",
+      "label": "Hilarion",
+      "candidates": [
+        "Hilarion"
+      ]
+    },
+    {
+      "id": "cyril",
+      "label": "Cyril",
+      "candidates": [
+        "Cyril"
+      ]
+    },
+    {
+      "id": "florian",
+      "label": "Florian",
+      "candidates": [
+        "Florian"
+      ]
+    },
+    {
+      "id": "king-gama",
+      "label": "King Gama",
+      "candidates": [
+        "King Gama",
+        "Gama"
+      ]
+    },
+    {
+      "id": "arac",
+      "label": "Arac",
+      "candidates": [
+        "Arac"
+      ]
+    },
+    {
+      "id": "guron",
+      "label": "Guron",
+      "candidates": [
+        "Guron"
+      ]
+    },
+    {
+      "id": "scynthius",
+      "label": "Scynthius",
+      "candidates": [
+        "Scynthius"
+      ]
+    },
+    {
+      "id": "lady-blanche",
+      "label": "Lady Blanche",
+      "candidates": [
+        "Blanche",
+        "Lady Blanche"
+      ]
+    },
+    {
+      "id": "lady-psyche",
+      "label": "Lady Psyche",
+      "candidates": [
+        "Psyche",
+        "Lady Psyche",
+        "Melissa, Pysche"
+      ]
+    },
+    {
+      "id": "melissa",
+      "label": "Melissa",
+      "candidates": [
+        "Melissa",
+        "Melissa, Pysche"
+      ]
+    },
+    {
+      "id": "soprano",
+      "label": "Soprano",
+      "candidates": [
+        "Sopranos",
+        "Soprano",
+        "Soprano I",
+        "Soprano II",
+        "Girls",
+        "Ladies",
+        "Women"
+      ]
+    },
+    {
+      "id": "alto",
+      "label": "Alto",
+      "candidates": [
+        "Altos",
+        "Alto",
+        "Contraltos",
+        "Contralto",
+        "Girls",
+        "Ladies",
+        "Women"
+      ]
+    },
+    {
+      "id": "tenor",
+      "label": "Tenor",
+      "candidates": [
+        "Tenors",
+        "Tenor",
+        "Men"
+      ]
+    },
+    {
+      "id": "bass",
+      "label": "Bass",
+      "candidates": [
+        "Basses",
+        "Bass",
+        "Men"
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": "pi_001",
+      "number": "1",
+      "title": "Search throughout the panorama",
+      "type": "Introduction & Chorus",
+      "file": "pi_001.kar",
+      "voiceTracks": [
+        "Florian",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pi_002",
+      "number": "2",
+      "title": "Now hearken to my strict command",
+      "type": "Recit. & Chorus (Hildebrand)",
+      "file": "pi_002.kar",
+      "voiceTracks": [
+        "Hildebrand",
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "pi_003",
+      "number": "3",
+      "title": "Today we meet, my baby bride and I",
+      "type": "Recit. (Hilarion)",
+      "file": "pi_003.kar",
+      "voiceTracks": [
+        "Hilarion"
+      ]
+    },
+    {
+      "id": "pi_004",
+      "number": "4",
+      "title": "From the distant panorama",
+      "type": "Chorus & Trio (Arac, Guron & Scynthius)",
+      "file": "pi_004.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses",
+        "Arac",
+        "Guron",
+        "Scynthius"
+      ]
+    },
+    {
+      "id": "pi_006",
+      "number": "6",
+      "title": "If you give me your attention",
+      "type": "Song (King Gama)",
+      "file": "pi_006.kar",
+      "voiceTracks": [
+        "King Gama",
+        "Ladies",
+        "Men"
+      ]
+    },
+    {
+      "id": "pi_007",
+      "number": "7",
+      "title": "P'raps if you address the lady",
+      "type": "Finale Act I",
+      "file": "pi_007.kar",
+      "voiceTracks": [
+        "Cyril",
+        "Hilarion",
+        "Florian",
+        "Hildebrand",
+        "Gama",
+        "Arac",
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "pi_008",
+      "number": "8",
+      "title": "Towards the empyrean heights",
+      "type": "Chorus & Solo (Lady Psyche)",
+      "file": "pi_008.kar",
+      "voiceTracks": [
+        "Psyche",
+        "Solos",
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "pi_009",
+      "number": "9",
+      "title": "Mighty maiden with a mission",
+      "type": "Chorus",
+      "file": "pi_009.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "pi_010",
+      "number": "10",
+      "title": "Minerva! Oh, hear me",
+      "type": "Recit. & Aria (Princess Ida)",
+      "file": "pi_010.kar",
+      "voiceTracks": [
+        "Ida"
+      ]
+    },
+    {
+      "id": "pi_010a",
+      "number": "10a",
+      "title": "And thus to empyrean height",
+      "type": "Chorus (alternate version)",
+      "file": "pi_010a.kar",
+      "voiceTracks": [
+        "Staff-1",
+        "Staff-2",
+        "Staff-3"
+      ]
+    },
+    {
+      "id": "pi_011",
+      "number": "11",
+      "title": "Come mighty Must",
+      "type": "Song (Lady Blanche)",
+      "file": "pi_011.kar",
+      "voiceTracks": [
+        "Staff-1"
+      ]
+    },
+    {
+      "id": "pi_012",
+      "number": "12",
+      "title": "Gently, gently",
+      "type": "Trio (Hilarion, Cyril & Florian)",
+      "file": "pi_012.kar",
+      "voiceTracks": [
+        "Cyril",
+        "Hilarion",
+        "Florian"
+      ]
+    },
+    {
+      "id": "pi_13",
+      "number": "13",
+      "title": "I am a maiden, cold and stately",
+      "type": "Trio (Hilarion, Cyril & Florian)",
+      "file": "pi_13.kar",
+      "voiceTracks": [
+        "Cyril",
+        "Hilarion",
+        "Florian"
+      ]
+    },
+    {
+      "id": "pi_014",
+      "number": "14",
+      "title": "The world is but a broken toy",
+      "type": "Quartet (Ida, Cyril, Hilarion & Florian)",
+      "file": "pi_014.kar",
+      "voiceTracks": [
+        "Princess Ida",
+        "Cyril",
+        "Hilarion",
+        "Florian"
+      ]
+    },
+    {
+      "id": "pi_015",
+      "number": "15",
+      "title": "A Lady fair, of lineage high",
+      "type": "Song (Lady Psyche)",
+      "file": "pi_015.kar",
+      "voiceTracks": [
+        "Lady Psyche",
+        "Cyril",
+        "Hilarion",
+        "Florian"
+      ]
+    },
+    {
+      "id": "pi_016",
+      "number": "16",
+      "title": "The woman of the wisest wit",
+      "type": "Quintet",
+      "file": "pi_016.kar",
+      "voiceTracks": [
+        "Lady Psyche",
+        "Melissa",
+        "Cyril",
+        "Hilarion",
+        "Florian"
+      ]
+    },
+    {
+      "id": "pi_017",
+      "number": "17",
+      "title": "Now wouldn't you like to rule the roast",
+      "type": "Duet (Melissa & Lady Blanche)",
+      "file": "pi_017.kar",
+      "voiceTracks": [
+        "Melissa",
+        "Blanche"
+      ]
+    },
+    {
+      "id": "pi_018",
+      "number": "18",
+      "title": "Merrily ring the luncheon bell",
+      "type": "Chorus",
+      "file": "pi_018.kar",
+      "voiceTracks": [
+        "Lady Blanche",
+        "Cyril",
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "pi_019",
+      "number": "19",
+      "title": "Would you know the kind of maid",
+      "type": "Song (Cyril)",
+      "file": "pi_019.kar",
+      "voiceTracks": [
+        "Cyril"
+      ]
+    },
+    {
+      "id": "pi_20",
+      "number": "20",
+      "title": "Oh joy! our chief is sav'd",
+      "type": "Finale Act II",
+      "file": "pi_20.kar",
+      "voiceTracks": [
+        "Ida",
+        "Cyril",
+        "Hilarion",
+        "Florian",
+        "Hildebrand",
+        "Arac",
+        "Melissa, Pysche",
+        "Women",
+        "Men"
+      ]
+    },
+    {
+      "id": "pi_021",
+      "number": "21",
+      "title": "Death to the invader",
+      "type": "Chorus & Solo (Melissa)",
+      "file": "pi_021.kar",
+      "voiceTracks": [
+        "Melissa",
+        "Sopranos",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "pi_022",
+      "number": "22",
+      "title": "I built upon a rock",
+      "type": "Song (Princess Ida)",
+      "file": "pi_022.kar",
+      "voiceTracks": [
+        "Ida"
+      ]
+    },
+    {
+      "id": "pi_023",
+      "number": "23",
+      "title": "Whene'er I spoke",
+      "type": "Song (King Gama)",
+      "file": "pi_023.kar",
+      "voiceTracks": [
+        "Gama",
+        "Ladies"
+      ]
+    },
+    {
+      "id": "pi_024",
+      "number": "24",
+      "title": "When anger spreads his wing",
+      "type": "Chorus",
+      "file": "pi_024.kar",
+      "voiceTracks": [
+        "Soprano I",
+        "Soprano II",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "pi_025",
+      "number": "25",
+      "title": "This helmet, I suppose",
+      "type": "Song (Arac)",
+      "file": "pi_025.kar",
+      "voiceTracks": [
+        "Arac",
+        "Girls",
+        "Men"
+      ]
+    },
+    {
+      "id": "pi_026",
+      "number": "26",
+      "title": "With joy abiding",
+      "type": "Finale Act III",
+      "file": "pi_026.kar",
+      "voiceTracks": [
+        "Princess Ida",
+        "Hilarion",
+        "Soprano",
+        "Contralto",
+        "Tenors",
+        "Bass"
+      ]
+    }
+  ]
+}

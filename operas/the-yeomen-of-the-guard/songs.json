@@ -1,0 +1,446 @@
+{
+  "meta": {
+    "opera": "The Yeomen of the Guard",
+    "composer": "Arthur Sullivan",
+    "librettist": "W. S. Gilbert",
+    "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
+  },
+  "accompaniment": [
+    "Right Hand",
+    "Left Hand",
+    "Piano RH",
+    "Piano LH",
+    "Piano (RH)",
+    "Piano (LH)",
+    "Extra piano",
+    "Tempo",
+    "Tempo Track"
+  ],
+  "choralTracks": [
+    "Chorus"
+  ],
+  "soloistTracks": [
+    "Vocal"
+  ],
+  "parts": [
+    {
+      "id": "colonel-fairfax",
+      "label": "Colonel Fairfax",
+      "candidates": [
+        "Fairfax",
+        "Colonel Fairfax"
+      ]
+    },
+    {
+      "id": "sergeant-meryll",
+      "label": "Sergeant Meryll",
+      "candidates": [
+        "Meryll",
+        "Sergeant Meryll",
+        "Staff"
+      ]
+    },
+    {
+      "id": "leonard-meryll",
+      "label": "Leonard Meryll",
+      "candidates": [
+        "Leonard"
+      ]
+    },
+    {
+      "id": "jack-point",
+      "label": "Jack Point",
+      "candidates": [
+        "Point"
+      ]
+    },
+    {
+      "id": "wilfred-shadbolt",
+      "label": "Wilfred Shadbolt",
+      "candidates": [
+        "Shadbolt",
+        "Wilfred"
+      ]
+    },
+    {
+      "id": "lieutenant",
+      "label": "Sir Richard Cholmondeley",
+      "candidates": [
+        "Lieutenant"
+      ]
+    },
+    {
+      "id": "second-yeoman",
+      "label": "Second Yeoman",
+      "candidates": [
+        "2nd Yeoman"
+      ]
+    },
+    {
+      "id": "elsie",
+      "label": "Elsie Maynard",
+      "candidates": [
+        "Elsie"
+      ]
+    },
+    {
+      "id": "phoebe",
+      "label": "Phoebe Meryll",
+      "candidates": [
+        "Phoebe"
+      ]
+    },
+    {
+      "id": "dame-carruthers",
+      "label": "Dame Carruthers",
+      "candidates": [
+        "Dame Carruthers"
+      ]
+    },
+    {
+      "id": "kate",
+      "label": "Kate",
+      "candidates": [
+        "Kate"
+      ]
+    },
+    {
+      "id": "soprano",
+      "label": "Soprano",
+      "candidates": [
+        "Soprano",
+        "Sopranos",
+        "Sop 1",
+        "Sop 2"
+      ]
+    },
+    {
+      "id": "alto",
+      "label": "Alto",
+      "candidates": [
+        "Alto",
+        "Contraltos"
+      ]
+    },
+    {
+      "id": "tenor",
+      "label": "Tenor",
+      "candidates": [
+        "Tenor",
+        "Tenors",
+        "Tenor 1",
+        "Tenor 2",
+        "Ten"
+      ]
+    },
+    {
+      "id": "bass",
+      "label": "Bass",
+      "candidates": [
+        "Bass",
+        "Basses",
+        "Bass 1",
+        "Bass 2"
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": "yeomen_01",
+      "number": "1",
+      "title": "When maiden loves, she sits and sighs",
+      "type": "Song (Phoebe)",
+      "file": "yeomen_01.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "yeomen_01a",
+      "number": "1a",
+      "title": "When jealous torments rack my soul",
+      "type": "Song (Wilfred) — alternate",
+      "file": "yeomen_01a.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "yeomen_02",
+      "number": "2",
+      "title": "Tower warders, under orders",
+      "type": "Opening Chorus",
+      "file": "yeomen_02.kar",
+      "voiceTracks": [
+        "2nd Yeoman",
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass",
+        "Tenor 1",
+        "Tenor 2",
+        "Bass 1",
+        "Bass 2"
+      ]
+    },
+    {
+      "id": "yg103",
+      "number": "3",
+      "title": "When our gallant Norman foes",
+      "type": "Song (Dame Carruthers) & Chorus",
+      "file": "yg103.kar",
+      "voiceTracks": [
+        "Dame Carruthers",
+        "Chorus"
+      ]
+    },
+    {
+      "id": "yg103a",
+      "number": "3a",
+      "title": "A laughing boy but yesterday",
+      "type": "Ballad (Sergeant Meryll) — alternate",
+      "file": "yg103a.kar",
+      "voiceTracks": [
+        "Staff"
+      ]
+    },
+    {
+      "id": "yg104",
+      "number": "4",
+      "title": "Alas! I waver to and fro",
+      "type": "Trio (Phoebe, Leonard & Meryll)",
+      "file": "yg104.kar",
+      "voiceTracks": [
+        "Phoebe",
+        "Leonard",
+        "Meryll"
+      ]
+    },
+    {
+      "id": "yg105",
+      "number": "5",
+      "title": "Is life a boon?",
+      "type": "Song (Colonel Fairfax)",
+      "file": "yg105.kar",
+      "voiceTracks": [
+        "Fairfax"
+      ]
+    },
+    {
+      "id": "yg106",
+      "number": "6",
+      "title": "Here's a man of jollity",
+      "type": "Chorus",
+      "file": "yg106.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "yg107",
+      "number": "7",
+      "title": "I have a song to sing, O!",
+      "type": "Duet (Elsie & Point) & Chorus",
+      "file": "yg107.kar",
+      "voiceTracks": [
+        "Elsie",
+        "Point",
+        "Sop 1",
+        "Sop 2",
+        "Ten",
+        "Bass"
+      ]
+    },
+    {
+      "id": "yg108",
+      "number": "8",
+      "title": "How say you, maiden, will you wed",
+      "type": "Trio (Elsie, Point & Lieutenant)",
+      "file": "yg108.kar",
+      "voiceTracks": [
+        "Elsie",
+        "Point",
+        "Lieutenant"
+      ]
+    },
+    {
+      "id": "yg109",
+      "number": "9",
+      "title": "I've jibe and joke",
+      "type": "Song (Point)",
+      "file": "yg109.kar",
+      "voiceTracks": [
+        "Point"
+      ]
+    },
+    {
+      "id": "yg110",
+      "number": "10",
+      "title": "'Tis done! I am a bride!",
+      "type": "Recit. & Aria (Elsie)",
+      "file": "yg110.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "yg111",
+      "number": "11",
+      "title": "Were I thy bride",
+      "type": "Song (Phoebe)",
+      "file": "yg111.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "yg112",
+      "number": "12",
+      "title": "Oh, Sergeant Meryll, is it true",
+      "type": "Finale Act I",
+      "file": "yg112.kar",
+      "voiceTracks": [
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "yg213",
+      "number": "13",
+      "title": "Night has spread her pall once more",
+      "type": "Opening Chorus, Act II (Dame Carruthers & Chorus)",
+      "file": "yg213.kar",
+      "voiceTracks": [
+        "Dame Carruthers",
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "yg214",
+      "number": "14",
+      "title": "Oh! a private buffoon is a light-hearted loon",
+      "type": "Song (Point)",
+      "file": "yg214.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "yg215",
+      "number": "15",
+      "title": "Hereupon we're both agreed",
+      "type": "Duet (Point & Shadbolt)",
+      "file": "yg215.kar",
+      "voiceTracks": [
+        "Point",
+        "Shadbolt"
+      ]
+    },
+    {
+      "id": "yg216",
+      "number": "16",
+      "title": "Free from his fetters grim",
+      "type": "Quartet",
+      "file": "yg216.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "yg217",
+      "number": "17",
+      "title": "Strange adventure! Maiden wedded",
+      "type": "Quartet (Kate, Dame Carruthers, Fairfax & Meryll)",
+      "file": "yg217.kar",
+      "voiceTracks": [
+        "Kate",
+        "Dame Carruthers",
+        "Colonel Fairfax",
+        "Sergeant Meryll"
+      ]
+    },
+    {
+      "id": "yg218",
+      "number": "18",
+      "title": "Hark! What was that, sir?",
+      "type": "Ensemble",
+      "file": "yg218.kar",
+      "voiceTracks": [
+        "Fairfax",
+        "Meryll",
+        "Lieutenant",
+        "Point",
+        "Wilfred",
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "yg219",
+      "number": "19",
+      "title": "A man who would woo a fair maid",
+      "type": "Trio (Fairfax, Elsie & Phoebe)",
+      "file": "yg219.kar",
+      "voiceTracks": [
+        "Elsie",
+        "Phoebe",
+        "Vocal"
+      ]
+    },
+    {
+      "id": "yg220",
+      "number": "20",
+      "title": "When a wooer goes a-wooing",
+      "type": "Quartet (Elsie, Phoebe, Fairfax & Point)",
+      "file": "yg220.kar",
+      "voiceTracks": [
+        "Elsie",
+        "Phoebe",
+        "Fairfax",
+        "Point"
+      ]
+    },
+    {
+      "id": "yg221",
+      "number": "21",
+      "title": "Rapture, rapture!",
+      "type": "Duet (Dame Carruthers & Sergeant Meryll)",
+      "file": "yg221.kar",
+      "voiceTracks": [
+        "Vocal",
+        "Staff-1"
+      ]
+    },
+    {
+      "id": "yg222",
+      "number": "22",
+      "title": "Comes the pretty young bride",
+      "type": "Finale Act II",
+      "file": "yg222.kar",
+      "voiceTracks": [
+        "Elsie",
+        "Phoebe",
+        "Dame Carruthers",
+        "Fairfax",
+        "Point",
+        "Lieutenant",
+        "Wilfred",
+        "Meryll",
+        "Sopranos",
+        "Contraltos",
+        "Tenors",
+        "Basses"
+      ]
+    }
+  ]
+}
