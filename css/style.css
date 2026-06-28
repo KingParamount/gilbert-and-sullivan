@@ -152,6 +152,8 @@ button.ctl.toggle.on { background: #c25e00; box-shadow: 0 3px 0 #8a4200; outline
 .volctl input[type="range"] { width: 150px; height: 30px; cursor: pointer; }
 
 footer { text-align: center; padding: 1.5rem 1rem 2.5rem; font-size: .85rem; color: #5a5a5a; }
+.srcnote { font-size: .78rem; opacity: .85; margin: .3rem 0 0; }
+.srcnote a { color: #5a1f68; }
 
 @media (max-width: 480px) {
   body { font-size: 18px; }

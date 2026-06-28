@@ -1,3 +1,7 @@
+// Gilbert & Sullivan Learn-O-Matic 4000
+// Copyright (C) 2026 KingParamount and contributors
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 
 // synth.js — sound engine. Prefers bundled sampled instruments (WebAudioFont:

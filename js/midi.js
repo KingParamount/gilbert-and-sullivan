@@ -1,3 +1,7 @@
+// Gilbert & Sullivan Learn-O-Matic 4000
+// Copyright (C) 2026 KingParamount and contributors
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 // midi.js — minimal Standard MIDI File (format 0/1) + .kar lyric parser.
 // Returns absolute-tick note/lyric events plus a tempo map; no opera-specific
 // knowledge lives here.

@@ -1,3 +1,7 @@
+// Gilbert & Sullivan Learn-O-Matic 4000
+// Copyright (C) 2026 KingParamount and contributors
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 // opera.js — all opera-specific reasoning lives here, driven entirely by the
 // songs.json config. Swap in a different opera by pointing at a different
 // config; nothing below names "Trial by Jury".

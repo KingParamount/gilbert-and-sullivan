@@ -1,3 +1,7 @@
+// Gilbert & Sullivan Learn-O-Matic 4000
+// Copyright (C) 2026 KingParamount and contributors
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 // lyrics.js — turn a song's raw lyric events into karaoke lines.
 // .kar convention: a line break is signalled by a leading carriage return /
 // newline (these files emit a standalone "\r" event) or a '\'/'/' marker;

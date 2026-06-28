@@ -87,6 +87,16 @@ part's `candidates` is in that song's `voiceTracks`.
 MIDI / karaoke files courtesy of **The Gilbert & Sullivan Archive**
 (https://www.gsarchive.net/). Please keep the credit in the page footer.
 
+## License
+
+The application code is licensed under the **GNU Affero General Public License
+v3.0 (AGPL-3.0)** — see `LICENSE`. This is a strong copyleft licence: you're free
+to use, share and modify it, but if you distribute it or run a modified version
+as a network service, you must make your source available under the same terms.
+
+The bundled music files, the `vendor/` sound library, and the instrument samples
+have their own terms — see `NOTICE`.
+
 ## Known limitations (by design)
 
 - **Shared-character tracks**: in a few numbers two characters share one MIDI
