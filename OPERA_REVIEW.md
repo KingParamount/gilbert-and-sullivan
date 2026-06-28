@@ -36,6 +36,11 @@ best-guesses and difficulties to review together.
 - **The Mikado** — No. 4 "Young man, despair": `Staff-2` → **Ko-Ko**, `Staff-3` →
   **Pish-Tush**, `Vocal` → **Pooh-Bah**; No. 14 "Braid the raven hair": `Vocal` →
   **Pitti-Sing** (and the two no longer leak into each other's number).
+- **The Yeomen of the Guard** — added a **1st Yeoman** part (Finale Act 1 only).
+  The Act 1 Finale (No. 12) uses *staging-position* tracks, not character tracks;
+  mapped `Centre` → Meryll/Fairfax/Lieutenant/Point, `Left Centre` → Wilfred/Elsie,
+  `Right Centre` → 1st Yeoman/2nd Yeoman/Phoebe, and `Alto` also → Dame Carruthers.
+  Each is flagged "includes other voices" since the staging lines are shared.
 
 ## Cross-cutting things to know
 - **Song order is reliable everywhere.** The printed **"No. X" labels are

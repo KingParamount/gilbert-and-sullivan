@@ -19,7 +19,11 @@
   "choralTracks": [
     "Chorus"
   ],
-  "soloistTracks": [],
+  "soloistTracks": [
+    "Centre",
+    "Left Centre",
+    "Right Centre"
+  ],
   "parts": [
     {
       "id": "colonel-fairfax",
@@ -65,6 +69,13 @@
       "label": "Sir Richard Cholmondeley",
       "candidates": [
         "Lieutenant"
+      ]
+    },
+    {
+      "id": "first-yeoman",
+      "label": "1st Yeoman",
+      "candidates": [
+        "Right Centre"
       ]
     },
     {
@@ -321,11 +332,58 @@
       "type": "Finale Act I",
       "file": "yg112.kar",
       "voiceTracks": [
+        "Centre",
+        "Left Centre",
+        "Right Centre",
         "Soprano",
         "Alto",
         "Tenor",
         "Bass"
-      ]
+      ],
+      "partTracks": {
+        "colonel-fairfax": [
+          "Centre"
+        ],
+        "sergeant-meryll": [
+          "Centre"
+        ],
+        "lieutenant": [
+          "Centre"
+        ],
+        "jack-point": [
+          "Centre"
+        ],
+        "wilfred-shadbolt": [
+          "Left Centre"
+        ],
+        "elsie": [
+          "Left Centre"
+        ],
+        "first-yeoman": [
+          "Right Centre"
+        ],
+        "second-yeoman": [
+          "Right Centre"
+        ],
+        "phoebe": [
+          "Right Centre"
+        ],
+        "dame-carruthers": [
+          "Alto"
+        ],
+        "soprano": [
+          "Soprano"
+        ],
+        "alto": [
+          "Alto"
+        ],
+        "tenor": [
+          "Tenor"
+        ],
+        "bass": [
+          "Bass"
+        ]
+      }
     },
     {
       "id": "yg213",
