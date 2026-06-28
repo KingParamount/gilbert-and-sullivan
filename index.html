@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn-O-Matic</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1 id="title">Learn-O-Matic</h1>
+    <p id="warming" class="warming" hidden>🎹 Warming up the piano…</p>
+  </header>
+
+  <main>
+    <section id="stage-part" class="stage">
+      <h2>What part would you like to learn today?</h2>
+      <div id="part-buttons" class="bigbtns"></div>
+    </section>
+
+    <section id="stage-song" class="stage" hidden>
+      <div id="crumbs" class="crumbs"></div>
+      <h2>Which song would you like to learn?</h2>
+      <div id="song-buttons" class="bigbtns"></div>
+    </section>
+
+    <section id="stage-player" class="stage" hidden>
+      <div id="lyrics" class="lyrics"></div>
+
+      <div class="transport">
+        <div class="seekrow">
+          <span id="time-now" class="time">0:00</span>
+          <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Position in song">
+          <span id="time-tot" class="time">0:00</span>
+        </div>
+
+        <div class="buttons-main">
+          <button id="btn-restart" class="ctl" title="Back to the beginning"><span class="ico">⏮</span><span class="lbl">Restart</span></button>
+          <button id="btn-back" class="ctl" title="Jump back 10 seconds"><span class="ico">⏪</span><span class="lbl">Back 10s</span></button>
+          <button id="btn-play" class="ctl play"><span class="ico">⏯</span><span class="lbl">Play</span></button>
+          <button id="btn-fwd" class="ctl" title="Jump forward 10 seconds"><span class="ico">⏩</span><span class="lbl">Forward 10s</span></button>
+        </div>
+
+        <div class="buttons-extra">
+          <button id="btn-mute-piano" class="ctl toggle"><span class="ico">🎹</span><span class="lbl">Mute Piano</span></button>
+          <button id="btn-play-all" class="ctl toggle"><span class="ico">👥</span><span class="lbl">Play All Parts</span></button>
+
+          <div class="speedbox">
+            <span class="speedlabel">Speed</span>
+            <div id="speeds" class="speeds">
+              <button data-speed="0.5">Slow</button>
+              <button data-speed="0.75">Medium</button>
+              <button data-speed="1" class="selected">Full</button>
+            </div>
+          </div>
+
+          <div class="volbox">
+            <span class="ico">🔊</span>
+            <input id="volume" type="range" min="0" max="1" step="0.05" value="0.8" aria-label="Volume">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p id="credit"></p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

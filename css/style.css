@@ -1,0 +1,145 @@
+/* style.css — big, friendly, high-contrast. Built for elderly users on
+   tablets: large touch targets, clear selected states, generous spacing. */
+
+:root {
+  --bg: #f4f1e8;
+  --ink: #1f2933;
+  --accent: #7b2d8e;      /* royal G&S purple */
+  --accent-dark: #5a1f68;
+  --selected: #2e7d32;    /* clear green "you picked this" */
+  --selected-dark: #1b5e20;
+  --panel: #ffffff;
+  --shadow: 0 3px 0 rgba(0,0,0,.18);
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+header {
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 4px 0 var(--accent-dark);
+}
+header h1 { margin: 0; font-size: clamp(1.8rem, 5vw, 3rem); letter-spacing: .5px; }
+.warming { margin: .5rem 0 0; font-size: 1rem; opacity: .9; animation: pulse 1.4s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+
+main { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+.stage { margin-top: 1.5rem; }
+.stage h2 { font-size: clamp(1.3rem, 3.5vw, 2rem); margin: .3rem 0 1rem; }
+
+/* ---- big button grids (parts & songs) ---- */
+.bigbtns { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+
+button.big {
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  padding: 1.1rem 1rem;
+  min-height: 84px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform .05s, background .15s;
+  display: flex; flex-direction: column; gap: .15rem; align-items: center; justify-content: center;
+  text-align: center;
+}
+button.big:hover { background: var(--accent-dark); }
+button.big:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(0,0,0,.18); }
+button.big.selected { background: var(--selected); box-shadow: 0 3px 0 var(--selected-dark); }
+button.big.selected::after { content: " ✓"; }
+
+button.big.song { align-items: flex-start; text-align: left; }
+button.big.song .num { font-size: .95rem; opacity: .85; }
+button.big.song .songtitle { font-size: 1.3rem; }
+button.big.song .songtype { font-size: .85rem; font-weight: normal; opacity: .85; }
+button.big.song .songnote {
+  font-size: .8rem; font-weight: normal; font-style: italic;
+  background: rgba(255,255,255,.22); padding: .15rem .5rem; border-radius: 8px; margin-top: .35rem;
+}
+button.big.song.selected::after { content: none; }
+
+.empty { font-size: 1.2rem; }
+
+/* ---- breadcrumbs ---- */
+.crumbs { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: .5rem; }
+button.crumb {
+  font-family: inherit; font-size: 1rem; font-weight: bold;
+  background: #fff; color: var(--accent-dark);
+  border: 3px solid var(--accent); border-radius: 999px;
+  padding: .45rem 1rem; cursor: pointer;
+}
+button.crumb:hover { background: var(--accent); color: #fff; }
+
+/* ---- lyrics box ---- */
+.lyrics {
+  background: #11151c; color: #cfd8e3;
+  border-radius: var(--radius);
+  padding: 1.5rem; min-height: 230px; max-height: 46vh; overflow-y: auto;
+  font-size: clamp(1.4rem, 4vw, 2.2rem); line-height: 1.7; text-align: center;
+}
+.lyrics .loading { opacity: .7; font-style: italic; }
+.lyric-line { margin: .3rem 0; transition: opacity .2s; }
+.syl { transition: color .1s; }
+.syl.sung { color: #6f7f93; }
+.syl.now { color: #ffd54a; text-shadow: 0 0 10px rgba(255,213,74,.6); }
+
+/* ---- transport ---- */
+.transport { margin-top: 1.2rem; background: var(--panel); border-radius: var(--radius); padding: 1.2rem; box-shadow: var(--shadow); }
+
+.seekrow { display: flex; align-items: center; gap: .8rem; }
+.time { font-variant-numeric: tabular-nums; font-weight: bold; min-width: 3ch; }
+input#seek { flex: 1; height: 30px; cursor: pointer; }
+
+.buttons-main { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; margin-top: 1rem; }
+.buttons-extra { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; align-items: center; margin-top: 1rem; }
+
+button.ctl {
+  font-family: inherit; font-weight: bold;
+  background: var(--accent); color: #fff; border: none; border-radius: var(--radius);
+  padding: .7rem 1.1rem; min-height: 70px; min-width: 92px; cursor: pointer; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; align-items: center; gap: .2rem;
+}
+button.ctl:hover { background: var(--accent-dark); }
+button.ctl:active { transform: translateY(2px); }
+button.ctl .ico { font-size: 1.6rem; line-height: 1; }
+button.ctl .lbl { font-size: .9rem; }
+button.ctl.play { background: var(--selected); box-shadow: 0 3px 0 var(--selected-dark); min-width: 120px; }
+button.ctl.play.playing { background: #c25e00; box-shadow: 0 3px 0 #8a4200; }
+button.ctl.toggle.on { background: #c25e00; box-shadow: 0 3px 0 #8a4200; outline: 3px solid #ffd54a; }
+
+.speedbox { display: flex; flex-direction: column; align-items: center; gap: .3rem; }
+.speedlabel { font-size: .8rem; font-weight: bold; }
+.speeds { display: flex; gap: .3rem; }
+.speeds button {
+  font-family: inherit; font-weight: bold; font-size: 1rem;
+  background: #e7e0ef; color: var(--accent-dark); border: 3px solid var(--accent);
+  border-radius: 12px; padding: .55rem .8rem; cursor: pointer; min-height: 56px;
+}
+.speeds button.selected { background: var(--selected); color: #fff; border-color: var(--selected-dark); }
+
+.volbox { display: flex; align-items: center; gap: .5rem; }
+.volbox .ico { font-size: 1.4rem; }
+input#volume { width: 140px; height: 30px; cursor: pointer; }
+
+footer { text-align: center; padding: 1.5rem 1rem 2.5rem; font-size: .85rem; color: #5a5a5a; }
+
+@media (max-width: 480px) {
+  body { font-size: 18px; }
+  button.ctl { min-width: 78px; padding: .6rem .7rem; }
+}

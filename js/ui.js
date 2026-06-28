@@ -1,0 +1,303 @@
+// ui.js — renders the three stages (pick part -> pick song -> practise) and
+// wires the practice player controls. Big, friendly, forgiving.
+
+import { Synth } from './synth.js';
+import { Player } from './player.js';
+import { songsForPart, getPart, makeRouting } from './opera.js';
+import { buildLyrics, activeSyllable } from './lyrics.js';
+
+const $ = (id) => document.getElementById(id);
+
+export function initUI(cfg) {
+  const synth = new Synth();
+  const state = {
+    partId: null,
+    song: null,
+    player: null,
+    lyrics: null,
+    opts: { mutePiano: false, playAll: false, speed: 1, volume: 0.8 },
+    raf: null,
+  };
+
+  $('title').textContent = cfg.meta.displayName;
+  $('credit').innerHTML = cfg.meta.credit;
+  document.title = cfg.meta.displayName;
+
+  // Start decoding the sampled instruments straight away so they're ready by
+  // the time anyone presses Play. Show a gentle indicator until they are.
+  synth.ensure();
+  const warming = $('warming');
+  if (warming) {
+    warming.hidden = false;
+    synth.whenSettled((sampled) => { warming.hidden = true; if (!sampled) console.info('Using built-in synth (no samples).'); });
+  }
+
+  renderPartButtons();
+
+  // ---- Stage 1: parts -------------------------------------------------------
+  function renderPartButtons() {
+    const box = $('part-buttons');
+    box.innerHTML = '';
+    cfg.parts.forEach((part) => {
+      const b = bigButton(part.label, () => choosePart(part.id));
+      b.dataset.part = part.id;
+      box.appendChild(b);
+    });
+  }
+
+  function choosePart(partId) {
+    state.partId = partId;
+    state.song = null;
+    highlight('part-buttons', (b) => b.dataset.part === partId);
+    show('stage-song');
+    hide('stage-player');
+    teardownPlayer();
+    renderSongButtons();
+    renderCrumbs();
+    scrollToStage('stage-song');
+  }
+
+  // ---- Stage 2: songs -------------------------------------------------------
+  function renderSongButtons() {
+    const box = $('song-buttons');
+    box.innerHTML = '';
+    const list = songsForPart(cfg, state.partId);
+    if (!list.length) {
+      box.innerHTML = '<p class="empty">This part doesn’t sing in any number. Pick another part above.</p>';
+      return;
+    }
+    list.forEach(({ song, note }) => {
+      const b = document.createElement('button');
+      b.className = 'big song';
+      b.dataset.song = song.id;
+      b.innerHTML =
+        `<span class="num">No. ${song.number}</span>` +
+        `<span class="songtitle">${escapeHtml(song.title)}</span>` +
+        `<span class="songtype">${escapeHtml(song.type)}</span>` +
+        (note ? `<span class="songnote">${escapeHtml(note)}</span>` : '');
+      b.onclick = () => chooseSong(song);
+      box.appendChild(b);
+    });
+  }
+
+  function chooseSong(song) {
+    state.song = song;
+    highlight('song-buttons', (b) => b.dataset.song === song.id);
+    renderCrumbs();
+    openPlayer(song);
+    scrollToStage('stage-player');
+  }
+
+  // ---- Breadcrumbs ----------------------------------------------------------
+  function renderCrumbs() {
+    const part = getPart(cfg, state.partId);
+    const crumbs = $('crumbs');
+    crumbs.innerHTML = '';
+    crumbs.appendChild(crumb('▶ Part: ' + part.label + ' (change)', () => {
+      hide('stage-player'); teardownPlayer();
+      highlight('song-buttons', () => false);
+      state.song = null;
+      scrollToStage('stage-part');
+    }));
+    if (state.song) {
+      crumbs.appendChild(crumb('♫ Song: No. ' + state.song.number + ' (change)', () => {
+        hide('stage-player'); teardownPlayer();
+        highlight('song-buttons', () => false);
+        state.song = null;
+        scrollToStage('stage-song');
+      }));
+    }
+  }
+
+  // ---- Stage 3: practice player --------------------------------------------
+  function openPlayer(song) {
+    teardownPlayer();
+    show('stage-player');
+    const player = new Player(synth);
+    state.player = player;
+    applyRouting();
+    synth.setMasterVolume(state.opts.volume);
+
+    $('lyrics').innerHTML = '<p class="loading">Loading the music…</p>';
+    setPlayIcon(false);
+
+    player.loadUrl(cfg.baseUrl + '/' + song.file).then(() => {
+      state.lyrics = buildLyrics(player);
+      player.onEnd = () => { setPlayIcon(false); cancelRaf(); renderPlayhead(); };
+      renderLyricsStatic();
+      renderPlayhead();
+    }).catch((err) => {
+      $('lyrics').innerHTML = '<p class="loading">Sorry — that number wouldn’t load.</p>';
+      console.error(err);
+    });
+
+    bindTransport();
+  }
+
+  function applyRouting() {
+    if (!state.player) return;
+    const part = getPart(cfg, state.partId);
+    const r = makeRouting(cfg, state.song, part, state.opts);
+    state.player.audible = r.audible;
+    state.player.timbre = r.timbre;
+  }
+
+  function bindTransport() {
+    $('btn-play').onclick = () => {
+      state.player.toggle();
+      setPlayIcon(state.player.playing);
+      if (state.player.playing) startRaf(); else cancelRaf();
+    };
+    $('btn-restart').onclick = () => { state.player.restart(); renderPlayhead(); };
+    $('btn-back').onclick = () => { state.player.skip(-10); renderPlayhead(); };
+    $('btn-fwd').onclick = () => { state.player.skip(10); renderPlayhead(); };
+
+    $('seek').oninput = (e) => {
+      const pos = (e.target.value / 1000) * state.player.duration;
+      state.player.seek(pos);
+      renderPlayhead();
+    };
+
+    $('volume').oninput = (e) => {
+      state.opts.volume = +e.target.value;
+      synth.setMasterVolume(state.opts.volume);
+    };
+
+    $('btn-mute-piano').onclick = (e) => {
+      state.opts.mutePiano = !state.opts.mutePiano;
+      e.currentTarget.classList.toggle('on', state.opts.mutePiano);
+      e.currentTarget.querySelector('.lbl').textContent = state.opts.mutePiano ? 'Piano is OFF' : 'Mute Piano';
+      applyRouting();
+      state.player.reschedule();
+    };
+
+    $('btn-play-all').onclick = (e) => {
+      state.opts.playAll = !state.opts.playAll;
+      e.currentTarget.classList.toggle('on', state.opts.playAll);
+      e.currentTarget.querySelector('.lbl').textContent = state.opts.playAll ? 'Just My Part' : 'Play All Parts';
+      applyRouting();
+      state.player.reschedule();
+    };
+
+    document.querySelectorAll('#speeds button').forEach((btn) => {
+      btn.onclick = () => {
+        state.opts.speed = +btn.dataset.speed;
+        state.player.setSpeed(state.opts.speed);
+        highlight('speeds', (b) => b === btn);
+      };
+    });
+  }
+
+  // ---- Lyric + playhead rendering ------------------------------------------
+  function renderLyricsStatic() {
+    const box = $('lyrics');
+    if (!state.lyrics || !state.lyrics.hasLyrics) {
+      box.innerHTML = '<p class="loading">(This number has no printed words — just play along.)</p>';
+      return;
+    }
+    box.innerHTML = '';
+    state.lyrics.lines.forEach((line, li) => {
+      if (!line) return;
+      const div = document.createElement('div');
+      div.className = 'lyric-line';
+      div.dataset.line = li;
+      line.forEach((syl) => {
+        const span = document.createElement('span');
+        span.className = 'syl';
+        span.dataset.index = syl.index;
+        span.textContent = syl.text;
+        div.appendChild(span);
+      });
+      box.appendChild(div);
+    });
+  }
+
+  let lastActive = -1;
+  function renderPlayhead() {
+    const player = state.player;
+    if (!player) return;
+    const pos = player.getPosition();
+    const frac = player.duration ? pos / player.duration : 0;
+    $('seek').value = Math.round(frac * 1000);
+    $('time-now').textContent = fmt(pos);
+    $('time-tot').textContent = fmt(player.duration);
+
+    if (state.lyrics && state.lyrics.hasLyrics) {
+      const active = activeSyllable(state.lyrics, pos);
+      if (active !== lastActive) {
+        lastActive = active;
+        const spans = $('lyrics').querySelectorAll('.syl');
+        spans.forEach((s) => {
+          const i = +s.dataset.index;
+          s.classList.toggle('sung', i < active);
+          s.classList.toggle('now', i === active);
+        });
+        const cur = state.lyrics.syllables[active];
+        if (cur) {
+          const lineEl = $('lyrics').querySelector(`.lyric-line[data-line="${cur.line}"]`);
+          if (lineEl) lineEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        }
+      }
+    }
+  }
+
+  function startRaf() {
+    cancelRaf();
+    const step = () => {
+      renderPlayhead();
+      if (state.player && state.player.playing) state.raf = requestAnimationFrame(step);
+    };
+    state.raf = requestAnimationFrame(step);
+  }
+  function cancelRaf() { if (state.raf) cancelAnimationFrame(state.raf); state.raf = null; }
+
+  function teardownPlayer() {
+    cancelRaf();
+    if (state.player) { state.player.pause(); state.player = null; }
+    state.lyrics = null;
+    lastActive = -1;
+    // reset transient toggles for a clean next song
+    state.opts.mutePiano = false;
+    state.opts.playAll = false;
+    state.opts.speed = 1;
+    resetToggleLabels();
+  }
+
+  function resetToggleLabels() {
+    const mp = $('btn-mute-piano'); if (mp) { mp.classList.remove('on'); mp.querySelector('.lbl').textContent = 'Mute Piano'; }
+    const pa = $('btn-play-all'); if (pa) { pa.classList.remove('on'); pa.querySelector('.lbl').textContent = 'Play All Parts'; }
+    highlight('speeds', (b) => b.dataset.speed === '1');
+    setPlayIcon(false);
+  }
+
+  function setPlayIcon(playing) {
+    const b = $('btn-play');
+    if (!b) return;
+    b.querySelector('.lbl').textContent = playing ? 'Pause' : 'Play';
+    b.classList.toggle('playing', playing);
+  }
+}
+
+// ---- small DOM helpers ------------------------------------------------------
+function bigButton(label, onClick) {
+  const b = document.createElement('button');
+  b.className = 'big';
+  b.textContent = label;
+  b.onclick = onClick;
+  return b;
+}
+function crumb(label, onClick) {
+  const b = document.createElement('button');
+  b.className = 'crumb';
+  b.textContent = label;
+  b.onclick = onClick;
+  return b;
+}
+function highlight(containerId, pred) {
+  document.querySelectorAll('#' + containerId + ' button').forEach((b) => b.classList.toggle('selected', pred(b)));
+}
+function show(id) { $(id).hidden = false; }
+function hide(id) { $(id).hidden = true; }
+function scrollToStage(id) { $(id).scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+function fmt(s) { s = Math.max(0, Math.floor(s)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+function escapeHtml(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
