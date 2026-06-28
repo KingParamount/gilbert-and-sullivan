@@ -53,6 +53,7 @@ export function makeRouting(cfg, song, part, opts) {
   const allVoices = song.voiceTracks;
 
   return {
+    leadTracks: matched,   // the part being learned (routed to the lead bus)
     audible(track) {
       if (accomp.includes(track)) return !opts.mutePiano;
       if (matched.includes(track)) return true;
@@ -63,11 +64,6 @@ export function makeRouting(cfg, song, part, opts) {
       if (accomp.includes(track)) return 'piano';
       if (matched.includes(track)) return 'voice';
       return 'choir';
-    },
-    volume(track) {
-      if (matched.includes(track)) return 1;
-      if (accomp.includes(track)) return 0.7;
-      return 0.55;
     },
   };
 }

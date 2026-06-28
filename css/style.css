@@ -100,6 +100,7 @@ button.crumb:hover { background: var(--accent); color: #fff; }
 
 /* ---- lyrics box ---- */
 .lyrics {
+  position: relative;          /* so lyric lines' offsetTop is relative to this box */
   background: #11151c; color: #cfd8e3;
   border-radius: var(--radius);
   padding: 1.5rem; min-height: 230px; max-height: 46vh; overflow-y: auto;
@@ -145,9 +146,10 @@ button.ctl.toggle.on { background: #c25e00; box-shadow: 0 3px 0 #8a4200; outline
 }
 .speeds button.selected { background: var(--selected); color: #fff; border-color: var(--selected-dark); }
 
-.volbox { display: flex; align-items: center; gap: .5rem; }
-.volbox .ico { font-size: 1.4rem; }
-input#volume { width: 140px; height: 30px; cursor: pointer; }
+.volumes { display: flex; flex-direction: column; gap: .45rem; }
+.volctl { display: flex; align-items: center; gap: .5rem; font-size: .85rem; font-weight: bold; }
+.volctl .vlabel { min-width: 12.5ch; text-align: right; }
+.volctl input[type="range"] { width: 150px; height: 30px; cursor: pointer; }
 
 footer { text-align: center; padding: 1.5rem 1rem 2.5rem; font-size: .85rem; color: #5a5a5a; }
 

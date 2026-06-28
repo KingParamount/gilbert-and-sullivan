@@ -11,12 +11,21 @@ const INSTRUMENTS = {
   oboe:  { src: 'assets/instruments/oboe.js',  global: '_tone_0680_FluidR3_GM_sf2_file' },
 };
 
+// Sound for the parts being learned: 'synth' = built-in oscillator voices,
+// 'sample' = the sampled oboe. The piano accompaniment is always the sampled
+// piano. Flip this one word to switch the voices back to the oboe.
+const DEFAULT_VOICE_SOURCE = 'synth';
+
 export class Synth {
   constructor() {
     this.ctx = null;
-    this.master = null;
+    this.master = null;       // overall output ("Master volume")
+    this.leadBus = null;      // the part being learned
+    this.accompBus = null;    // piano + any non-rehearsed voices ("Accompaniment volume")
     this.trackGains = {};
-    this._voices = [];        // active oscillator voices (fallback only)
+    this.leadTracks = new Set();
+    this.voiceSource = DEFAULT_VOICE_SOURCE;
+    this._voices = [];        // active oscillator voices
     this.player = null;       // WebAudioFontPlayer, when samples are available
     this.presets = {};
     this.ready = false;       // true once samples decoded
@@ -30,8 +39,14 @@ export class Synth {
       const AC = window.AudioContext || window.webkitAudioContext;
       this.ctx = new AC();
       this.master = this.ctx.createGain();
-      this.master.gain.value = 0.8;
+      this.master.gain.value = 0.85;
       this.master.connect(this.ctx.destination);
+      this.leadBus = this.ctx.createGain();
+      this.leadBus.gain.value = 1;
+      this.leadBus.connect(this.master);
+      this.accompBus = this.ctx.createGain();
+      this.accompBus.gain.value = 0.7;
+      this.accompBus.connect(this.master);
       this._loadInstruments();
     }
     return this.ctx;
@@ -63,21 +78,36 @@ export class Synth {
   }
 
   setMasterVolume(v) { this.ensure(); this.master.gain.setTargetAtTime(v, this.ctx.currentTime, 0.01); }
+  setAccompVolume(v) { this.ensure(); this.accompBus.gain.setTargetAtTime(v, this.ctx.currentTime, 0.01); }
+
+  // Tell the synth which tracks are the part being learned; everything else
+  // routes through the accompaniment bus.
+  setLeadTracks(names) {
+    this.leadTracks = new Set(names);
+    if (!this.ctx) return;
+    for (const name in this.trackGains) {
+      const g = this.trackGains[name];
+      try { g.disconnect(); } catch (e) {}
+      g.connect(this.leadTracks.has(name) ? this.leadBus : this.accompBus);
+    }
+  }
 
   trackGain(name) {
     if (!this.trackGains[name]) {
       const g = this.ctx.createGain();
       g.gain.value = 1;
-      g.connect(this.master);
+      g.connect(this.leadTracks.has(name) ? this.leadBus : this.accompBus);
       this.trackGains[name] = g;
     }
     return this.trackGains[name];
   }
 
-  // Schedule one note. `when`/`dur` are in AudioContext seconds.
+  // Schedule one note. `when`/`dur` are in AudioContext seconds. The piano is
+  // always the sampled instrument; the voices follow `voiceSource`.
   scheduleNote(when, dur, midi, vel, trackName, timbre) {
-    if (this.ready && this.player) { this._scheduleSampled(when, dur, midi, vel, trackName, timbre); return; }
-    this._scheduleOsc(when, dur, midi, vel, trackName, timbre);
+    const wantSample = (timbre === 'piano') || (this.voiceSource === 'sample');
+    if (this.ready && this.player && wantSample) this._scheduleSampled(when, dur, midi, vel, trackName, timbre);
+    else this._scheduleOsc(when, dur, midi, vel, trackName, timbre);
   }
 
   _scheduleSampled(when, dur, midi, vel, trackName, timbre) {

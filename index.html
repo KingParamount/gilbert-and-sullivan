@@ -57,9 +57,11 @@
             </div>
           </div>
 
-          <div class="volbox">
-            <span class="ico">🔊</span>
-            <input id="volume" type="range" min="0" max="1" step="0.05" value="0.8" aria-label="Volume">
+          <div class="volumes">
+            <label class="volctl"><span class="vlabel">🔊 Master volume</span>
+              <input id="volume" type="range" min="0" max="1" step="0.05" value="0.85" aria-label="Master volume"></label>
+            <label class="volctl"><span class="vlabel">🎹 Accompaniment volume</span>
+              <input id="accomp-volume" type="range" min="0" max="1" step="0.05" value="0.7" aria-label="Accompaniment volume"></label>
           </div>
         </div>
       </div>

@@ -97,7 +97,7 @@ SORCERER = {
         ("sorc13",     "13",     "Sprites of earth and air", "Incantation (Aline, Alexis & Mr. Wells)"),
         ("sorc14",     "14",     "Now to the banquet we press", "Finale Act I — 1884 version"),
         ("sorc14orig", "14",     "Now to the banquet we press", "Finale Act I — 1877 original"),
-        ("sorc15",     "15",     "Happy are we in our loving frivolity", "Trio & Chorus — 1884 version"),
+        ("sorc15",     "15",     "'Tis twelve, I think", "Trio & Chorus — 1884 version"),
         ("sorc1577",   "15",     "Happy are we in our loving frivolity", "Chorus — 1877 original"),
         ("sorc16",     "16",     "Ensemble", "Act II Ensemble — 1884 version"),
         ("sorc1677",   "16",     "Ensemble", "Act II Ensemble — 1877 original"),

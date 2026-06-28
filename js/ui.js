@@ -18,7 +18,7 @@ export function initApp(manifest) {
     song: null,
     player: null,
     lyrics: null,
-    opts: { mutePiano: false, playAll: false, speed: 1, volume: 0.8 },
+    opts: { mutePiano: false, playAll: false, speed: 1, volume: 0.85, accompVolume: 0.7 },
     raf: null,
   };
   let lastActive = -1; // index of the currently-highlighted lyric syllable
@@ -151,6 +151,9 @@ export function initApp(manifest) {
     state.player = player;
     applyRouting();
     synth.setMasterVolume(state.opts.volume);
+    synth.setAccompVolume(state.opts.accompVolume);
+    $('volume').value = state.opts.volume;
+    $('accomp-volume').value = state.opts.accompVolume;
 
     $('lyrics').innerHTML = '<p class="loading">Loading the music…</p>';
     setPlayIcon(false);
@@ -175,6 +178,7 @@ export function initApp(manifest) {
     const r = makeRouting(state.cfg, state.song, part, state.opts);
     state.player.audible = r.audible;
     state.player.timbre = r.timbre;
+    synth.setLeadTracks(r.leadTracks);
   }
 
   function bindTransport() {
@@ -196,6 +200,11 @@ export function initApp(manifest) {
     $('volume').oninput = (e) => {
       state.opts.volume = +e.target.value;
       synth.setMasterVolume(state.opts.volume);
+    };
+
+    $('accomp-volume').oninput = (e) => {
+      state.opts.accompVolume = +e.target.value;
+      synth.setAccompVolume(state.opts.accompVolume);
     };
 
     $('btn-mute-piano').onclick = (e) => {
@@ -268,8 +277,14 @@ export function initApp(manifest) {
         });
         const cur = state.lyrics.syllables[active];
         if (cur) {
-          const lineEl = $('lyrics').querySelector(`.lyric-line[data-line="${cur.line}"]`);
-          if (lineEl) lineEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
+          const box = $('lyrics');
+          const lineEl = box.querySelector(`.lyric-line[data-line="${cur.line}"]`);
+          if (lineEl) {
+            // Scroll only inside the lyrics box (never the whole page), so the
+            // transport stays reachable on small screens.
+            const target = lineEl.offsetTop - (box.clientHeight - lineEl.offsetHeight) / 2;
+            box.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+          }
         }
       }
     }
