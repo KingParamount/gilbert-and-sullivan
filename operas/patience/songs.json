@@ -154,8 +154,17 @@
       "file": "pat02.kar",
       "voiceTracks": [
         "Patience",
-        "Angela"
-      ]
+        "Angela",
+        "Staff-1"
+      ],
+      "partTracks": {
+        "saphir": [
+          "Staff-1"
+        ],
+        "alto": [
+          "Staff-1"
+        ]
+      }
     },
     {
       "id": "pat02a",
