@@ -56,9 +56,8 @@ best-guesses and difficulties to review together.
   Ida, several in Utopia & Grand Duke). They only sing within ensemble lines.
 - **Pirates "Poor wand'ring one!"** (No. 8) was a single-track (MIDI format 0)
   file with no per-part isolation — now **replaced** with a format-1 file (Mabel
-  / Sopranos / Altos isolate). The replacement (a Dorico export) has no karaoke
-  words, since Dorico's MIDI export omits lyrics; a MusicXML export could restore
-  them.
+  / Sopranos / Altos isolate), with the karaoke words **grafted back in** from the
+  original archive file (time-aligned to the Mabel line, rebroken on punctuation).
 - **Iolanthe** includes a byte-identical duplicate of the Act II finale and a cut
   song ("Fold your flapping wings") — you may want those removed.
 - Everything is reversible: each opera is just a folder + `songs.json`, and the
