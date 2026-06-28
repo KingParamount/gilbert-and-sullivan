@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Learn-O-Matic — rehearsal poster</title>
+  <style>
+    @page { size: A4 portrait; margin: 1.5cm; }
+    body { font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif; color: #1f2933; text-align: center; margin: 0; padding: 3vh 5vw; }
+    .crown { font-size: 3rem; }
+    h1 { color: #7b2d8e; font-size: clamp(2rem, 6vw, 3.4rem); margin: .2em 0 0; }
+    .sub { font-size: clamp(1.1rem, 3vw, 1.6rem); margin: .4em 0 1.2em; }
+    .cta { font-size: clamp(1.3rem, 4vw, 2rem); font-weight: bold; margin: .6em 0; }
+    img.qr { width: min(60vw, 9cm); height: auto; border: 8px solid #7b2d8e; border-radius: 16px; padding: 10px; background: #fff; }
+    .url { font-size: 1.1rem; margin-top: 1em; word-break: break-all; }
+    .url a { color: #5a1f68; }
+    ul { display: inline-block; text-align: left; font-size: 1.1rem; line-height: 1.6; margin: 1.2em auto; }
+    .foot { margin-top: 1.5em; font-size: .8rem; color: #666; }
+    @media print { body { padding: 0; } .noprint { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="crown">🎭</div>
+  <h1>Trial By Jury Learn-O-Matic 4000</h1>
+  <p class="sub">Learn your part for any Gilbert &amp; Sullivan opera — at home, on your phone or tablet.</p>
+
+  <p class="cta">📱 Scan to start practising</p>
+  <img class="qr" src="qr-code.png" alt="QR code to the Learn-O-Matic">
+
+  <p class="url"><a href="https://kingparamount.github.io/gilbert-and-sullivan/">kingparamount.github.io/gilbert-and-sullivan</a></p>
+
+  <ul>
+    <li>🎤 Choose your <strong>part</strong>, then a <strong>song</strong></li>
+    <li>🎹 Hear <strong>your line</strong> over the piano</li>
+    <li>🐢 <strong>Slow it down</strong> while you learn the notes</li>
+    <li>📜 Follow the <strong>karaoke lyrics</strong> as they highlight</li>
+  </ul>
+
+  <p class="foot">Karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)</p>
+  <p class="noprint" style="margin-top:2em"><button onclick="window.print()" style="font:1.1rem sans-serif;padding:.6em 1.4em;cursor:pointer">Print this poster</button></p>
+</body>
+</html>
