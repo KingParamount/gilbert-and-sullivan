@@ -33,6 +33,9 @@ best-guesses and difficulties to review together.
 - **The Grand Duke** — No. 1b: `Staff-2` → **Alto**; No. 11: trivial `Staff-1`
   folded into the piano; No. 20: trimmed to the actual singers (**Julia &
   Ernest** + piano), spurious empty tracks ignored.
+- **The Mikado** — No. 4 "Young man, despair": `Staff-2` → **Ko-Ko**, `Staff-3` →
+  **Pish-Tush**, `Vocal` → **Pooh-Bah**; No. 14 "Braid the raven hair": `Vocal` →
+  **Pitti-Sing** (and the two no longer leak into each other's number).
 
 ## Cross-cutting things to know
 - **Song order is reliable everywhere.** The printed **"No. X" labels are

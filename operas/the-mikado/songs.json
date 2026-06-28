@@ -18,9 +18,7 @@
     "Women",
     "Men"
   ],
-  "soloistTracks": [
-    "Vocal"
-  ],
+  "soloistTracks": [],
   "parts": [
     {
       "id": "mikado",
@@ -47,8 +45,7 @@
       "id": "pooh-bah",
       "label": "Pooh-Bah",
       "candidates": [
-        "Pooh-Bah",
-        "Vocal"
+        "Pooh-Bah"
       ]
     },
     {
@@ -76,8 +73,7 @@
       "id": "pitti-sing",
       "label": "Pitti-Sing",
       "candidates": [
-        "Pitti-Sing",
-        "Vocal"
+        "Pitti-Sing"
       ]
     },
     {
@@ -188,7 +184,18 @@
         "Vocal",
         "Staff-2",
         "Staff-3"
-      ]
+      ],
+      "partTracks": {
+        "pooh-bah": [
+          "Vocal"
+        ],
+        "ko-ko": [
+          "Staff-2"
+        ],
+        "pish-tush": [
+          "Staff-3"
+        ]
+      }
     },
     {
       "id": "104a",
@@ -319,7 +326,12 @@
         "Staff-1",
         "Staff-4",
         "Vocal"
-      ]
+      ],
+      "partTracks": {
+        "pitti-sing": [
+          "Vocal"
+        ]
+      }
     },
     {
       "id": "202",
