@@ -103,7 +103,7 @@ SORCERER = {
         ("sorc1677",   "16",     "Ensemble", "Act II Ensemble — 1877 original"),
         ("sorc17",     "17",     "Thou hast the power thy vaunted love", "Ballad (Alexis)"),
         ("sorc18",     "18",     "I rejoice that it's decided", "Quintette"),
-        ("sorc19",     "19",     "Hate me! I drop my H's", "Recit. & Duet (Lady Sangazure & Mr. Wells)"),
+        ("sorc19",     "19",     "Oh, I have wrought much evil with my spells!", "Recit. & Duet (Lady Sangazure & Mr. Wells)"),
         ("sorc20",     "20",     "Alexis! Doubt me not", "Recit. & Air (Aline)"),
         ("sorc21",     "21 & 22", "Oh, my voice is sad and low", "Song & Ensemble (Dr. Daly)"),
         ("sorc24",     "24",     "Finale", "Finale Act II"),
