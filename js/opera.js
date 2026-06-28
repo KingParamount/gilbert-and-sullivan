@@ -29,16 +29,21 @@ export function songsForPart(cfg, partId) {
 }
 
 function noteFor(cfg, part, track) {
-  if (track.includes('/')) {
-    const others = track.split('/').filter((x) => x.toLowerCase() !== part.label.toLowerCase());
-    if (others.length) return 'shares a line with the ' + others.join(' & ');
+  if (/[/&]/.test(track)) {                       // two characters share this track
+    const np = norm(part.label);
+    const others = track.split(/[/&]/).map((s) => s.trim()).filter(Boolean)
+      .filter((x) => { const nx = norm(x); return !(nx.includes(np) || np.includes(nx)); });
+    return others.length ? 'shares a line with ' + others.map(display).join(' & ')
+                         : 'shares a line with another character';
   }
-  if (cfg.choralTracks.includes(track) && VOICE_PARTS.includes(part.label)) {
+  if ((cfg.soloistTracks || []).includes(track)) return 'combined soloists — includes other voices';
+  if ((cfg.choralTracks || []).includes(track) && VOICE_PARTS.includes(part.label)) {
     return 'sung within the ' + display(track) + ' line';
   }
   return '';
 }
 
+const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
 function display(track) { return CHORAL_DISPLAY[track] || track; }
 
 // Build the audio routing for a chosen song + part, given live toggle options.

@@ -1,0 +1,8 @@
+{
+  "brand": "Learn-O-Matic 4000",
+  "default": "trial-by-jury",
+  "operas": [
+    { "id": "trial-by-jury", "name": "Trial By Jury", "dir": "operas/trial-by-jury" },
+    { "id": "the-sorcerer",  "name": "The Sorcerer",  "dir": "operas/the-sorcerer" }
+  ]
+}

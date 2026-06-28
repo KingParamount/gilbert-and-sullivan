@@ -1,16 +1,19 @@
-// ui.js — renders the three stages (pick part -> pick song -> practise) and
-// wires the practice player controls. Big, friendly, forgiving.
+// ui.js — renders the opera chooser + the three stages (pick part -> pick song
+// -> practise) and wires the practice player. Big, friendly, forgiving.
 
 import { Synth } from './synth.js';
 import { Player } from './player.js';
-import { songsForPart, getPart, makeRouting } from './opera.js';
+import { loadOpera, songsForPart, getPart, makeRouting } from './opera.js';
 import { buildLyrics, activeSyllable } from './lyrics.js';
 
 const $ = (id) => document.getElementById(id);
+const LAST_OPERA_KEY = 'gands.lastOpera';
 
-export function initUI(cfg) {
+export function initApp(manifest) {
   const synth = new Synth();
   const state = {
+    manifest,
+    cfg: null,          // current opera config (songs.json)
     partId: null,
     song: null,
     player: null,
@@ -19,26 +22,56 @@ export function initUI(cfg) {
     raf: null,
   };
 
-  $('title').textContent = cfg.meta.displayName;
-  $('credit').innerHTML = cfg.meta.credit;
-  document.title = cfg.meta.displayName;
-
-  // Start decoding the sampled instruments straight away so they're ready by
-  // the time anyone presses Play. Show a gentle indicator until they are.
+  // Start decoding the sampled instruments straight away (shared across operas).
   synth.ensure();
   const warming = $('warming');
-  if (warming) {
-    warming.hidden = false;
-    synth.whenSettled((sampled) => { warming.hidden = true; if (!sampled) console.info('Using built-in synth (no samples).'); });
-  }
+  if (warming) { warming.hidden = false; synth.whenSettled(() => { warming.hidden = true; }); }
 
-  renderPartButtons();
+  // ---- opera chooser (the title dropdown) -----------------------------------
+  $('brand').textContent = manifest.brand;
+  const select = $('opera-select');
+  select.innerHTML = '';
+  manifest.operas.forEach((o) => {
+    const opt = document.createElement('option');
+    opt.value = o.id; opt.textContent = o.name;
+    select.appendChild(opt);
+  });
+  select.onchange = () => selectOpera(select.value);
+
+  const start = manifest.operas.find((o) => o.id === safeGet(LAST_OPERA_KEY)) ? safeGet(LAST_OPERA_KEY) : manifest.default;
+  select.value = start;
+  selectOpera(start);
+
+  function selectOpera(id) {
+    const entry = manifest.operas.find((o) => o.id === id) || manifest.operas[0];
+    safeSet(LAST_OPERA_KEY, entry.id);
+    select.value = entry.id;
+    document.title = entry.name + ' ' + manifest.brand;
+
+    teardownPlayer();
+    state.partId = null;
+    state.song = null;
+    hide('stage-song');
+    hide('stage-player');
+
+    loadOpera(entry.dir).then((cfg) => {
+      state.cfg = cfg;
+      $('credit').innerHTML = cfg.meta.credit;
+      renderPartButtons();
+      show('stage-part');
+      scrollToStage('stage-part');
+    }).catch((err) => {
+      console.error(err);
+      $('part-buttons').innerHTML = '<p class="empty">Sorry — this opera failed to load.</p>';
+      show('stage-part');
+    });
+  }
 
   // ---- Stage 1: parts -------------------------------------------------------
   function renderPartButtons() {
     const box = $('part-buttons');
     box.innerHTML = '';
-    cfg.parts.forEach((part) => {
+    state.cfg.parts.forEach((part) => {
       const b = bigButton(part.label, () => choosePart(part.id));
       b.dataset.part = part.id;
       box.appendChild(b);
@@ -61,7 +94,7 @@ export function initUI(cfg) {
   function renderSongButtons() {
     const box = $('song-buttons');
     box.innerHTML = '';
-    const list = songsForPart(cfg, state.partId);
+    const list = songsForPart(state.cfg, state.partId);
     if (!list.length) {
       box.innerHTML = '<p class="empty">This part doesn’t sing in any number. Pick another part above.</p>';
       return;
@@ -71,7 +104,7 @@ export function initUI(cfg) {
       b.className = 'big song';
       b.dataset.song = song.id;
       b.innerHTML =
-        `<span class="num">No. ${song.number}</span>` +
+        `<span class="num">No. ${escapeHtml(song.number)}</span>` +
         `<span class="songtitle">${escapeHtml(song.title)}</span>` +
         `<span class="songtype">${escapeHtml(song.type)}</span>` +
         (note ? `<span class="songnote">${escapeHtml(note)}</span>` : '');
@@ -90,7 +123,7 @@ export function initUI(cfg) {
 
   // ---- Breadcrumbs ----------------------------------------------------------
   function renderCrumbs() {
-    const part = getPart(cfg, state.partId);
+    const part = getPart(state.cfg, state.partId);
     const crumbs = $('crumbs');
     crumbs.innerHTML = '';
     crumbs.appendChild(crumb('▶ Part: ' + part.label + ' (change)', () => {
@@ -121,7 +154,8 @@ export function initUI(cfg) {
     $('lyrics').innerHTML = '<p class="loading">Loading the music…</p>';
     setPlayIcon(false);
 
-    player.loadUrl(cfg.baseUrl + '/' + song.file).then(() => {
+    player.loadUrl(state.cfg.baseUrl + '/' + song.file).then(() => {
+      if (state.player !== player) return; // user moved on while loading
       state.lyrics = buildLyrics(player);
       player.onEnd = () => { setPlayIcon(false); cancelRaf(); renderPlayhead(); };
       renderLyricsStatic();
@@ -136,8 +170,8 @@ export function initUI(cfg) {
 
   function applyRouting() {
     if (!state.player) return;
-    const part = getPart(cfg, state.partId);
-    const r = makeRouting(cfg, state.song, part, state.opts);
+    const part = getPart(state.cfg, state.partId);
+    const r = makeRouting(state.cfg, state.song, part, state.opts);
     state.player.audible = r.audible;
     state.player.timbre = r.timbre;
   }
@@ -256,7 +290,6 @@ export function initUI(cfg) {
     if (state.player) { state.player.pause(); state.player = null; }
     state.lyrics = null;
     lastActive = -1;
-    // reset transient toggles for a clean next song
     state.opts.mutePiano = false;
     state.opts.playAll = false;
     state.opts.speed = 1;
@@ -278,7 +311,7 @@ export function initUI(cfg) {
   }
 }
 
-// ---- small DOM helpers ------------------------------------------------------
+// ---- small helpers ----------------------------------------------------------
 function bigButton(label, onClick) {
   const b = document.createElement('button');
   b.className = 'big';
@@ -300,4 +333,6 @@ function show(id) { $(id).hidden = false; }
 function hide(id) { $(id).hidden = true; }
 function scrollToStage(id) { $(id).scrollIntoView({ behavior: 'smooth', block: 'start' }); }
 function fmt(s) { s = Math.max(0, Math.floor(s)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
-function escapeHtml(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+function escapeHtml(s) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+function safeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function safeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }

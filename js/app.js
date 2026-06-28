@@ -1,17 +1,15 @@
-// app.js — bootstrap. Loads the opera config and starts the UI.
-// To add another opera later: drop its folder under /operas and change OPERA.
+// app.js — bootstrap. Loads the opera manifest (operas.json) and starts the UI.
+// To add another opera: drop its folder under /operas, generate its songs.json,
+// and add one line to operas.json. No code changes needed.
 
-import { loadOpera } from './opera.js';
-import { initUI } from './ui.js';
+import { initApp } from './ui.js';
 
-const OPERA = 'operas/trial-by-jury';
-
-loadOpera(OPERA)
-  .then((cfg) => initUI(cfg))
+fetch('operas.json')
+  .then((r) => r.json())
+  .then((manifest) => initApp(manifest))
   .catch((err) => {
     console.error(err);
-    document.getElementById('lyrics')?.replaceChildren();
     document.body.insertAdjacentHTML('afterbegin',
-      '<p style="padding:1rem;font:1.2rem sans-serif">Sorry — the song list failed to load. ' +
+      '<p style="padding:1rem;font:1.2rem sans-serif">Sorry — the opera list failed to load. ' +
       'If you opened this file directly, run it through a small web server instead.</p>');
   });

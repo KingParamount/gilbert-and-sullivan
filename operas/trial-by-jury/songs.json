@@ -3,13 +3,13 @@
     "opera": "Trial by Jury",
     "composer": "Arthur Sullivan",
     "librettist": "W. S. Gilbert",
-    "displayName": "Trial By Jury Learn-O-Matic 4000",
     "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
   },
   "accompaniment": [
     "Right Hand",
     "Left Hand",
-    "Tempo Track"
+    "Tempo Track",
+    "Tempo"
   ],
   "choralTracks": [
     "Women",
@@ -17,6 +17,7 @@
     "Jury",
     "Bridesamaids"
   ],
+  "soloistTracks": [],
   "parts": [
     {
       "id": "angelina",

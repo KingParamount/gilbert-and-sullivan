@@ -31,7 +31,19 @@ header {
   padding: 1.2rem 1rem;
   box-shadow: 0 4px 0 var(--accent-dark);
 }
-header h1 { margin: 0; font-size: clamp(1.8rem, 5vw, 3rem); letter-spacing: .5px; }
+.title { margin: 0; font-size: clamp(1.6rem, 4.5vw, 2.8rem); letter-spacing: .5px; display: flex; flex-wrap: wrap; gap: .4rem .6rem; align-items: baseline; justify-content: center; }
+.title .brand { font-weight: bold; }
+.opera-select {
+  font-family: inherit; font-size: inherit; font-weight: bold;
+  color: #fff; background: rgba(0,0,0,.18);
+  border: 3px solid rgba(255,255,255,.85); border-radius: 12px;
+  padding: .1rem .6rem; cursor: pointer; max-width: 90vw;
+  -webkit-appearance: none; appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><path fill='white' d='M4 6l4 4 4-4z'/></svg>");
+  background-repeat: no-repeat; background-position: right .5rem center; padding-right: 1.8rem;
+}
+.opera-select:hover { background-color: rgba(0,0,0,.32); }
+.opera-select option { color: #1f2933; background: #fff; }
 .warming { margin: .5rem 0 0; font-size: 1rem; opacity: .9; animation: pulse 1.4s ease-in-out infinite; }
 @keyframes pulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
 

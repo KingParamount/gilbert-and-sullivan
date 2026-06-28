@@ -1,0 +1,449 @@
+{
+  "meta": {
+    "opera": "The Sorcerer",
+    "composer": "Arthur Sullivan",
+    "librettist": "W. S. Gilbert",
+    "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
+  },
+  "accompaniment": [
+    "Right Hand",
+    "Left Hand",
+    "Piano RH",
+    "Piano LH",
+    "Tempo",
+    "Tempo Track"
+  ],
+  "choralTracks": [],
+  "soloistTracks": [
+    "Soloists"
+  ],
+  "parts": [
+    {
+      "id": "sir-marmaduke",
+      "label": "Sir Marmaduke",
+      "candidates": [
+        "Sir Marmaduke",
+        "Sir. M",
+        "Sir M./Dr. D."
+      ]
+    },
+    {
+      "id": "alexis",
+      "label": "Alexis",
+      "candidates": [
+        "Alexis",
+        "Vocal",
+        "Mr. Wells/Alexis",
+        "Soloists"
+      ]
+    },
+    {
+      "id": "dr-daly",
+      "label": "Dr Daly",
+      "candidates": [
+        "Dr Daly",
+        "Dr. Daly",
+        "Sir M./Dr. D."
+      ]
+    },
+    {
+      "id": "mr-wells",
+      "label": "J. W. Wells",
+      "candidates": [
+        "Mr Wells",
+        "Mr. Wells",
+        "Mr. Wells/Alexis"
+      ]
+    },
+    {
+      "id": "lady-sangazure",
+      "label": "Lady Sangazure",
+      "candidates": [
+        "Lady Sangazure",
+        "Lady S.",
+        "Lady S./Mrs. P.",
+        "Lady S. & Mrs. P",
+        "Soloists"
+      ]
+    },
+    {
+      "id": "aline",
+      "label": "Aline",
+      "candidates": [
+        "Aline",
+        "Aline & Constance",
+        "Soloists"
+      ]
+    },
+    {
+      "id": "mrs-partlet",
+      "label": "Mrs Partlet",
+      "candidates": [
+        "Mrs Partlet",
+        "Mrs. Partlet",
+        "Lady S./Mrs. P.",
+        "Lady S. & Mrs. P"
+      ]
+    },
+    {
+      "id": "constance",
+      "label": "Constance",
+      "candidates": [
+        "Constance",
+        "Aline & Constance"
+      ]
+    },
+    {
+      "id": "soprano",
+      "label": "Soprano",
+      "candidates": [
+        "Sopranos",
+        "Soprano"
+      ]
+    },
+    {
+      "id": "alto",
+      "label": "Alto",
+      "candidates": [
+        "Altos",
+        "Alto"
+      ]
+    },
+    {
+      "id": "tenor",
+      "label": "Tenor",
+      "candidates": [
+        "Tenors",
+        "Tenor"
+      ]
+    },
+    {
+      "id": "bass",
+      "label": "Bass",
+      "candidates": [
+        "Basses",
+        "Bass"
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": "sorc01",
+      "number": "1",
+      "title": "Ring forth, ye bells",
+      "type": "Introduction & Chorus",
+      "file": "sorc01.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "sorc02",
+      "number": "2",
+      "title": "When he is here",
+      "type": "Recit. & Aria (Mrs. Partlet & Constance)",
+      "file": "sorc02.kar",
+      "voiceTracks": [
+        "Mrs. Partlet",
+        "Constance"
+      ]
+    },
+    {
+      "id": "sorc03",
+      "number": "3",
+      "title": "Time was when love and I were well acquainted",
+      "type": "Recit. & Ballad (Dr. Daly)",
+      "file": "sorc03.kar",
+      "voiceTracks": [
+        "Dr Daly"
+      ]
+    },
+    {
+      "id": "sorc04",
+      "number": "4",
+      "title": "Recit. & Minuet",
+      "type": "Sir Marmaduke, Dr. Daly & Alexis",
+      "file": "sorc04.kar",
+      "voiceTracks": [
+        "Alexis",
+        "Sir Marmaduke",
+        "Dr Daly"
+      ]
+    },
+    {
+      "id": "sorc05",
+      "number": "5",
+      "title": "With heart and with voice",
+      "type": "Chorus",
+      "file": "sorc05.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Altos"
+      ]
+    },
+    {
+      "id": "sorc06",
+      "number": "6",
+      "title": "Oh, happy young heart",
+      "type": "Recit. & Aria (Aline)",
+      "file": "sorc06.kar",
+      "voiceTracks": [
+        "Aline"
+      ]
+    },
+    {
+      "id": "sorc07",
+      "number": "7 & 8",
+      "title": "Recit. & Chorus",
+      "type": "Lady Sangazure & Chorus",
+      "file": "sorc07.kar",
+      "voiceTracks": [
+        "Lady Sangazure",
+        "Tenor",
+        "Bass"
+      ]
+    },
+    {
+      "id": "sorc09",
+      "number": "9",
+      "title": "Welcome joy, adieu to sadness",
+      "type": "Duet (Lady Sangazure & Sir Marmaduke)",
+      "file": "sorc09.kar",
+      "voiceTracks": [
+        "Lady S.",
+        "Sir. M"
+      ]
+    },
+    {
+      "id": "sorc10",
+      "number": "10",
+      "title": "Ensemble",
+      "type": "Act I Ensemble",
+      "file": "sorc10.kar",
+      "voiceTracks": [
+        "Soloists",
+        "Soprano",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "sorc11",
+      "number": "11",
+      "title": "Love feeds on many kinds of food",
+      "type": "Ballad (Alexis)",
+      "file": "sorc11.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "sorc12",
+      "number": "12",
+      "title": "My name is John Wellington Wells",
+      "type": "Patter Song (Mr. Wells)",
+      "file": "sorc12.kar",
+      "voiceTracks": [
+        "Mr Wells"
+      ]
+    },
+    {
+      "id": "sorc13",
+      "number": "13",
+      "title": "Sprites of earth and air",
+      "type": "Incantation (Aline, Alexis & Mr. Wells)",
+      "file": "sorc13.kar",
+      "voiceTracks": [
+        "Aline",
+        "Alexis",
+        "Mr. Wells",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "sorc14",
+      "number": "14",
+      "title": "Now to the banquet we press",
+      "type": "Finale Act I \u2014 1884 version",
+      "file": "sorc14.kar",
+      "voiceTracks": [
+        "Aline",
+        "Constance",
+        "Lady S./Mrs. P.",
+        "Alexis",
+        "Mr. Wells",
+        "Sir M./Dr. D.",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Bass"
+      ]
+    },
+    {
+      "id": "sorc14orig",
+      "number": "14",
+      "title": "Now to the banquet we press",
+      "type": "Finale Act I \u2014 1877 original",
+      "file": "sorc14orig.kar",
+      "voiceTracks": [
+        "Aline",
+        "Constance",
+        "Lady S./Mrs. P.",
+        "Alexis",
+        "Mr. Wells",
+        "Sir M./Dr. D.",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Bass"
+      ]
+    },
+    {
+      "id": "sorc15",
+      "number": "15",
+      "title": "Happy are we in our loving frivolity",
+      "type": "Trio & Chorus \u2014 1884 version",
+      "file": "sorc15.kar",
+      "voiceTracks": [
+        "Aline",
+        "Alexis",
+        "Mr Wells",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "sorc1577",
+      "number": "15",
+      "title": "Happy are we in our loving frivolity",
+      "type": "Chorus \u2014 1877 original",
+      "file": "sorc1577.kar",
+      "voiceTracks": [
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "sorc16",
+      "number": "16",
+      "title": "Ensemble",
+      "type": "Act II Ensemble \u2014 1884 version",
+      "file": "sorc16.kar",
+      "voiceTracks": [
+        "Aline",
+        "Vocal",
+        "Alexis",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "sorc1677",
+      "number": "16",
+      "title": "Ensemble",
+      "type": "Act II Ensemble \u2014 1877 original",
+      "file": "sorc1677.kar",
+      "voiceTracks": [
+        "Aline",
+        "Vocal",
+        "Alexis",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "sorc17",
+      "number": "17",
+      "title": "Thou hast the power thy vaunted love",
+      "type": "Ballad (Alexis)",
+      "file": "sorc17.kar",
+      "voiceTracks": [
+        "Vocal"
+      ]
+    },
+    {
+      "id": "sorc18",
+      "number": "18",
+      "title": "I rejoice that it's decided",
+      "type": "Quintette",
+      "file": "sorc18.kar",
+      "voiceTracks": [
+        "Aline",
+        "Mrs Partlet",
+        "Alexis",
+        "Dr. Daly",
+        "Sir Marmaduke"
+      ]
+    },
+    {
+      "id": "sorc19",
+      "number": "19",
+      "title": "Hate me! I drop my H's",
+      "type": "Recit. & Duet (Lady Sangazure & Mr. Wells)",
+      "file": "sorc19.kar",
+      "voiceTracks": [
+        "Lady Sangazure",
+        "Mr. Wells"
+      ]
+    },
+    {
+      "id": "sorc20",
+      "number": "20",
+      "title": "Alexis! Doubt me not",
+      "type": "Recit. & Air (Aline)",
+      "file": "sorc20.kar",
+      "voiceTracks": [
+        "Aline"
+      ]
+    },
+    {
+      "id": "sorc21",
+      "number": "21 & 22",
+      "title": "Oh, my voice is sad and low",
+      "type": "Song & Ensemble (Dr. Daly)",
+      "file": "sorc21.kar",
+      "voiceTracks": [
+        "Aline",
+        "Alexis",
+        "Dr. Daly",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    },
+    {
+      "id": "sorc24",
+      "number": "24",
+      "title": "Finale",
+      "type": "Finale Act II",
+      "file": "sorc24.kar",
+      "voiceTracks": [
+        "Aline & Constance",
+        "Lady S. & Mrs. P",
+        "Mr. Wells/Alexis",
+        "Dr. Daly",
+        "Sir Marmaduke",
+        "Sopranos",
+        "Altos",
+        "Tenors",
+        "Basses"
+      ]
+    }
+  ]
+}
