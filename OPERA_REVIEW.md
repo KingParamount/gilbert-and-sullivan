@@ -6,6 +6,29 @@ the app. Trial by Jury and The Sorcerer were curated by hand with you; the other
 checked against the real MIDI files — no invented data). This file lists the
 best-guesses and difficulties to review together.
 
+## ✅ Resolved (fixes applied after review)
+- **Engine fixes** (benefit every opera): a parser bug that let a malformed note
+  (note-on with no note-off) ring forever until stop/start is fixed (it hit
+  Princess Ida No. 8). Added two general, code-free override hooks in each song's
+  `songs.json`: `partTracks` (assign a generically-named track like `Vocal` to the
+  right part for *that* number) and `accompaniment` (treat an oddly-named track
+  like `Staff-2` as piano for *that* number).
+- **Iolanthe** — No. 16 piano restored (it was on non-breaking-space-named
+  tracks); No. 14 → Private Willis only; No. 20 → Lord Chancellor only; duplicate
+  No. 25 removed.
+- **Patience** — No. 2: `Staff-1` mapped to **Lady Saphir + Altos** (both were
+  missing).
+- **Princess Ida** — No. 2 & No. 3 piano restored (`Treble Clef`/`Bass Clef`);
+  No. 8 hanging note fixed; No. 10a: `Staff-1` = women (Sop + Alto), `Staff-2/3` =
+  piano; No. 11 → **Lady Blanche**; No. 24: `Soprano I`→Soprano, `Soprano II`→Alto,
+  Tenor/Bass correct, `Staff-3/4` = piano.
+- **Ruddigore** — the reused `Vocal` track now resolves per song: No. 11 → **Mad
+  Margaret**, No. 22 / 22a → **Robin / Sir Ruthven**.
+- **Yeomen of the Guard** — `Vocal` resolves per song: No. 1 Phoebe, No. 1a
+  Wilfred, No. 10 Elsie, No. 11 Phoebe, No. 14 Jack Point, No. 16 & 19 Colonel
+  Fairfax, No. 21 Dame Carruthers (+ `Staff-1` → Sergeant Meryll — *best-guess*
+  for the "Rapture, rapture!" duet; worth a listen).
+
 ## Cross-cutting things to know
 - **Song order is reliable everywhere.** The printed **"No. X" labels are
   best-guess** for operas whose source files are named by *page* rather than

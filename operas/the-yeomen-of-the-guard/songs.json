@@ -19,9 +19,7 @@
   "choralTracks": [
     "Chorus"
   ],
-  "soloistTracks": [
-    "Vocal"
-  ],
+  "soloistTracks": [],
   "parts": [
     {
       "id": "colonel-fairfax",
@@ -153,7 +151,12 @@
       "file": "yeomen_01.kar",
       "voiceTracks": [
         "Vocal"
-      ]
+      ],
+      "partTracks": {
+        "phoebe": [
+          "Vocal"
+        ]
+      }
     },
     {
       "id": "yeomen_01a",
@@ -163,7 +166,12 @@
       "file": "yeomen_01a.kar",
       "voiceTracks": [
         "Vocal"
-      ]
+      ],
+      "partTracks": {
+        "wilfred-shadbolt": [
+          "Vocal"
+        ]
+      }
     },
     {
       "id": "yeomen_02",
@@ -284,7 +292,12 @@
       "file": "yg110.kar",
       "voiceTracks": [
         "Vocal"
-      ]
+      ],
+      "partTracks": {
+        "elsie": [
+          "Vocal"
+        ]
+      }
     },
     {
       "id": "yg111",
@@ -294,7 +307,12 @@
       "file": "yg111.kar",
       "voiceTracks": [
         "Vocal"
-      ]
+      ],
+      "partTracks": {
+        "phoebe": [
+          "Vocal"
+        ]
+      }
     },
     {
       "id": "yg112",
@@ -331,7 +349,12 @@
       "file": "yg214.kar",
       "voiceTracks": [
         "Vocal"
-      ]
+      ],
+      "partTracks": {
+        "jack-point": [
+          "Vocal"
+        ]
+      }
     },
     {
       "id": "yg215",
@@ -352,7 +375,12 @@
       "file": "yg216.kar",
       "voiceTracks": [
         "Vocal"
-      ]
+      ],
+      "partTracks": {
+        "colonel-fairfax": [
+          "Vocal"
+        ]
+      }
     },
     {
       "id": "yg217",
@@ -395,7 +423,12 @@
         "Elsie",
         "Phoebe",
         "Vocal"
-      ]
+      ],
+      "partTracks": {
+        "colonel-fairfax": [
+          "Vocal"
+        ]
+      }
     },
     {
       "id": "yg220",
@@ -419,7 +452,15 @@
       "voiceTracks": [
         "Vocal",
         "Staff-1"
-      ]
+      ],
+      "partTracks": {
+        "dame-carruthers": [
+          "Vocal"
+        ],
+        "sergeant-meryll": [
+          "Staff-1"
+        ]
+      }
     },
     {
       "id": "yg222",

@@ -46,8 +46,15 @@ export function parseMidi(buffer) {
         const l = vlq(); p += l;
       } else if (hi === 0x90) {               // note on
         const n = u[p++], v = u[p++];
-        if (v > 0) { (open[ch] || (open[ch] = {})); (open[ch][n] || (open[ch][n] = [])).push({ tick, v }); }
-        else closeNote(open, ch, n, tick, notes);
+        if (v > 0) {
+          open[ch] = open[ch] || {};
+          const stack = open[ch][n] = open[ch][n] || [];
+          // Retrigger: if this pitch is already sounding (a malformed file with a
+          // missing note-off), end the previous note here rather than letting a
+          // later note-off pair into a giant, hanging note.
+          while (stack.length) { const s = stack.shift(); notes.push({ tick: s.tick, dur: Math.max(1, tick - s.tick), midi: n, vel: s.v }); }
+          stack.push({ tick, v });
+        } else closeNote(open, ch, n, tick, notes);
       } else if (hi === 0x80) {               // note off
         const n = u[p++]; p++; closeNote(open, ch, n, tick, notes);
       } else if (hi === 0xa0 || hi === 0xb0 || hi === 0xe0) { p += 2; } // 2-byte channel msgs

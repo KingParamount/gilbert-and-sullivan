@@ -19,9 +19,7 @@
   "choralTracks": [
     "Bridesmaids"
   ],
-  "soloistTracks": [
-    "Vocal"
-  ],
+  "soloistTracks": [],
   "parts": [
     {
       "id": "robin-oakapple",
@@ -238,7 +236,12 @@
       "file": "rudd11.kar",
       "voiceTracks": [
         "Vocal"
-      ]
+      ],
+      "partTracks": {
+        "mad-margaret": [
+          "Vocal"
+        ]
+      }
     },
     {
       "id": "rudd12-13",
@@ -357,7 +360,12 @@
       "file": "rudd22.kar",
       "voiceTracks": [
         "Vocal"
-      ]
+      ],
+      "partTracks": {
+        "robin-oakapple": [
+          "Vocal"
+        ]
+      }
     },
     {
       "id": "rudd22a",
@@ -367,7 +375,12 @@
       "file": "rudd22a.kar",
       "voiceTracks": [
         "Vocal"
-      ]
+      ],
+      "partTracks": {
+        "robin-oakapple": [
+          "Vocal"
+        ]
+      }
     },
     {
       "id": "rudd23",

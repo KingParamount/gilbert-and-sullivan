@@ -47,7 +47,9 @@ export class Player {
     m.tracks.forEach((tr) => {
       tr.notes.forEach((n) => {
         const s = t2s(n.tick), e = t2s(n.tick + n.dur);
-        events.push({ sec: s, dur: Math.max(0.05, e - s), midi: n.midi, vel: n.vel, track: tr.name });
+        // clamp note length: floor avoids zero-length blips, ceiling is a backstop
+        // against any remaining malformed never-ending notes.
+        events.push({ sec: s, dur: Math.min(25, Math.max(0.05, e - s)), midi: n.midi, vel: n.vel, track: tr.name });
         if (e > duration) duration = e;
       });
       tr.lyrics.forEach((l) => lyrics.push({ sec: t2s(l.tick), text: l.text, track: tr.name }));

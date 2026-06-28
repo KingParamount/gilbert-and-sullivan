@@ -11,7 +11,9 @@
     "Piano Right Hand",
     "Piano Left Hand",
     "Tempo",
-    "Tempo Track"
+    "Tempo Track",
+    "Treble Clef",
+    "Bass Clef"
   ],
   "choralTracks": [
     "Girls",
@@ -285,7 +287,17 @@
       "type": "Chorus (alternate version)",
       "file": "pi_010a.kar",
       "voiceTracks": [
-        "Staff-1",
+        "Staff-1"
+      ],
+      "partTracks": {
+        "soprano": [
+          "Staff-1"
+        ],
+        "alto": [
+          "Staff-1"
+        ]
+      },
+      "accompaniment": [
         "Staff-2",
         "Staff-3"
       ]
@@ -298,7 +310,12 @@
       "file": "pi_011.kar",
       "voiceTracks": [
         "Staff-1"
-      ]
+      ],
+      "partTracks": {
+        "lady-blanche": [
+          "Staff-1"
+        ]
+      }
     },
     {
       "id": "pi_012",
@@ -460,6 +477,18 @@
         "Soprano II",
         "Tenor",
         "Bass"
+      ],
+      "partTracks": {
+        "soprano": [
+          "Soprano I"
+        ],
+        "alto": [
+          "Soprano II"
+        ]
+      },
+      "accompaniment": [
+        "Staff-3",
+        "Staff-4"
       ]
     },
     {

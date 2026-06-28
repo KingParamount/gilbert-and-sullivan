@@ -66,7 +66,9 @@ function display(track) { return CHORAL_DISPLAY[track] || track; }
 
 // Build the audio routing for a chosen song + part, given live toggle options.
 export function makeRouting(cfg, song, part, opts) {
-  const accomp = cfg.accompaniment;
+  // per-song `accompaniment` extends the opera-wide list (for oddly-named piano
+  // tracks like "Staff-2"/"Staff-3" that are piano only in certain numbers).
+  const accomp = song.accompaniment ? cfg.accompaniment.concat(song.accompaniment) : cfg.accompaniment;
   const matched = matchedTracks(cfg, song, part);
   const allVoices = song.voiceTracks;
 
