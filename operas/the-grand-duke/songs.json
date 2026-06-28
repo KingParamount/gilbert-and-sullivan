@@ -179,7 +179,12 @@
         "Staff-2",
         "Tenors",
         "Basses"
-      ]
+      ],
+      "partTracks": {
+        "alto": [
+          "Staff-2"
+        ]
+      }
     },
     {
       "id": "gd02",
@@ -293,6 +298,9 @@
       "file": "gd11.kar",
       "voiceTracks": [
         "Vocal"
+      ],
+      "accompaniment": [
+        "Staff-1"
       ]
     },
     {
@@ -393,12 +401,7 @@
       "file": "gd20.kar",
       "voiceTracks": [
         "Julia",
-        "Baroness",
-        "Ernest",
-        "Staff-2",
-        "SA",
-        "Staff-1",
-        "TB"
+        "Ernest"
       ]
     },
     {

@@ -30,6 +30,9 @@ best-guesses and difficulties to review together.
   Wilfred, No. 10 Elsie, No. 11 Phoebe, No. 14 Jack Point, No. 16 & 19 Colonel
   Fairfax, No. 21 Dame Carruthers (+ `Staff-1` → Sergeant Meryll — *best-guess*
   for the "Rapture, rapture!" duet; worth a listen).
+- **The Grand Duke** — No. 1b: `Staff-2` → **Alto**; No. 11: trivial `Staff-1`
+  folded into the piano; No. 20: trimmed to the actual singers (**Julia &
+  Ernest** + piano), spurious empty tracks ignored.
 
 ## Cross-cutting things to know
 - **Song order is reliable everywhere.** The printed **"No. X" labels are
