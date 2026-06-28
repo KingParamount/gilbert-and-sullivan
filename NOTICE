@@ -1,32 +1,16 @@
 Gilbert & Sullivan Learn-O-Matic 4000
-Copyright (C) 2026 KingParamount and contributors
+Copyright (c) 2026 KingParamount and contributors
 
-This program is free software: you can redistribute it and/or modify it under
-the terms of the GNU Affero General Public License as published by the Free
-Software Foundation, either version 3 of the License, or (at your option) any
-later version. See the LICENSE file for the full text.
+The application code (HTML/CSS/JavaScript and the Python build script) is
+licensed under the MIT License — see the LICENSE file. In short: do anything you
+like with it, keep the copyright notice, no warranty.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE.
+The following are NOT covered by the MIT License and keep their own terms:
 
-Because the AGPL covers use over a network: if you run a modified version of
-this app on a server that other people use, you must also offer those users the
-source code of your modified version.
-
-----------------------------------------------------------------------------
-Components NOT covered by the AGPL
-----------------------------------------------------------------------------
-The AGPL applies to the application code (the HTML/CSS/JavaScript and the Python
-build script) and the configuration files in this repository.
-
-It does NOT cover:
-
-- The karaoke / MIDI files in operas/*/ (the .kar files). These are the work of
-  The Gilbert & Sullivan Archive (https://www.gsarchive.net) and are included
-  with attribution. Please keep the credit in the page footer, and respect the
-  Archive's terms if you redistribute them.
+- The karaoke / MIDI files in operas/*/ (the .kar files) are the work of The
+  Gilbert & Sullivan Archive (https://www.gsarchive.net), included with
+  attribution. Please keep the credit in the page footer.
 
 - The sound library in vendor/ (WebAudioFontPlayer) and the instrument samples
-  in assets/instruments/, which are distributed under their own
-  (MIT-compatible) licences by their respective authors.
+  in assets/instruments/ are distributed under their own (MIT-compatible)
+  licences by their respective authors.

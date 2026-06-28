@@ -1,6 +1,6 @@
 // Gilbert & Sullivan Learn-O-Matic 4000
 // Copyright (C) 2026 KingParamount and contributors
-// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 
 // player.js — sequencer / transport on top of Synth.
 // Holds events in tempo-mapped "base seconds" (speed-independent) and uses a

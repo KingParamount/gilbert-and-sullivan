@@ -108,7 +108,6 @@ change:
   (https://www.gsarchive.net). The credit is shown in the page footer — please
   leave it there. As you're republishing their files, it's courteous to drop the
   Archive a note of thanks (and to check their terms).
-- The application code is licensed under the **GNU AGPL-3.0** (see `LICENSE` and
-  `NOTICE`) — free to use, share and adapt. Being copyleft, anyone who hosts a
-  *modified* version must also make their source available to its users. (The
-  music files have their own terms, as above.)
+- The application code is licensed under the **MIT License** (see `LICENSE` and
+  `NOTICE`) — free to use, share and adapt, with no warranty. (The music files
+  have their own terms, as above.)

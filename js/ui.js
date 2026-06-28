@@ -1,6 +1,6 @@
 // Gilbert & Sullivan Learn-O-Matic 4000
 // Copyright (C) 2026 KingParamount and contributors
-// SPDX-License-Identifier: AGPL-3.0-or-later
+// SPDX-License-Identifier: MIT
 
 // ui.js — renders the opera chooser + the three stages (pick part -> pick song
 // -> practise) and wires the practice player. Big, friendly, forgiving.

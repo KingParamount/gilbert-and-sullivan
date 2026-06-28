@@ -89,10 +89,8 @@ MIDI / karaoke files courtesy of **The Gilbert & Sullivan Archive**
 
 ## License
 
-The application code is licensed under the **GNU Affero General Public License
-v3.0 (AGPL-3.0)** — see `LICENSE`. This is a strong copyleft licence: you're free
-to use, share and modify it, but if you distribute it or run a modified version
-as a network service, you must make your source available under the same terms.
+The application code is licensed under the **MIT License** — see `LICENSE`.
+Do anything you like with it; keep the copyright notice; no warranty.
 
 The bundled music files, the `vendor/` sound library, and the instrument samples
 have their own terms — see `NOTICE`.
