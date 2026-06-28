@@ -41,6 +41,9 @@ best-guesses and difficulties to review together.
   mapped `Centre` → Meryll/Fairfax/Lieutenant/Point, `Left Centre` → Wilfred/Elsie,
   `Right Centre` → 1st Yeoman/2nd Yeoman/Phoebe, and `Alto` also → Dame Carruthers.
   Each is flagged "includes other voices" since the staging lines are shared.
+  Also: No. 3a `Staff` → **Meryll** with `Staff-1`/`Staff-2` restored as piano;
+  No. 1a `Staff-1` folded into the piano; No. 21 confirmed (`Vocal` → Dame
+  Carruthers, `Staff-1` → Sergeant Meryll).
 
 ## Cross-cutting things to know
 - **Song order is reliable everywhere.** The printed **"No. X" labels are

@@ -182,7 +182,10 @@
         "wilfred-shadbolt": [
           "Vocal"
         ]
-      }
+      },
+      "accompaniment": [
+        "Staff-1"
+      ]
     },
     {
       "id": "yeomen_02",
@@ -221,6 +224,15 @@
       "file": "yg103a.kar",
       "voiceTracks": [
         "Staff"
+      ],
+      "partTracks": {
+        "sergeant-meryll": [
+          "Staff"
+        ]
+      },
+      "accompaniment": [
+        "Staff-1",
+        "Staff-2"
       ]
     },
     {
