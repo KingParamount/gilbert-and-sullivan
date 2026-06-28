@@ -206,7 +206,11 @@
       "title": "Poor wand'ring one!",
       "type": "Song (Mabel) & Chorus",
       "file": "pp08.kar",
-      "voiceTracks": []
+      "voiceTracks": [
+        "Mabel",
+        "Sopranos",
+        "Altos"
+      ]
     },
     {
       "id": "pp11",

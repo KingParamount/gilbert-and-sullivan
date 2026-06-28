@@ -54,8 +54,11 @@ best-guesses and difficulties to review together.
 - **Minor characters with no separate MIDI track are omitted** as parts (e.g.
   Isabel in Pirates, Fleta in Iolanthe, Ruth in Ruddigore, Sacharissa/Chloe/Ada in
   Ida, several in Utopia & Grand Duke). They only sing within ensemble lines.
-- **Pirates "Poor wand'ring one!"** is a single-track (MIDI format 0) file — no
-  per-part isolation is possible for that one number; it plays whole.
+- **Pirates "Poor wand'ring one!"** (No. 8) was a single-track (MIDI format 0)
+  file with no per-part isolation — now **replaced** with a format-1 file (Mabel
+  / Sopranos / Altos isolate). The replacement (a Dorico export) has no karaoke
+  words, since Dorico's MIDI export omits lyrics; a MusicXML export could restore
+  them.
 - **Iolanthe** includes a byte-identical duplicate of the Act II finale and a cut
   song ("Fold your flapping wings") — you may want those removed.
 - Everything is reversible: each opera is just a folder + `songs.json`, and the
