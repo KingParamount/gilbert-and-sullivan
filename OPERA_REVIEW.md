@@ -23,7 +23,9 @@ best-guesses and difficulties to review together.
   piano; No. 11 → **Lady Blanche**; No. 24: `Soprano I`→Soprano, `Soprano II`→Alto,
   Tenor/Bass correct, `Staff-3/4` = piano.
 - **Ruddigore** — the reused `Vocal` track now resolves per song: No. 11 → **Mad
-  Margaret**, No. 22 / 22a → **Robin / Sir Ruthven**.
+  Margaret**, No. 22 / 22a → **Robin / Sir Ruthven**. Plus No. 8 `Staff-1` →
+  **Rose** (the Richard/Rose duet) and No. 19 `Staff-1` → **Robin / Sir Ruthven**
+  (his interjections in the picture-gallery scene).
 - **Yeomen of the Guard** — `Vocal` resolves per song: No. 1 Phoebe, No. 1a
   Wilfred, No. 10 Elsie, No. 11 Phoebe, No. 14 Jack Point, No. 16 & 19 Colonel
   Fairfax, No. 21 Dame Carruthers (+ `Staff-1` → Sergeant Meryll — *best-guess*

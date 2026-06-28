@@ -202,8 +202,14 @@
       "type": "Duet (Richard & Rose)",
       "file": "rudd08.kar",
       "voiceTracks": [
-        "Richard"
-      ]
+        "Richard",
+        "Staff-1"
+      ],
+      "partTracks": {
+        "rose-maybud": [
+          "Staff-1"
+        ]
+      }
     },
     {
       "id": "rudd09",
@@ -337,8 +343,14 @@
         "Tenors I",
         "Tenors II",
         "Basses I",
-        "Basses II"
-      ]
+        "Basses II",
+        "Staff-1"
+      ],
+      "partTracks": {
+        "robin-oakapple": [
+          "Staff-1"
+        ]
+      }
     },
     {
       "id": "rudd21",
