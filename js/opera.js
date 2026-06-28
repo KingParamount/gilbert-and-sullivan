@@ -15,13 +15,31 @@ export function getPart(cfg, partId) {
   return cfg.parts.find((p) => p.id === partId);
 }
 
+// Tracks in this song that belong to this part. Honours an optional per-song
+// `partTracks` override ({ partId: [trackName, ...] }) for cases where a generic
+// track name (e.g. "Vocal") means different soloists in different numbers.
+export function matchedTracks(cfg, song, part) {
+  let matched = part.candidates.filter((c) => song.voiceTracks.includes(c));
+  const overrides = song.partTracks;
+  if (overrides) {
+    const claimed = new Set();
+    for (const pid in overrides) for (const t of overrides[pid]) claimed.add(t);
+    const mine = overrides[part.id] || [];
+    // a track explicitly claimed by another part is not ours
+    matched = matched.filter((t) => !claimed.has(t) || mine.includes(t));
+    // add our explicitly-claimed tracks that are present in this song
+    for (const t of mine) if (song.voiceTracks.includes(t) && !matched.includes(t)) matched.push(t);
+  }
+  return matched;
+}
+
 // Songs that include this part, each annotated with the track(s) it maps to and
 // an optional friendly note (shared character / sung within a chorus line).
 export function songsForPart(cfg, partId) {
   const part = getPart(cfg, partId);
   return cfg.songs
     .map((song) => {
-      const matched = part.candidates.filter((c) => song.voiceTracks.includes(c));
+      const matched = matchedTracks(cfg, song, part);
       if (!matched.length) return null;
       return { song, matched, note: noteFor(cfg, part, matched[0]) };
     })
@@ -49,7 +67,7 @@ function display(track) { return CHORAL_DISPLAY[track] || track; }
 // Build the audio routing for a chosen song + part, given live toggle options.
 export function makeRouting(cfg, song, part, opts) {
   const accomp = cfg.accompaniment;
-  const matched = part.candidates.filter((c) => song.voiceTracks.includes(c));
+  const matched = matchedTracks(cfg, song, part);
   const allVoices = song.voiceTracks;
 
   return {

@@ -15,7 +15,9 @@
     "Tempo",
     "Tempo Track",
     "Staff-1",
-    "Staff-2"
+    "Staff-2",
+    " ",
+    "    "
   ],
   "choralTracks": [
     "Fairies",
@@ -302,7 +304,12 @@
       "file": "iolanthe_14.kar",
       "voiceTracks": [
         "Vocal"
-      ]
+      ],
+      "partTracks": {
+        "private-willis": [
+          "Vocal"
+        ]
+      }
     },
     {
       "id": "iolanthe_15",
@@ -378,7 +385,12 @@
       "file": "iolanthe_20.kar",
       "voiceTracks": [
         "Vocal"
-      ]
+      ],
+      "partTracks": {
+        "lord-chancellor": [
+          "Vocal"
+        ]
+      }
     },
     {
       "id": "iolanthe_21",
@@ -442,23 +454,6 @@
       "file": "flapping_wings.kar",
       "voiceTracks": [
         "Strephon"
-      ]
-    },
-    {
-      "id": "iolanthe",
-      "number": "25",
-      "title": "Soon as we may, off and away!",
-      "type": "Finale Act II — alternate (duplicate of No. 25)",
-      "file": "iolanthe.kar",
-      "voiceTracks": [
-        "Phyllis",
-        "Iolanthe",
-        "Queen",
-        "Lord Tolloller",
-        "Lord Mountararat",
-        "Lord Chancellor",
-        "Ladies' Chorus",
-        "Men's Chorus"
       ]
     }
   ]
