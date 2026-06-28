@@ -21,6 +21,7 @@ export function initApp(manifest) {
     opts: { mutePiano: false, playAll: false, speed: 1, volume: 0.8 },
     raf: null,
   };
+  let lastActive = -1; // index of the currently-highlighted lyric syllable
 
   // Start decoding the sampled instruments straight away (shared across operas).
   synth.ensure();
@@ -246,7 +247,6 @@ export function initApp(manifest) {
     });
   }
 
-  let lastActive = -1;
   function renderPlayhead() {
     const player = state.player;
     if (!player) return;
