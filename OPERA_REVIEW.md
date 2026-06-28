@@ -44,6 +44,11 @@ best-guesses and difficulties to review together.
   Also: No. 3a `Staff` → **Meryll** with `Staff-1`/`Staff-2` restored as piano;
   No. 1a `Staff-1` folded into the piano; No. 21 confirmed (`Vocal` → Dame
   Carruthers, `Staff-1` → Sergeant Meryll).
+- **Utopia, Limited** — `Flowers` is the six **Flowers of Progress**
+  (Fitzbattleaxe, Goldbury, Corcoran, Dramaleigh, Blushington, Bailey Barre), not
+  the chorus — remapped to those six (with an "includes other voices" note) and
+  taken off Tenor/Bass. No. 19 `Staff-1` → **King Paramount**; added a **Tarara**
+  part and mapped No. 20 `Staff-1` → Tarara.
 
 ## Cross-cutting things to know
 - **Song order is reliable everywhere.** The printed **"No. X" labels are

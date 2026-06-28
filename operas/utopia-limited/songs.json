@@ -17,10 +17,11 @@
   ],
   "choralTracks": [
     "Women",
-    "Troopers",
+    "Troopers"
+  ],
+  "soloistTracks": [
     "Flowers"
   ],
-  "soloistTracks": [],
   "parts": [
     {
       "id": "king-paramount",
@@ -48,10 +49,16 @@
       ]
     },
     {
+      "id": "tarara",
+      "label": "Tarara",
+      "candidates": []
+    },
+    {
       "id": "lord-dramaleigh",
       "label": "Lord Dramaleigh",
       "candidates": [
-        "Lord Dramaleigh"
+        "Lord Dramaleigh",
+        "Flowers"
       ]
     },
     {
@@ -59,7 +66,8 @@
       "label": "Mr Goldbury",
       "candidates": [
         "Goldbury",
-        "Mr. Goldbury"
+        "Mr. Goldbury",
+        "Flowers"
       ]
     },
     {
@@ -68,28 +76,32 @@
       "candidates": [
         "Capt. Fitzbattleaxe",
         "Fitzbattleaxe",
-        "Firzbattleaxe"
+        "Firzbattleaxe",
+        "Flowers"
       ]
     },
     {
       "id": "captain-corcoran",
       "label": "Captain Sir Edward Corcoran",
       "candidates": [
-        "Captain Corcoran"
+        "Captain Corcoran",
+        "Flowers"
       ]
     },
     {
       "id": "mr-blushington",
       "label": "Mr Blushington",
       "candidates": [
-        "Mr. Blushington"
+        "Mr. Blushington",
+        "Flowers"
       ]
     },
     {
       "id": "sir-bailey-barre",
       "label": "Sir Bailey Barre",
       "candidates": [
-        "Sir B. Barre"
+        "Sir B. Barre",
+        "Flowers"
       ]
     },
     {
@@ -159,7 +171,6 @@
         "Tenor",
         "Tenors",
         "Troopers",
-        "Flowers",
         "Men/Phantis"
       ]
     },
@@ -170,7 +181,6 @@
         "Bass",
         "Basses",
         "Troopers",
-        "Flowers",
         "Men/Phantis"
       ]
     }
@@ -419,8 +429,14 @@
       "file": "019.kar",
       "voiceTracks": [
         "Scaphio",
-        "Phantis"
-      ]
+        "Phantis",
+        "Staff-1"
+      ],
+      "partTracks": {
+        "king-paramount": [
+          "Staff-1"
+        ]
+      }
     },
     {
       "id": "020",
@@ -430,8 +446,14 @@
       "file": "020.kar",
       "voiceTracks": [
         "Scaphio",
-        "Phantis"
-      ]
+        "Phantis",
+        "Staff-1"
+      ],
+      "partTracks": {
+        "tarara": [
+          "Staff-1"
+        ]
+      }
     },
     {
       "id": "021",
