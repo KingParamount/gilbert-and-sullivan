@@ -44,6 +44,22 @@ header {
   border-bottom: 4px solid var(--gold);
   box-shadow: 0 4px 0 var(--navy-dark);
 }
+/* ---- site nav (links back to the main Society website) ---- */
+.site-nav {
+  display: flex; flex-wrap: wrap; gap: .4rem 1.4rem;
+  justify-content: center; align-items: center;
+  max-width: 1000px; margin: 0 auto .85rem;
+  padding-bottom: .8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, .18);
+}
+.site-nav a {
+  color: var(--powder); text-decoration: none;
+  font-weight: 600; font-size: .95rem; letter-spacing: .3px;
+  padding: .1rem 0; border-bottom: 2px solid transparent;
+  transition: color .15s, border-color .15s;
+}
+.site-nav a:hover, .site-nav a:focus { color: #fff; border-bottom-color: var(--gold); }
+
 .masthead {
   display: flex; flex-wrap: wrap; gap: .8rem 1.2rem;
   align-items: center; justify-content: center;
