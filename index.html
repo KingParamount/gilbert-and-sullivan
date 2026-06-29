@@ -8,6 +8,33 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Work+Sans:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Site-nav colours live here (in index.html) rather than in style.css so
+       they always apply, even if the stylesheet upload lags behind. */
+    .site-nav {
+      display: flex; flex-wrap: wrap; gap: .4rem 1.4rem;
+      justify-content: center; align-items: center;
+      max-width: 1000px; margin: 0 auto .85rem;
+      padding-bottom: .8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, .18);
+    }
+    .site-nav a,
+    .site-nav a:link,
+    .site-nav a:visited,
+    .site-nav a:hover,
+    .site-nav a:active {
+      color: #ffffff;                 /* readable on navy; identical in every state */
+      text-decoration: none;
+    }
+    .site-nav a {
+      font-weight: 600; font-size: .95rem; letter-spacing: .3px;
+      padding: .1rem 0;
+      border-bottom: 2px solid #c58f3b;   /* gold underline, so they read as links */
+      transition: border-color .15s, opacity .15s;
+    }
+    .site-nav a:hover,
+    .site-nav a:focus { opacity: .8; border-bottom-color: #ffffff; }
+  </style>
 </head>
 <body>
   <header>
