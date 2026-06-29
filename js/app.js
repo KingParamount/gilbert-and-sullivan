@@ -6,9 +6,7 @@
 // To add another opera: drop its folder under /operas, generate its songs.json,
 // and add one line to operas.json. No code changes needed.
 
-// The ?v= is a cache-buster: bump it whenever ui.js changes so phones/CDNs
-// fetch the new file instead of serving a stale cached copy.
-import { initApp } from './ui.js?v=2';
+import { initApp } from './ui-v2.js';
 
 fetch('operas.json')
   .then((r) => r.json())

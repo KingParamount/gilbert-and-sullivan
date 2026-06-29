@@ -116,7 +116,9 @@
     <p class="srcnote">Free software (<a href="https://github.com/KingParamount/gilbert-and-sullivan/blob/main/LICENSE">MIT</a>) — <a href="https://github.com/KingParamount/gilbert-and-sullivan">source code</a>.</p>
   </footer>
 
-  <!-- ?v= is a cache-buster: bump it whenever app.js changes -->
+  <!-- ?v= is a cache-buster for app.js: bump whenever app.js changes.
+       For JS-to-JS module imports, rename the file instead (e.g. ui-v2.js → ui-v3.js)
+       as Firefox doesn't reliably treat ?v= as a new URL in module imports. -->
   <script>
     history.scrollRestoration = 'manual';
     // Suppress the first scrollIntoView call, which comes from the initial
@@ -131,6 +133,6 @@
       };
     }());
   </script>
-  <script type="module" src="js/app.js?v=2"></script>
+  <script type="module" src="js/app.js?v=3"></script>
 </body>
 </html>
