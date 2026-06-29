@@ -1,0 +1,22 @@
+# Learn-O-Matic cache policy.
+#
+# Always re-check the HTML pages with the server before using a cached copy.
+# Because the HTML references its JavaScript/CSS with a version stamp (e.g.
+# app.js?v=2), forcing the HTML to stay fresh means any updated, re-stamped
+# files are picked up automatically — visitors never have to clear their cache.
+#
+# The version-stamped assets themselves can be cached for a good long while:
+# when they change, the ?v= number changes, which makes the browser fetch the
+# new copy regardless.
+
+<IfModule mod_headers.c>
+  # HTML: never serve from cache without checking with the server first.
+  <FilesMatch "\.html?$">
+    Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+  </FilesMatch>
+
+  # Versioned static assets: safe to cache for a year (the ?v= busts them).
+  <FilesMatch "\.(js|css|woff2?|png|jpe?g|svg|mid|kar|json)$">
+    Header set Cache-Control "public, max-age=31536000"
+  </FilesMatch>
+</IfModule>
