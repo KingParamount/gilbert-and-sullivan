@@ -11,6 +11,8 @@
   <style>
     /* Site-nav colours live here (in index.html) rather than in style.css so
        they always apply, even if the stylesheet upload lags behind. */
+    .crest-link { display: contents; }
+    .crest-link:focus { outline: 3px solid var(--gold); border-radius: 10px; }
     .site-nav {
       display: flex; flex-wrap: wrap; gap: .4rem 1.4rem;
       justify-content: center; align-items: center;
@@ -44,8 +46,10 @@
       <a href="/our-next-show">Our Next Show</a>
     </nav>
     <div class="masthead">
-      <img class="crest" src="assets/img/wolverton-gs-logo.jpg"
-           alt="Wolverton Gilbert &amp; Sullivan Society">
+      <a href="https://wolvertongands.co.uk" class="crest-link" aria-label="Wolverton Gilbert &amp; Sullivan Society home">
+        <img class="crest" src="assets/img/wolverton-gs-logo.jpg"
+             alt="Wolverton Gilbert &amp; Sullivan Society">
+      </a>
       <div class="masthead-text">
         <p class="society">Wolverton Gilbert &amp; Sullivan Society</p>
         <h1 class="title">
