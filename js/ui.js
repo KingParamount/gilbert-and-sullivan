@@ -45,9 +45,9 @@ export function initApp(manifest) {
 
   const start = manifest.operas.find((o) => o.id === safeGet(LAST_OPERA_KEY)) ? safeGet(LAST_OPERA_KEY) : manifest.default;
   select.value = start;
-  selectOpera(start);
+  selectOpera(start, false);   // initial load: don't scroll, keep the header in view
 
-  function selectOpera(id) {
+  function selectOpera(id, scroll = true) {
     const entry = manifest.operas.find((o) => o.id === id) || manifest.operas[0];
     safeSet(LAST_OPERA_KEY, entry.id);
     select.value = entry.id;
@@ -64,7 +64,7 @@ export function initApp(manifest) {
       $('credit').innerHTML = cfg.meta.credit;
       renderPartButtons();
       show('stage-part');
-      scrollToStage('stage-part');
+      if (scroll) scrollToStage('stage-part');
     }).catch((err) => {
       console.error(err);
       $('part-buttons').innerHTML = '<p class="empty">Sorry — this opera failed to load.</p>';
