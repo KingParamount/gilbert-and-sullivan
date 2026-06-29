@@ -117,7 +117,20 @@
   </footer>
 
   <!-- ?v= is a cache-buster: bump it whenever app.js changes -->
-  <script>history.scrollRestoration = 'manual';</script>
+  <script>
+    history.scrollRestoration = 'manual';
+    // Suppress the first scrollIntoView call, which comes from the initial
+    // opera load and scrolls the header off-screen on small screens.
+    // All subsequent calls (user-driven navigation) work normally.
+    (function () {
+      var orig = Element.prototype.scrollIntoView;
+      var done = false;
+      Element.prototype.scrollIntoView = function (opts) {
+        if (!done) { done = true; return; }
+        orig.call(this, opts);
+      };
+    }());
+  </script>
   <script type="module" src="js/app.js?v=2"></script>
 </body>
 </html>
