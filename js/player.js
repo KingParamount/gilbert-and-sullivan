@@ -56,7 +56,24 @@ export class Player {
         events.push({ sec: s, dur: Math.min(25, Math.max(0.05, e - s)), midi: n.midi, vel: n.vel, track: tr.name });
         if (e > duration) duration = e;
       });
-      tr.lyrics.forEach((l) => lyrics.push({ sec: t2s(l.tick), text: l.text, track: tr.name }));
+      // Give each lyric an end time so the karaoke highlight releases a syllable
+      // once it is actually finished. A syllable runs until the NEXT lyric
+      // begins (so a melisma — one syllable held over many notes — stays lit for
+      // the whole run), but no later than where its notes stop (so a rest after
+      // it releases the highlight rather than holding it through the silence).
+      const lyr = tr.lyrics.slice().sort((a, b) => a.tick - b.tick);
+      const notes = tr.notes.slice().sort((a, b) => a.tick - b.tick);
+      let j = 0;
+      lyr.forEach((l, i) => {
+        const nextTick = i + 1 < lyr.length ? lyr[i + 1].tick : Infinity;
+        while (j < notes.length && notes[j].tick < l.tick) j++;
+        let endTick = -1;
+        for (let k = j; k < notes.length && notes[k].tick < nextTick; k++) {
+          if (notes[k].tick + notes[k].dur > endTick) endTick = notes[k].tick + notes[k].dur;
+        }
+        const end = endTick >= 0 ? t2s(endTick) : t2s(l.tick) + 1.2;
+        lyrics.push({ sec: t2s(l.tick), end, text: l.text, track: tr.name });
+      });
     });
     events.sort((a, b) => a.sec - b.sec);
     lyrics.sort((a, b) => a.sec - b.sec);
