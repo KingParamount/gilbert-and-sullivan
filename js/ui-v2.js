@@ -22,7 +22,7 @@ export function initApp(manifest) {
     song: null,
     player: null,
     lyrics: null,
-    opts: { mutePiano: false, playAll: false, speed: 1, volume: 0.85, accompVolume: 0.7 },
+    opts: { mutePiano: false, otherParts: true, speed: 1, volume: 0.85, pianoVolume: 0.8, otherVolume: 0.5 },
     raf: null,
   };
   let lastHi = '';     // key of the current highlight state (syllable + singing?)
@@ -156,9 +156,13 @@ export function initApp(manifest) {
     state.player = player;
     applyRouting();
     synth.setMasterVolume(state.opts.volume);
-    synth.setAccompVolume(state.opts.accompVolume);
+    synth.setPianoVolume(state.opts.pianoVolume);
+    synth.setOtherVolume(state.opts.otherVolume);
     $('volume').value = state.opts.volume;
-    $('accomp-volume').value = state.opts.accompVolume;
+    $('piano-volume').value = state.opts.pianoVolume;
+    $('other-volume').value = state.opts.otherVolume;
+    setToggle('btn-mute-piano', !state.opts.mutePiano, 'Piano ON', 'Piano OFF');
+    setToggle('btn-play-all', state.opts.otherParts, 'Other Parts ON', 'Other Parts OFF');
 
     $('lyrics').innerHTML = '<p class="loading">Loading the music…</p>';
     setPlayIcon(false);
@@ -185,6 +189,14 @@ export function initApp(manifest) {
     state.player.audible = r.audible;
     state.player.timbre = r.timbre;
     synth.setLeadTracks(r.leadTracks);
+    synth.setPianoTracks(r.pianoTracks);
+  }
+
+  // Reflect a toggle's current state: label text + gold "off" styling.
+  function setToggle(id, on, onText, offText) {
+    const btn = $(id);
+    btn.classList.toggle('off', !on);
+    btn.querySelector('.lbl').textContent = on ? onText : offText;
   }
 
   function bindTransport() {
@@ -208,23 +220,26 @@ export function initApp(manifest) {
       synth.setMasterVolume(state.opts.volume);
     };
 
-    $('accomp-volume').oninput = (e) => {
-      state.opts.accompVolume = +e.target.value;
-      synth.setAccompVolume(state.opts.accompVolume);
+    $('piano-volume').oninput = (e) => {
+      state.opts.pianoVolume = +e.target.value;
+      synth.setPianoVolume(state.opts.pianoVolume);
     };
 
-    $('btn-mute-piano').onclick = (e) => {
+    $('other-volume').oninput = (e) => {
+      state.opts.otherVolume = +e.target.value;
+      synth.setOtherVolume(state.opts.otherVolume);
+    };
+
+    $('btn-mute-piano').onclick = () => {
       state.opts.mutePiano = !state.opts.mutePiano;
-      e.currentTarget.classList.toggle('on', state.opts.mutePiano);
-      e.currentTarget.querySelector('.lbl').textContent = state.opts.mutePiano ? 'Piano is OFF' : 'Mute Piano';
+      setToggle('btn-mute-piano', !state.opts.mutePiano, 'Piano ON', 'Piano OFF');
       applyRouting();
       state.player.reschedule();
     };
 
-    $('btn-play-all').onclick = (e) => {
-      state.opts.playAll = !state.opts.playAll;
-      e.currentTarget.classList.toggle('on', state.opts.playAll);
-      e.currentTarget.querySelector('.lbl').textContent = state.opts.playAll ? 'Just My Part' : 'Play All Parts';
+    $('btn-play-all').onclick = () => {
+      state.opts.otherParts = !state.opts.otherParts;
+      setToggle('btn-play-all', state.opts.otherParts, 'Other Parts ON', 'Other Parts OFF');
       applyRouting();
       state.player.reschedule();
     };
@@ -340,14 +355,15 @@ export function initApp(manifest) {
     lastHi = '';
     lastLine = -1;
     state.opts.mutePiano = false;
-    state.opts.playAll = false;
+    state.opts.otherParts = true;
     state.opts.speed = 1;
     resetToggleLabels();
   }
 
   function resetToggleLabels() {
-    const mp = $('btn-mute-piano'); if (mp) { mp.classList.remove('on'); mp.querySelector('.lbl').textContent = 'Mute Piano'; }
-    const pa = $('btn-play-all'); if (pa) { pa.classList.remove('on'); pa.querySelector('.lbl').textContent = 'Play All Parts'; }
+    // default: both ON (piano on, other parts on)
+    if ($('btn-mute-piano')) setToggle('btn-mute-piano', true, 'Piano ON', 'Piano OFF');
+    if ($('btn-play-all')) setToggle('btn-play-all', true, 'Other Parts ON', 'Other Parts OFF');
     highlight('speeds', (b) => b.dataset.speed === '1');
     setPlayIcon(false);
   }

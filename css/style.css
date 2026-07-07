@@ -191,7 +191,8 @@ button.ctl .ico { font-size: 1.35rem; line-height: 1; }
 button.ctl .lbl { font-size: .82rem; }
 button.ctl.play { background: var(--crimson); box-shadow: 0 3px 0 var(--crimson-dark); min-width: 104px; }
 button.ctl.play.playing { background: var(--gold-dark); box-shadow: 0 3px 0 #6f4f17; }
-button.ctl.toggle.on { background: var(--gold); color: #2a1c05; box-shadow: 0 3px 0 var(--gold-dark); outline: 3px solid #fff3da; }
+/* Toggles show their CURRENT state: ON = navy (the base .ctl look); OFF = gold. */
+button.ctl.toggle.off { background: var(--gold); color: #2a1c05; box-shadow: 0 3px 0 var(--gold-dark); outline: 3px solid #fff3da; }
 
 .speedbox { display: flex; flex-direction: column; align-items: center; gap: .25rem; }
 .speedlabel { font-size: .75rem; font-weight: 700; color: var(--navy); }
@@ -237,7 +238,7 @@ footer { text-align: center; padding: 1.3rem 1rem 2.2rem; font-size: .82rem; col
   padding: 1.5rem 1.6rem 1.6rem;
 }
 .modal h2 {
-  font-family: var(--serif); color: var(--navy);
+  font-family: var(--serif); color: var(--navy); text-align: center;
   margin: 0 0 .6rem; font-size: clamp(1.3rem, 4.5vw, 1.7rem); line-height: 1.2;
 }
 .modal p { margin: .5rem 0; }
@@ -248,7 +249,6 @@ footer { text-align: center; padding: 1.3rem 1rem 2.2rem; font-size: .82rem; col
 .welcome-enjoy { font-family: var(--serif); font-size: 1.25rem; color: var(--navy); margin: 1rem 0 .1rem; }
 .welcome-sign { font-family: var(--serif); font-size: 1.1rem; margin: .1rem 0 1rem; }
 .welcome-ok {
-  position: sticky; bottom: 0;
   display: block; width: 100%; margin-top: .4rem;
   font-family: var(--sans); font-weight: 700; font-size: 1.1rem;
   color: #fff; background: var(--navy);

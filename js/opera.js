@@ -78,10 +78,11 @@ export function makeRouting(cfg, song, part, opts) {
 
   return {
     leadTracks: matched,   // the part being learned (routed to the lead bus)
+    pianoTracks: accomp,   // piano / accompaniment tracks (routed to the piano bus)
     audible(track) {
       if (accomp.includes(track)) return !opts.mutePiano;
       if (matched.includes(track)) return true;
-      if (opts.playAll && allVoices.includes(track)) return true;
+      if (opts.otherParts && allVoices.includes(track)) return true;
       return false;
     },
     timbre(track) {

@@ -25,9 +25,11 @@ export class Synth {
     this.ctx = null;
     this.master = null;       // overall output ("Master volume")
     this.leadBus = null;      // the part being learned
-    this.accompBus = null;    // piano + any non-rehearsed voices ("Accompaniment volume")
+    this.pianoBus = null;     // sampled piano / accompaniment ("Piano volume")
+    this.otherBus = null;     // the other voice parts ("Other parts volume")
     this.trackGains = {};
     this.leadTracks = new Set();
+    this.pianoTracks = new Set();
     this.voiceSource = DEFAULT_VOICE_SOURCE;
     this._voices = [];        // active oscillator voices
     this.player = null;       // WebAudioFontPlayer, when samples are available
@@ -48,9 +50,12 @@ export class Synth {
       this.leadBus = this.ctx.createGain();
       this.leadBus.gain.value = 1;
       this.leadBus.connect(this.master);
-      this.accompBus = this.ctx.createGain();
-      this.accompBus.gain.value = 0.7;
-      this.accompBus.connect(this.master);
+      this.pianoBus = this.ctx.createGain();
+      this.pianoBus.gain.value = 0.8;
+      this.pianoBus.connect(this.master);
+      this.otherBus = this.ctx.createGain();
+      this.otherBus.gain.value = 0.5;     // other parts start quiet — turn up to raise difficulty
+      this.otherBus.connect(this.master);
       this._loadInstruments();
     }
     return this.ctx;
@@ -82,25 +87,34 @@ export class Synth {
   }
 
   setMasterVolume(v) { this.ensure(); this.master.gain.setTargetAtTime(v, this.ctx.currentTime, 0.01); }
-  setAccompVolume(v) { this.ensure(); this.accompBus.gain.setTargetAtTime(v, this.ctx.currentTime, 0.01); }
+  setPianoVolume(v)  { this.ensure(); this.pianoBus.gain.setTargetAtTime(v, this.ctx.currentTime, 0.01); }
+  setOtherVolume(v)  { this.ensure(); this.otherBus.gain.setTargetAtTime(v, this.ctx.currentTime, 0.01); }
 
-  // Tell the synth which tracks are the part being learned; everything else
-  // routes through the accompaniment bus.
-  setLeadTracks(names) {
-    this.leadTracks = new Set(names);
+  // The bus a track belongs to: the part being learned -> lead; a piano /
+  // accompaniment track -> piano; any other voice part -> other.
+  _busFor(name) {
+    if (this.leadTracks.has(name)) return this.leadBus;
+    if (this.pianoTracks.has(name)) return this.pianoBus;
+    return this.otherBus;
+  }
+
+  _reroute() {
     if (!this.ctx) return;
     for (const name in this.trackGains) {
       const g = this.trackGains[name];
       try { g.disconnect(); } catch (e) {}
-      g.connect(this.leadTracks.has(name) ? this.leadBus : this.accompBus);
+      g.connect(this._busFor(name));
     }
   }
+
+  setLeadTracks(names)  { this.leadTracks = new Set(names); this._reroute(); }
+  setPianoTracks(names) { this.pianoTracks = new Set(names); this._reroute(); }
 
   trackGain(name) {
     if (!this.trackGains[name]) {
       const g = this.ctx.createGain();
       g.gain.value = 1;
-      g.connect(this.leadTracks.has(name) ? this.leadBus : this.accompBus);
+      g.connect(this._busFor(name));
       this.trackGains[name] = g;
     }
     return this.trackGains[name];
@@ -115,8 +129,10 @@ export class Synth {
   }
 
   _scheduleSampled(when, dur, midi, vel, trackName, timbre) {
-    const preset = timbre === 'voice' ? this.presets.oboe : this.presets.piano;
-    const colour = timbre === 'voice' ? 0.9 : (timbre === 'choir' ? 0.4 : 0.6); // your line leads
+    // Voices (yours AND the other parts) use the reedy oboe so the other parts
+    // are raspy like your line; only the accompaniment uses the piano sample.
+    const preset = timbre === 'piano' ? this.presets.piano : this.presets.oboe;
+    const colour = timbre === 'voice' ? 0.9 : (timbre === 'choir' ? 0.8 : 0.6);
     const volume = Math.max(0.05, vel / 127) * colour;
     this.player.queueWaveTable(this.ctx, this.trackGain(trackName), preset, when, midi, dur, volume);
   }
@@ -137,10 +153,12 @@ export class Synth {
 
     let oscs, stopAt;
     if (timbre === 'voice' || timbre === 'choir') {
-      const cutoff = timbre === 'voice' ? 2600 : 1500;
-      const wave = timbre === 'voice' ? 'sawtooth' : 'triangle';
-      const detune = timbre === 'voice' ? 4 : 6;
-      const amp = v * (timbre === 'voice' ? 0.42 : 0.3);
+      // Both use a reedy sawtooth; the other parts are a touch darker and softer
+      // than your line, but close enough that at full volume yours folds in.
+      const cutoff = timbre === 'voice' ? 2600 : 2100;
+      const wave = 'sawtooth';
+      const detune = timbre === 'voice' ? 4 : 5;
+      const amp = v * (timbre === 'voice' ? 0.42 : 0.40);
       filter.frequency.value = cutoff;
       oscs = [mkOsc(wave, -detune), mkOsc(wave, detune)];
       const susEnd = Math.max(when + 0.07, when + dur);

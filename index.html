@@ -42,8 +42,8 @@
   <!-- Welcome notice — shown on every page load (dismissed with OK; it is not a
        "don't show again" dialogue by deliberate choice). -->
   <div id="welcome" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
-    <div class="modal">
-      <h2 id="welcome-title">Welcome to the Gilbert &amp; Sullivan Learn-O-Matic 4000!</h2>
+    <div class="modal" tabindex="-1">
+      <h2 id="welcome-title">Welcome to the Gilbert &amp; Sullivan<br>Learn-O-Matic 4000!</h2>
       <p>There are a few things which you should know, as follows:</p>
       <ol class="welcome-list">
         <li>This is a learning tool. <strong>IT DOES NOT REPLACE YOUR MD!</strong> If your MD says the words are different, the song goes faster, or the Mikado should be singing the Soprano line at that point, then <strong>THAT IS WHAT YOU DO.</strong> This code has a line written into it which will detect the words &ldquo;I think you&rsquo;ll find the web-page says&hellip;.&rdquo; and will cause your computer to shoot boiling yoghurt at you. You have been warned.</li>
@@ -54,7 +54,7 @@
       </ol>
       <p class="welcome-enjoy">ENJOY!</p>
       <p class="welcome-sign">Charlie</p>
-      <button id="welcome-ok" class="welcome-ok" type="button" autofocus>OK</button>
+      <button id="welcome-ok" class="welcome-ok" type="button">OK</button>
     </div>
   </div>
 
@@ -111,8 +111,8 @@
         </div>
 
         <div class="buttons-extra">
-          <button id="btn-mute-piano" class="ctl toggle"><span class="ico">🎹</span><span class="lbl">Mute Piano</span></button>
-          <button id="btn-play-all" class="ctl toggle"><span class="ico">👥</span><span class="lbl">Play All Parts</span></button>
+          <button id="btn-mute-piano" class="ctl toggle"><span class="ico">🎹</span><span class="lbl">Piano ON</span></button>
+          <button id="btn-play-all" class="ctl toggle"><span class="ico">👥</span><span class="lbl">Other Parts ON</span></button>
 
           <div class="speedbox">
             <span class="speedlabel">Speed</span>
@@ -126,8 +126,10 @@
           <div class="volumes">
             <label class="volctl"><span class="vlabel">🔊 Master volume</span>
               <input id="volume" type="range" min="0" max="1" step="0.05" value="0.85" aria-label="Master volume"></label>
-            <label class="volctl"><span class="vlabel">🎹 Accompaniment volume</span>
-              <input id="accomp-volume" type="range" min="0" max="1" step="0.05" value="0.7" aria-label="Accompaniment volume"></label>
+            <label class="volctl"><span class="vlabel">🎹 Piano volume</span>
+              <input id="piano-volume" type="range" min="0" max="1" step="0.05" value="0.8" aria-label="Piano volume"></label>
+            <label class="volctl"><span class="vlabel">👥 Other parts volume</span>
+              <input id="other-volume" type="range" min="0" max="1" step="0.05" value="0.5" aria-label="Other parts volume"></label>
           </div>
         </div>
       </div>
@@ -163,6 +165,10 @@
       var ok = document.getElementById('welcome-ok');
       if (!modal || !ok) return;
       document.documentElement.style.overflow = 'hidden';
+      // Start at the top of the notice (focus the card, not the OK button, so the
+      // browser doesn't scroll straight down to it).
+      var card = modal.querySelector('.modal');
+      if (card) { card.scrollTop = 0; card.focus({ preventScroll: true }); }
       ok.addEventListener('click', function () {
         modal.hidden = true;
         document.documentElement.style.overflow = '';
