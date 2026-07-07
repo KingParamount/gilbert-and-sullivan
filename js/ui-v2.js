@@ -7,7 +7,7 @@
 
 import { Synth } from './synth.js';
 import { Player } from './player.js';
-import { loadOpera, songsForPart, getPart, makeRouting } from './opera.js';
+import { loadOpera, songsForPart, getPart, makeRouting, matchedTracks } from './opera.js';
 import { buildLyrics, activeSyllable } from './lyrics.js';
 
 const $ = (id) => document.getElementById(id);
@@ -25,7 +25,8 @@ export function initApp(manifest) {
     opts: { mutePiano: false, playAll: false, speed: 1, volume: 0.85, accompVolume: 0.7 },
     raf: null,
   };
-  let lastActive = -1; // index of the currently-highlighted lyric syllable
+  let lastHi = '';     // key of the current highlight state (syllable + singing?)
+  let lastLine = -1;   // index of the display line currently scrolled to
 
   // Start decoding the sampled instruments straight away (shared across operas).
   synth.ensure();
@@ -164,7 +165,8 @@ export function initApp(manifest) {
 
     player.loadUrl(state.cfg.baseUrl + '/' + song.file).then(() => {
       if (state.player !== player) return; // user moved on while loading
-      state.lyrics = buildLyrics(player);
+      const part = getPart(state.cfg, state.partId);
+      state.lyrics = buildLyrics(player, matchedTracks(state.cfg, song, part), song.voiceTracks);
       player.onEnd = () => { setPlayIcon(false); cancelRaf(); renderPlayhead(); };
       renderLyricsStatic();
       renderPlayhead();
@@ -247,12 +249,22 @@ export function initApp(manifest) {
     state.lyrics.lines.forEach((line, li) => {
       if (!line) return;
       const div = document.createElement('div');
-      div.className = 'lyric-line';
+      div.className = 'lyric-line' + (line.mine ? ' mine' : ' other');
       div.dataset.line = li;
-      line.forEach((syl) => {
+      if (line.label) {
+        const tag = document.createElement('span');
+        tag.className = 'speaker';
+        tag.textContent = line.label;
+        div.appendChild(tag);
+      }
+      line.syls.forEach((syl) => {
         const span = document.createElement('span');
-        span.className = 'syl';
-        span.dataset.index = syl.index;
+        if (line.mine) {
+          span.className = 'syl';
+          span.dataset.index = syl.index;
+        } else {
+          span.className = 'word';
+        }
         span.textContent = syl.text;
         div.appendChild(span);
       });
@@ -271,27 +283,44 @@ export function initApp(manifest) {
 
     if (state.lyrics && state.lyrics.hasLyrics) {
       const active = activeSyllable(state.lyrics, pos);
-      if (active !== lastActive) {
-        lastActive = active;
-        const spans = $('lyrics').querySelectorAll('.syl');
-        spans.forEach((s) => {
+      const cur = state.lyrics.syllables[active];
+      // your syllable is gold only while it is actually sounding; once its note
+      // (or melisma) is over it settles to the sung grey like everything else.
+      const singing = cur && pos < (cur.end != null ? cur.end : Infinity);
+      const hiKey = active + '|' + (singing ? 1 : 0);
+      if (hiKey !== lastHi) {
+        lastHi = hiKey;
+        $('lyrics').querySelectorAll('.syl').forEach((s) => {
           const i = +s.dataset.index;
-          s.classList.toggle('sung', i < active);
-          s.classList.toggle('now', i === active);
+          s.classList.toggle('sung', i < active || (i === active && !singing));
+          s.classList.toggle('now', i === active && singing);
         });
-        const cur = state.lyrics.syllables[active];
-        if (cur) {
-          const box = $('lyrics');
-          const lineEl = box.querySelector(`.lyric-line[data-line="${cur.line}"]`);
-          if (lineEl) {
-            // Scroll only inside the lyrics box (never the whole page), so the
-            // transport stays reachable on small screens.
-            const target = lineEl.offsetTop - (box.clientHeight - lineEl.offsetHeight) / 2;
-            box.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
-          }
+      }
+      // Scroll follows whichever line is sounding now — including the greyed
+      // other-part cues — so it glides through them instead of leaping straight
+      // to your next entry after a long rest.
+      const li = currentLineIndex(state.lyrics.lines, pos);
+      if (li !== lastLine && li >= 0) {
+        lastLine = li;
+        const box = $('lyrics');
+        const lineEl = box.querySelector(`.lyric-line[data-line="${li}"]`);
+        if (lineEl) {
+          // Scroll only inside the lyrics box (never the whole page), so the
+          // transport stays reachable on small screens.
+          const target = lineEl.offsetTop - (box.clientHeight - lineEl.offsetHeight) / 2;
+          box.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
         }
       }
     }
+  }
+
+  // Index of the last display line that has begun by `pos` (any character's).
+  function currentLineIndex(lines, pos) {
+    let idx = -1;
+    for (let i = 0; i < lines.length; i++) {
+      if (lines[i] && lines[i].start <= pos + 0.02) idx = i; else if (lines[i]) break;
+    }
+    return idx;
   }
 
   function startRaf() {
@@ -308,7 +337,8 @@ export function initApp(manifest) {
     cancelRaf();
     if (state.player) { state.player.pause(); state.player = null; }
     state.lyrics = null;
-    lastActive = -1;
+    lastHi = '';
+    lastLine = -1;
     state.opts.mutePiano = false;
     state.opts.playAll = false;
     state.opts.speed = 1;

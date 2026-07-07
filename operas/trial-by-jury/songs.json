@@ -3,20 +3,14 @@
     "opera": "Trial by Jury",
     "composer": "Arthur Sullivan",
     "librettist": "W. S. Gilbert",
-    "credit": "MIDI/karaoke files courtesy of The Gilbert &amp; Sullivan Archive (gsarchive.net)."
+    "credit": "Engraved from the score by KingParamount; after The Gilbert &amp; Sullivan Archive (gsarchive.net)."
   },
   "accompaniment": [
     "Right Hand",
     "Left Hand",
-    "Tempo Track",
     "Tempo"
   ],
-  "choralTracks": [
-    "Women",
-    "Men",
-    "Jury",
-    "Bridesamaids"
-  ],
+  "choralTracks": [],
   "soloistTracks": [],
   "parts": [
     {
@@ -30,35 +24,28 @@
       "id": "edwin",
       "label": "Edwin",
       "candidates": [
-        "Defendant",
-        "Counsel/Defendant"
+        "Defendant"
       ]
     },
     {
       "id": "judge",
       "label": "Judge",
       "candidates": [
-        "Judge",
-        "Usher/Judge",
-        "Judge/Counsel"
+        "Judge"
       ]
     },
     {
       "id": "counsel",
       "label": "Counsel",
       "candidates": [
-        "Counsel",
-        "Counsel/Defendant",
-        "Judge/Counsel"
+        "Counsel"
       ]
     },
     {
       "id": "usher",
       "label": "Usher",
       "candidates": [
-        "Usher",
-        "Usher/Judge",
-        "Vocal"
+        "Usher"
       ]
     },
     {
@@ -72,40 +59,28 @@
       "id": "soprano",
       "label": "Soprano",
       "candidates": [
-        "Soprano",
-        "Sopranos",
-        "Women",
-        "Bridesamaids"
+        "Soprano"
       ]
     },
     {
       "id": "alto",
       "label": "Alto",
       "candidates": [
-        "Alto",
-        "Altos",
-        "Women",
-        "Bridesamaids"
+        "Alto"
       ]
     },
     {
       "id": "tenor",
       "label": "Tenor",
       "candidates": [
-        "Tenor",
-        "Tenors",
-        "Men",
-        "Jury"
+        "Tenor"
       ]
     },
     {
       "id": "bass",
       "label": "Bass",
       "candidates": [
-        "Bass",
-        "Basses",
-        "Men",
-        "Jury"
+        "Bass"
       ]
     }
   ],
@@ -115,7 +90,7 @@
       "number": "1",
       "title": "Hark, the hour of ten is sounding",
       "type": "Opening Chorus",
-      "file": "tbj01.kar",
+      "file": "tbj01.mid",
       "voiceTracks": [
         "Soprano",
         "Alto",
@@ -128,12 +103,14 @@
       "number": "1a",
       "title": "Now, Jury-men, hear my advice",
       "type": "Solo & Recit. (Usher) / Edwin's entrance",
-      "file": "tbj01a.kar",
+      "file": "tbj01a.mid",
       "voiceTracks": [
         "Defendant",
-        "Vocal",
-        "Women",
-        "Men"
+        "Usher",
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
       ]
     },
     {
@@ -141,7 +118,7 @@
       "number": "2",
       "title": "When first my old, old love I knew",
       "type": "Song & Chorus (Defendant)",
-      "file": "tbj02.kar",
+      "file": "tbj02.mid",
       "voiceTracks": [
         "Defendant",
         "Soprano",
@@ -155,11 +132,14 @@
       "number": "3",
       "title": "All hail, great Judge!",
       "type": "Chorus & Solo (Judge)",
-      "file": "tbj03.kar",
+      "file": "tbj03.mid",
       "voiceTracks": [
-        "Usher/Judge",
-        "Women",
-        "Men"
+        "Usher",
+        "Judge",
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
       ]
     },
     {
@@ -167,11 +147,13 @@
       "number": "4",
       "title": "When I, good friends, was call'd to the bar",
       "type": "Song (Judge)",
-      "file": "tbj04.kar",
+      "file": "tbj04.mid",
       "voiceTracks": [
         "Judge",
-        "Women",
-        "Men"
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
       ]
     },
     {
@@ -179,13 +161,14 @@
       "number": "5",
       "title": "Swear thou the Jury!",
       "type": "Recitative (Counsel)",
-      "file": "tbj05.kar",
+      "file": "tbj05.mid",
       "voiceTracks": [
         "Defendant",
         "Counsel",
         "Usher",
         "Judge",
-        "Jury"
+        "Tenor",
+        "Bass"
       ]
     },
     {
@@ -193,12 +176,13 @@
       "number": "6",
       "title": "Comes the broken flower",
       "type": "Chorus & Solo (Plaintiff)",
-      "file": "tbj06.kar",
+      "file": "tbj06.mid",
       "voiceTracks": [
-        "Counsel/Defendant",
+        "Counsel",
         "Usher",
         "Plaintiff",
-        "Bridesamaids"
+        "Soprano",
+        "Alto"
       ]
     },
     {
@@ -206,11 +190,15 @@
       "number": "7",
       "title": "Oh, never, never, never",
       "type": "Scene",
-      "file": "tbj07.kar",
+      "file": "tbj07.mid",
       "voiceTracks": [
         "Judge",
+        "Foreman",
         "Plaintiff",
-        "Jury"
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
       ]
     },
     {
@@ -218,12 +206,15 @@
       "number": "8",
       "title": "May it please you, my lud!",
       "type": "Solo & Chorus (Counsel)",
-      "file": "tbj08.kar",
+      "file": "tbj08.mid",
       "voiceTracks": [
         "Plaintiff",
         "Counsel",
-        "Women",
-        "Men"
+        "Usher",
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
       ]
     },
     {
@@ -231,14 +222,16 @@
       "number": "9",
       "title": "That she is reeling",
       "type": "Scene",
-      "file": "tbj09.kar",
+      "file": "tbj09.mid",
       "voiceTracks": [
         "Plaintiff",
         "Counsel",
         "Judge",
         "Foreman",
-        "Women",
-        "Men"
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
       ]
     },
     {
@@ -246,9 +239,11 @@
       "number": "10",
       "title": "Oh, gentlemen, listen, I pray",
       "type": "Song (Defendant)",
-      "file": "tbj10.kar",
+      "file": "tbj10.mid",
       "voiceTracks": [
-        "Defendant"
+        "Defendant",
+        "Soprano",
+        "Alto"
       ]
     },
     {
@@ -256,11 +251,14 @@
       "number": "11",
       "title": "That seems a reasonable proposition",
       "type": "Scene",
-      "file": "tbj11.kar",
+      "file": "tbj11.mid",
       "voiceTracks": [
-        "Judge/Counsel",
-        "Women",
-        "Men"
+        "Judge",
+        "Counsel",
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
       ]
     },
     {
@@ -268,7 +266,7 @@
       "number": "12",
       "title": "A nice dilemma we have here",
       "type": "Sestet (with Chorus)",
-      "file": "tbj12.kar",
+      "file": "tbj12.mid",
       "voiceTracks": [
         "Plaintiff",
         "Defendant",
@@ -276,10 +274,10 @@
         "Judge",
         "Usher",
         "Foreman",
-        "Sopranos",
-        "Altos",
-        "Tenors",
-        "Basses"
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
       ]
     },
     {
@@ -287,14 +285,16 @@
       "number": "13",
       "title": "I love him, I love him",
       "type": "Duet & Scene",
-      "file": "tbj13.kar",
+      "file": "tbj13.mid",
       "voiceTracks": [
         "Plaintiff",
         "Defendant",
         "Judge",
-        "Sopranos",
-        "Tenors",
-        "Basses"
+        "Counsel",
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
       ]
     },
     {
@@ -302,17 +302,17 @@
       "number": "14",
       "title": "Oh, joy unbounded",
       "type": "Finale",
-      "file": "tbj14.kar",
+      "file": "tbj14.mid",
       "voiceTracks": [
         "Plaintiff",
         "Judge",
         "Defendant",
         "Counsel",
         "Usher",
-        "Sopranos",
-        "Altos",
-        "Tenors",
-        "Basses"
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
       ]
     }
   ]

@@ -39,6 +39,25 @@
   </style>
 </head>
 <body>
+  <!-- Welcome notice — shown on every page load (dismissed with OK; it is not a
+       "don't show again" dialogue by deliberate choice). -->
+  <div id="welcome" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+    <div class="modal">
+      <h2 id="welcome-title">Welcome to the Gilbert &amp; Sullivan Learn-O-Matic 4000!</h2>
+      <p>There are a few things which you should know, as follows:</p>
+      <ol class="welcome-list">
+        <li>This is a learning tool. <strong>IT DOES NOT REPLACE YOUR MD!</strong> If your MD says the words are different, the song goes faster, or the Mikado should be singing the Soprano line at that point, then <strong>THAT IS WHAT YOU DO.</strong> This code has a line written into it which will detect the words &ldquo;I think you&rsquo;ll find the web-page says&hellip;.&rdquo; and will cause your computer to shoot boiling yoghurt at you. You have been warned.</li>
+        <li>The files on this web page are, for the moment, based on the excellent karaoke files made for the G&amp;S Opera Archive. Many hours work went into them, but they are not really designed for this purpose, and &mdash; especially when there are many lyrics being sung at once &mdash; they have a tendency to get things a bit wonky. You have been warned; this is not perfect!</li>
+        <li>I am working on converting the Karaoke files to MusicXML, which will faithfully render every syllable of every part correctly. So this has only been done for Trial By Jury &mdash; check it out and you will see.</li>
+        <li>For the new improved operas (currently only TBJ), if you are singing a chorus principal (e.g.&nbsp;Foreman), then any song in which you sing a mixture of both chorus and solo lines, your entire part will be there. Be aware, though, that you may well sing entirely with the chorus in other songs &mdash; it is your responsibility to check out the chorus parts for the other songs and learn them. Again, if you turn up and claim that you have learned your part because you learned all of the Foreman-specific parts, expect the boiling yoghurt treatment.</li>
+        <li>If you find errors in the new-improved versions (currently TBJ), please feel free to email me and tell me at <a href="mailto:ccwakely@gmail.com">ccwakely@gmail.com</a> and I will try and fix them.</li>
+      </ol>
+      <p class="welcome-enjoy">ENJOY!</p>
+      <p class="welcome-sign">Charlie</p>
+      <button id="welcome-ok" class="welcome-ok" type="button" autofocus>OK</button>
+    </div>
+  </div>
+
   <header>
     <nav class="site-nav" aria-label="Wolverton Gilbert &amp; Sullivan Society">
       <a href="https://wolvertongands.co.uk">Home</a>
@@ -135,6 +154,19 @@
         if (!done) { done = true; return; }
         orig.call(this, opts);
       };
+    }());
+  </script>
+  <script>
+    // Welcome modal: dismiss on OK only, and lock background scroll while it's up.
+    (function () {
+      var modal = document.getElementById('welcome');
+      var ok = document.getElementById('welcome-ok');
+      if (!modal || !ok) return;
+      document.documentElement.style.overflow = 'hidden';
+      ok.addEventListener('click', function () {
+        modal.hidden = true;
+        document.documentElement.style.overflow = '';
+      });
     }());
   </script>
   <script type="module" src="js/app.js?v=3"></script>
