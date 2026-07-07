@@ -142,8 +142,9 @@
   </footer>
 
   <!-- ?v= is a cache-buster for app.js: bump whenever app.js changes.
-       For JS-to-JS module imports, rename the file instead (e.g. ui-v2.js → ui-v3.js)
-       as Firefox doesn't reliably treat ?v= as a new URL in module imports. -->
+       The .htaccess now makes js/css/json revalidate on every load, so an
+       overwrite is normally picked up without renaming. Bump this ?v (and/or
+       rename a module + its import) only if a stale copy ever survives. -->
   <script>
     history.scrollRestoration = 'manual';
     // Suppress the first scrollIntoView call, which comes from the initial
@@ -175,6 +176,6 @@
       });
     }());
   </script>
-  <script type="module" src="js/app.js?v=3"></script>
+  <script type="module" src="js/app.js?v=4"></script>
 </body>
 </html>

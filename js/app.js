@@ -6,9 +6,9 @@
 // To add another opera: drop its folder under /operas, generate its songs.json,
 // and add one line to operas.json. No code changes needed.
 
-import { initApp } from './ui-v2.js';
+import { initApp } from './ui-v3.js';
 
-fetch('operas.json')
+fetch('operas.json?v=4')
   .then((r) => r.json())
   .then((manifest) => initApp(manifest))
   .catch((err) => {

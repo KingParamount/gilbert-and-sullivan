@@ -5,10 +5,10 @@
 // ui.js — renders the opera chooser + the three stages (pick part -> pick song
 // -> practise) and wires the practice player. Big, friendly, forgiving.
 
-import { Synth } from './synth.js';
-import { Player } from './player.js';
-import { loadOpera, songsForPart, getPart, makeRouting, matchedTracks } from './opera.js';
-import { buildLyrics, activeSyllable } from './lyrics.js';
+import { Synth } from './synth-v2.js';
+import { Player } from './player-v2.js';
+import { loadOpera, songsForPart, getPart, makeRouting, matchedTracks } from './opera-v2.js';
+import { buildLyrics, activeSyllable } from './lyrics-v2.js';
 
 const $ = (id) => document.getElementById(id);
 const LAST_OPERA_KEY = 'gands.lastOpera';

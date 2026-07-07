@@ -10,7 +10,7 @@ const CHORAL_DISPLAY = { Bridesamaids: 'Bridesmaids' }; // tidy up source typos 
 const VOICE_PARTS = ['Soprano', 'Alto', 'Tenor', 'Bass'];
 
 export async function loadOpera(baseUrl) {
-  const cfg = await (await fetch(baseUrl + '/songs.json')).json();
+  const cfg = await (await fetch(baseUrl + '/songs.json?v=4')).json();
   cfg.baseUrl = baseUrl;
   return cfg;
 }
