@@ -1,0 +1,92 @@
+{
+  "_README": [
+    "R12/R13 \u2014 libretto speaker labels that do not match any stave name.",
+    "EVERY MAPPING IN HERE IS A GUESS BY THE TOOL AND IS MEANT TO BE CORRECTED.",
+    "",
+    "Values:",
+    "  [\"Soprano\", \"Alto\"]  -> this body sings those voice parts",
+    "  \"*create*\"           -> a named character the archive never gave a stave;",
+    "  \"*principal:Soprano*\" -> R5: a chorus member who steps out for a line and",
+    "                          returns. Gets a FULL-LENGTH stave copied from that",
+    "                          chorus voice; their solo text is placed where the",
+    "                          libretto attributes it, chorus text elsewhere.",
+    "                          The voice named after the colon is a GUESS.",
+    "                          R13 builds one from the lyric-crib notes",
+    "  \"*rest*\"             -> contextual ('OTHERS', 'ALL FOUR'): resolved at",
+    "                          run time to whoever is sounding and not already",
+    "                          named in that passage",
+    "  \"*ignore*\"           -> not a speaker; a parse artefact",
+    "",
+    "Counts in comments are how many libretto blocks used the label."
+  ],
+  "trial-by-jury": {
+    "BRIDESMAIDS": [
+      "Soprano",
+      "Alto"
+    ],
+    "OTHERS": "*rest*",
+    "EVERYONE ELSE": "*rest*",
+    "A": "*ignore*"
+  },
+  "hms-pinafore": {
+    "SAILORS": [
+      "Tenor",
+      "Bass"
+    ],
+    "CREW": [
+      "Tenor",
+      "Bass"
+    ],
+    "RELATIONS": [
+      "Soprano",
+      "Alto"
+    ],
+    "SIR JOSEPH'S FEMALE RELATIONS": [
+      "Soprano",
+      "Alto"
+    ],
+    "TENORS": [
+      "Tenor"
+    ],
+    "BASSES": [
+      "Bass"
+    ],
+    "OTHERS": "*rest*"
+  },
+  "the-grand-duke": {
+    "OLGA": "*principal:Alto*",
+    "BERTHA": "*principal:Soprano*",
+    "GRETCHEN": "*principal:Alto*",
+    "ELSA": "*principal:Soprano*",
+    "MARTHA": "*ignore*",
+    "NOBLES": [
+      "Tenor",
+      "Bass"
+    ],
+    "NOBLE": [
+      "Tenor",
+      "Bass"
+    ],
+    "CHAMBERLAINS": [
+      "Tenor",
+      "Bass"
+    ],
+    "SOPRANOS": [
+      "Soprano"
+    ],
+    "ALTOS": [
+      "Alto"
+    ],
+    "TENORS & BASSES": [
+      "Tenor",
+      "Bass"
+    ],
+    "ALTOS, TENORS & BASSES": [
+      "Alto",
+      "Tenor",
+      "Bass"
+    ],
+    "ALL FOUR": "*rest*",
+    "_note_principals": "Per the user: Elsa/Bertha soprano, Olga/Gretchen alto. Martha never sings (spoken dialogue only) \u2014 ignored."
+  }
+}

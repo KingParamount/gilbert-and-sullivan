@@ -41,11 +41,27 @@ STEP = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11}
 # filename  "Trial by Jury No. 5 - Full score ..."  ->  "tbj05"
 # ---------------------------------------------------------------------------
 def file_id(path):
-    base = os.path.basename(path)
+    base = os.path.splitext(os.path.basename(path))[0]
+    # Preferred form: "<id> - <title>" ("pin03 - I'm called Little Buttercup"),
+    # which is what kar-to-musicxml.py emits — the id makes the round trip
+    # deterministic, the title makes a folder of 26 files browsable. Anything
+    # after the first " - " is decoration and is ignored here.
+    # The id is taken VERBATIM — the operas use inconsistent id schemes
+    # ("pin03", "gd01a", "101", "pi_002", "iolanthe_02") and songs.json is the
+    # authority on which is which, so normalising here would silently break
+    # the mapping for Ida, Iolanthe, Yeomen, Utopia and the Gondoliers.
+    stem = base.split(" - ")[0].strip()
+    # Song ids never contain spaces (they are filename stems in songs.json:
+    # "pin03", "gd01a", "107-8", "pp06_7", "pi_002", "sorc14orig"), so a
+    # space-free stem IS the id and is taken verbatim. Anything with a space
+    # is a prose export title and falls through to the legacy rule below.
+    if stem and " " not in stem:
+        return stem
+    # Legacy form: Dorico's verbose export title ("Trial by Jury No. 5 - ...").
     m = re.search(r"Jury\s+(?:No\.\s*)?(\d+)([a-z]?)", base, re.I)
-    if not m:
-        return None
-    return "tbj%02d%s" % (int(m.group(1)), m.group(2).lower())
+    if m:
+        return "tbj%02d%s" % (int(m.group(1)), m.group(2).lower())
+    return None
 
 
 # ---------------------------------------------------------------------------
