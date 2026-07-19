@@ -21,8 +21,50 @@ Usage:
     python3 scripts/musicxml-to-midi.py <src-dir> <out-dir> [file.musicxml ...]
 If no explicit files are given, every *.musicxml in <src-dir> is converted.
 """
-import sys, os, re, glob, struct
+import sys, os, re, glob, struct, zipfile
 import xml.etree.ElementTree as ET
+
+
+def load_score(path):
+    """Parse .musicxml/.xml, or .mxl — MuseScore's default export is the
+       compressed form, which is a zip whose META-INF/container.xml names the
+       real score file."""
+    if not zipfile.is_zipfile(path):
+        return ET.parse(path).getroot()
+    with zipfile.ZipFile(path) as z:
+        inner = None
+        try:
+            container = ET.fromstring(z.read("META-INF/container.xml"))
+            el = container.find(".//rootfile")
+            inner = el.get("full-path") if el is not None else None
+        except KeyError:
+            pass
+        if not inner:
+            cands = [n for n in z.namelist()
+                     if n.lower().endswith((".xml", ".musicxml"))
+                     and not n.startswith("META-INF")]
+            if not cands:
+                raise ValueError(f"{path}: no score inside the .mxl")
+            inner = cands[0]
+        return ET.fromstring(z.read(inner))
+
+
+def warn_repeats(root, fid):
+    """Repeats are NOT expanded — measures are read in document order.
+
+    The archive .kar files have their repeats written out already, so anything
+    derived from them is safe; but a score tidied up in a notation program may
+    replace them with repeat barlines, and that would silently produce a short
+    file. Warn loudly rather than quietly dropping music."""
+    reps = root.findall(".//repeat")
+    endings = root.findall(".//ending")
+    jumps = [d for d in root.iter("sound")
+             if any(d.get(k) for k in ("dacapo", "dalsegno", "tocoda", "segno",
+                                       "coda", "fine"))]
+    if reps or endings or jumps:
+        print(f"  !! {fid}: {len(reps)} repeat barline(s), {len(endings)} ending(s), "
+              f"{len(jumps)} jump(s) — NOT expanded. The music between them will "
+              f"play ONCE. Ask for the repeats written out.")
 
 PPQ = 480            # MIDI ticks per quarter note in the output
 VELOCITY = 80
@@ -223,9 +265,11 @@ def convert(path, out_dir):
     if not fid:
         print("  ?? skip (no number in name):", os.path.basename(path))
         return
-    root = ET.parse(path).getroot()
+    root = load_score(path)
     id2name = {sp.get("id"): (sp.findtext("part-name") or "").strip()
                for sp in root.iter("score-part")}
+
+    warn_repeats(root, fid)
 
     # tempo map comes from the first part only (that is where Dorico writes it)
     first = root.find("part")
@@ -261,7 +305,9 @@ if __name__ == "__main__":
         sys.exit(__doc__)
     src, out = sys.argv[1], sys.argv[2]
     os.makedirs(out, exist_ok=True)
-    files = sys.argv[3:] or sorted(glob.glob(os.path.join(src, "*.musicxml")))
+    files = sys.argv[3:] or sorted(
+        sum([glob.glob(os.path.join(src, e))
+             for e in ("*.musicxml", "*.xml", "*.mxl")], []))
     if sys.argv[3:]:
         files = [f if os.path.isabs(f) else os.path.join(src, f) for f in files]
     for f in files:
