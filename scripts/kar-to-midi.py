@@ -77,8 +77,10 @@ def convert(opera_dir, out_dir, libretto=None, score_pdf=None, abbrev=None):
         tol = max(1, sc.division // R.TOL_NUM)
         flags = []
 
+        stripped = karmx.strip_player_trigger(sc, flags)
+        totals['trigger notes dropped'] += stripped
         crib = sc.lyric_stave or R.find_phantom(sc, tol)
-        parts = karmx.build_parts(sc, tol, flags, crib)
+        parts = karmx.build_parts(sc, tol, flags, crib, bodymap)
 
         # songs.json already records who a generic stave really is — Mikado's
         # "Braid the raven hair" has Staff-1/Staff-4/Vocal and a curated
@@ -182,6 +184,17 @@ def convert(opera_dir, out_dir, libretto=None, score_pdf=None, abbrev=None):
                 if own:
                     xp["raw_lyrics"] = list(own)
                     stats["kept inline"] += len(own)
+
+        # Final pass: a name taken from the lyric line ("ALTOS", "SOPRANOS 1")
+        # has not been through the canonicaliser, and the app matches on an
+        # exact string. Never collapse two staves onto one name.
+        seen = set()
+        for xp in xparts:
+            c = R.canonical_voice(xp["name"])
+            if c and c != xp["name"] and c not in seen:
+                flags.append((0, c, f"stave '{xp['name']}' renamed to '{c}'"))
+                xp["name"] = c
+            seen.add(xp["name"])
 
         dst = os.path.join(out_dir, karmx.safe_filename(
             f"{song['id']} - {song['title']}") + ".mid")

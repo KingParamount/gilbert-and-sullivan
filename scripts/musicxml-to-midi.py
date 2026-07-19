@@ -71,10 +71,29 @@ VELOCITY = 80
 DROP_PARTS = {"Lyrics"}
 HYPHENATE = False    # True -> "Ju-ry-men"; False -> syllables abut, space at word end
 
-# Dorico labels the chorus plural in some numbers, singular in others; the app
-# routes on an exact track name, so normalise to one form across the opera.
+# The app routes on an EXACT track name, so a chorus part must be spelled the
+# same in every number or a singer cannot find their music. Editors spell it
+# many ways — "Sopranos", "Contraltos 1", "Chorus Alto", "Tenors II" — so the
+# canonicaliser in karrules is applied on the way in as well as on the way out.
+# Singular, with a number only where the part actually divides.
 NAME_MAP = {"Sopranos": "Soprano", "Altos": "Alto",
             "Tenors": "Tenor", "Basses": "Bass"}
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    from karrules import canonical_voice
+except ImportError:                     # keep this script standalone-usable
+    canonical_voice = lambda n: None
+
+PIANO_RE = re.compile(r'^piano[,\s]+(right|left)\s+hand$', re.I)
+
+
+def tidy_name(name):
+    """Chorus voices to the canonical four; piano staves to the app's names."""
+    m = PIANO_RE.match((name or "").strip())
+    if m:
+        return m.group(1).title() + " Hand"
+    return canonical_voice(name) or NAME_MAP.get(name, name)
 
 STEP = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11}
 
@@ -278,8 +297,8 @@ def convert(path, out_dir):
     tracks = []
     dropped = []
     for part in root.findall("part"):
-        name = id2name.get(part.get("id"), part.get("id"))
-        name = NAME_MAP.get(name, name)
+        raw = id2name.get(part.get("id"), part.get("id"))
+        name = tidy_name(raw)
         if name in DROP_PARTS:
             dropped.append(name)
             continue

@@ -17,7 +17,14 @@
     "                          named in that passage",
     "  \"*ignore*\"           -> not a speaker; a parse artefact",
     "",
-    "Counts in comments are how many libretto blocks used the label."
+    "",
+    "CHORUS BODIES: a dramatic body ('Bridesmaids', 'Peers', 'Fairies') is split",
+    "into VOICE PARTS, because a chorister picks their voice once and needs it in",
+    "every number \u2014 naming staves after the body would fragment that and 'Soprano'",
+    "would appear nowhere. Unison passages carry the same notes in each stave, so",
+    "either selection still plays the number.",
+    "",
+    "EVERY ENTRY BELOW IS A GUESS. They are voiced from the plot, not the music."
   ],
   "trial-by-jury": {
     "BRIDESMAIDS": [
@@ -51,7 +58,8 @@
     "BASSES": [
       "Bass"
     ],
-    "OTHERS": "*rest*"
+    "OTHERS": "*rest*",
+    "PRINCIPALS": "*rest*"
   },
   "the-grand-duke": {
     "OLGA": "*principal:Alto*",
@@ -87,6 +95,182 @@
       "Bass"
     ],
     "ALL FOUR": "*rest*",
-    "_note_principals": "Per the user: Elsa/Bertha soprano, Olga/Gretchen alto. Martha never sings (spoken dialogue only) \u2014 ignored."
+    "_note_principals": "Per the user: Elsa/Bertha soprano, Olga/Gretchen alto. Martha never sings (spoken dialogue only) \u2014 ignored.",
+    "PRINCIPALS": "*rest*"
+  },
+  "ruddigore": {
+    "BRIDESMAIDS": [
+      "Soprano",
+      "Alto"
+    ],
+    "PROFESSIONAL BRIDESMAIDS": [
+      "Soprano",
+      "Alto"
+    ],
+    "GIRLS": [
+      "Soprano",
+      "Alto"
+    ],
+    "BUCKS AND BLADES": [
+      "Tenor",
+      "Bass"
+    ],
+    "BUCKS": [
+      "Tenor",
+      "Bass"
+    ],
+    "ANCESTORS": [
+      "Tenor",
+      "Bass"
+    ],
+    "_note": "Dramatic chorus bodies map to voice parts so a chorister can pick Soprano once and find it in every number. GUESSES \u2014 correct.",
+    "PRINCIPALS": "*rest*"
+  },
+  "iolanthe": {
+    "PEERS": [
+      "Tenor",
+      "Bass"
+    ],
+    "LORDS": [
+      "Tenor",
+      "Bass"
+    ],
+    "LDS": [
+      "Tenor",
+      "Bass"
+    ],
+    "FAIRIES": [
+      "Soprano",
+      "Alto"
+    ],
+    "FARIES": [
+      "Soprano",
+      "Alto"
+    ],
+    "PRINCIPALS": "*rest*"
+  },
+  "patience": {
+    "MAIDENS": [
+      "Soprano",
+      "Alto"
+    ],
+    "RAPTUROUS MAIDENS": [
+      "Soprano",
+      "Alto"
+    ],
+    "DRAGOONS": [
+      "Tenor",
+      "Bass"
+    ],
+    "OFFICERS": [
+      "Tenor",
+      "Bass"
+    ],
+    "PRINCIPALS": "*rest*"
+  },
+  "princess-ida": {
+    "GIRLS": [
+      "Soprano",
+      "Alto"
+    ],
+    "LADIES": [
+      "Soprano",
+      "Alto"
+    ],
+    "SOLDIERS": [
+      "Tenor",
+      "Bass"
+    ],
+    "PRINCIPALS": "*rest*"
+  },
+  "the-gondoliers": {
+    "GONDOLIERS": [
+      "Tenor",
+      "Bass"
+    ],
+    "CONTADINE": [
+      "Soprano",
+      "Alto"
+    ],
+    "PRINCIPALS": "*rest*",
+    "OTHERS": "*rest*"
+  },
+  "the-mikado": {
+    "NOBLES": [
+      "Tenor",
+      "Bass"
+    ],
+    "SCHOOLGIRLS": [
+      "Soprano",
+      "Alto"
+    ],
+    "GIRLS": [
+      "Soprano",
+      "Alto"
+    ],
+    "PRINCIPALS": "*rest*"
+  },
+  "the-pirates-of-penzance": {
+    "PIRATES": [
+      "Tenor",
+      "Bass"
+    ],
+    "POLICE": [
+      "Tenor",
+      "Bass"
+    ],
+    "SERGEANT & POLICE": [
+      "Tenor",
+      "Bass"
+    ],
+    "DAUGHTERS": [
+      "Soprano",
+      "Alto"
+    ],
+    "GIRLS": [
+      "Soprano",
+      "Alto"
+    ],
+    "PRINCIPALS": "*rest*"
+  },
+  "the-sorcerer": {
+    "VILLAGERS": [
+      "Soprano",
+      "Alto",
+      "Tenor",
+      "Bass"
+    ],
+    "PRINCIPALS": "*rest*",
+    "OTHERS": "*rest*"
+  },
+  "the-yeomen-of-the-guard": {
+    "YEOMEN": [
+      "Tenor",
+      "Bass"
+    ],
+    "CITIZENS": [
+      "Soprano",
+      "Alto",
+      "Tenor",
+      "Bass"
+    ],
+    "CROWD": [
+      "Soprano",
+      "Alto",
+      "Tenor",
+      "Bass"
+    ],
+    "PRINCIPALS": "*rest*"
+  },
+  "utopia-limited": {
+    "GIRLS": [
+      "Soprano",
+      "Alto"
+    ],
+    "MAIDENS": [
+      "Soprano",
+      "Alto"
+    ],
+    "PRINCIPALS": "*rest*"
   }
 }

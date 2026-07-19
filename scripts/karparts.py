@@ -37,7 +37,43 @@ def safe_filename(s):
 # ---------------------------------------------------------------------------
 # ---------------------------------------------------------------------------
 
-def build_parts(sc, tol, flags, phantom=None):
+
+def strip_player_trigger(sc, flags):
+    """Drop the stray note some .kar files end with.
+
+    Van Basco's karaoke player needed a final note to trigger on, so 186 of the
+    298 archive files end with one — a single isolated note after a bar or so of
+    silence, usually in the Left Hand or, tellingly, on a Tempo track that
+    should carry no notes at all. It is not music and it leaves a bar of
+    nothing at the end of every number.
+
+    Only removed when it is the ONLY note sounding at that moment: a real final
+    chord is never alone, so this cannot eat a genuine ending. Every removal is
+    flagged with its pitch and track so it can be checked.
+    """
+    allnotes = [(t, d, p, tr) for tr in sc.tracks for t, d, p in tr.notes]
+    if len(allnotes) < 10:
+        return 0
+    last = max(n[0] for n in allnotes)
+    tail = [n for n in allnotes if n[0] == last]
+    if len(tail) != 1:
+        return 0                       # a chord: a real ending
+    earlier = [n for n in allnotes if n[0] < last]
+    if not earlier:
+        return 0
+    gap = last - max(t + d for t, d, _p, _tr in earlier)
+    if gap < sc.division:
+        return 0                       # follows on too closely to be a trigger
+    tick, dur, pitch, tr = tail[0]
+    tr.notes = [n for n in tr.notes if n[0] != tick]
+    flags.append((tick, tr.name or "?",
+                  f"dropped a lone trailing note (pitch {pitch}) on '{tr.name}' "
+                  f"after {gap / sc.division:.1f} beats' silence — the Van Basco "
+                  f"player trigger, not music"))
+    return 1
+
+
+def build_parts(sc, tol, flags, phantom=None, bodymap=None):
     """-> [ {name, notes:[(tick,dur,pitch)], src} ] with combined and divisi
        staves already split into one full-length part per singer."""
     parts = []
@@ -46,14 +82,15 @@ def build_parts(sc, tol, flags, phantom=None):
             continue                       # R8: a lyric crib, not a singer
         # R6 first: chorus staves that carry two voices, or are labelled with a
         # collective ("Girls", "Men") that must become SATB.
-        split = R.split_chorus_stave(tr, tol)
+        split = R.split_chorus_stave(tr, tol, bodymap)
         if split:
             names = ", ".join(n for n, _v, _g in split)
             flags.append((tr.notes[0][0], tr.name,
                           f"R6: stave '{tr.name}' split into {names} — CHECK the "
                           f"voice assignment, and whether a third voice is needed"))
             for name, notes, _g in split:
-                parts.append({"name": name, "notes": notes, "src": tr.name})
+                parts.append({"name": R.canonical_voice(name) or name,
+                              "notes": notes, "src": tr.name})
             continue
         # R3: "Boatswain/Ralph" -> two full-length staves. Without a reliable
         # way to divide the notes, both singers get the whole line and the
@@ -68,7 +105,10 @@ def build_parts(sc, tol, flags, phantom=None):
             for nm in combo:
                 parts.append({"name": nm, "notes": list(tr.notes), "src": tr.name})
             continue
-        name = R.PLURAL.get(tr.name, tr.name)
+        name = R.canonical_voice(tr.name) or R.PLURAL.get(tr.name, tr.name)
+        if name != tr.name:
+            flags.append((0, name, f"stave '{tr.name}' renamed to the canonical "
+                                   f"voice name '{name}'"))
         parts.append({"name": name, "notes": list(tr.notes), "src": tr.name})
 
     # accompaniment passes through untouched

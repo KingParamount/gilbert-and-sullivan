@@ -32,6 +32,8 @@ COLLECTIVE = {
     "WOMEN": "SA", "GIRLS": "SA", "LADIES": "SA", "FEMALE CHORUS": "SA",
     "MAIDENS": "SA", "SOPRANOS": "S", "ALTOS": "A", "CONTRALTOS": "A",
     "TENORS": "T", "BASSES": "B", "BARITONES": "B",
+    "SOPS": "S", "ALTS": "A", "TENS": "T", "BASSES.": "B",
+    "FEMALE VOICES": "SA", "MALE VOICES": "TB",
 }
 FAMILY = {"S": ["Soprano"], "A": ["Alto"], "T": ["Tenor"], "B": ["Bass"],
           "SA": ["Soprano", "Alto"], "TB": ["Tenor", "Bass"],
@@ -125,6 +127,54 @@ def _near(sorted_onsets, tick, tol):
             return True
     return False
 
+
+
+# ---------------------------------------------------------------------------
+# Canonical chorus names.
+#
+# A chorister picks their voice part ONCE and needs it in every number, so the
+# four names must be spelled identically everywhere. The archive spells them 39
+# different ways — "Contraltos", "Chorus Alto", "Tenors II", "Basses I",
+# "Police Bass", "Sopranos 1" — and any variant is a part the singer cannot
+# find. Divisi keeps its number, since rule 6 lets "Bass 2" also match "Bass".
+# ---------------------------------------------------------------------------
+
+VOICE_WORD = {"soprano": "Soprano", "sopranos": "Soprano", "sops": "Soprano",
+              "treble": "Soprano", "trebles": "Soprano",
+              "alto": "Alto", "altos": "Alto", "alts": "Alto",
+              "contralto": "Alto", "contraltos": "Alto",
+              "mezzo": "Alto", "mezzos": "Alto",
+              "tenor": "Tenor", "tenors": "Tenor", "tens": "Tenor",
+              "bass": "Bass", "basses": "Bass", "baritone": "Bass",
+              "baritones": "Bass"}
+ROMAN = {"i": "1", "ii": "2", "iii": "3"}
+
+
+def canonical_voice(name):
+    """-> 'Soprano' / 'Alto 2' / ... or None if this is not a chorus voice."""
+    if not name:
+        return None
+    raw = name.strip()
+    if re.search(r'clef|hand|piano|tempo', raw, re.I):
+        return None                     # a staff label or accompaniment, not a voice
+    toks = re.split(r'[\s/&,]+', raw.lower())
+    voice = None
+    number = None
+    for t in toks:
+        t = t.strip(".")
+        if not t:
+            continue
+        if t in VOICE_WORD:
+            voice = VOICE_WORD[t]
+        elif t in ROMAN and voice:
+            number = ROMAN[t]
+        elif t.isdigit() and voice:
+            number = t                  # last number wins: "Bass 2 1" -> Bass 1
+        elif re.fullmatch(r'(and|of|the|chorus)', t):
+            continue
+    if voice is None:
+        return None
+    return f"{voice} {number}" if number else voice
 
 # ---------------------------------------------------------------------------
 # R1 — pull the lyric stave apart into speaker-attributed syllables
@@ -235,12 +285,22 @@ class Resolver:
 # R6 — chorus staves: split combined and divisi staves into full-length parts
 # ---------------------------------------------------------------------------
 
-def split_chorus_stave(track, tol):
+def split_chorus_stave(track, tol, bodymap=None):
     """Return [(new_name, notes, note_on_guess_bool)] or None if no split is
        needed. Per R6 every returned part spans the WHOLE number — unison
        passages are duplicated into each, not left in one stave."""
     key = (track.name or "").strip().lower()
     target = SPLITTABLE.get(key)
+    if target is None and bodymap:
+        # A dramatic body — "Bridesmaids", "Villagers", "Bucks and Blades" —
+        # is still a chorus and must become voice parts. A chorister picks
+        # their voice once and needs it across every number; naming staves
+        # after the body would fragment that, and "Soprano" would appear
+        # nowhere in the opera. Unison passages carry the same notes in both
+        # staves, so either selection plays the number.
+        mapped = bodymap.get(key.upper())
+        if isinstance(mapped, list) and len(mapped) > 1:
+            target = tuple(mapped)
     divisi = _max_simultaneity(track, tol)
     if target is None and divisi < 2:
         return None
