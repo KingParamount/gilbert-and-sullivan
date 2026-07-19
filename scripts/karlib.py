@@ -3,18 +3,18 @@
 # Copyright (C) 2026 KingParamount and contributors
 # SPDX-License-Identifier: MIT
 
-"""Shared plumbing for the .kar -> MusicXML outbound leg.
+"""Read a G&S Archive karaoke file, write a Standard MIDI File.
 
-Reads a G&S Archive karaoke file (a format-1 SMF written by NoteWorthy
-Composer) into a neutral structure, and writes MusicXML that Dorico will open.
+Nothing here makes editorial decisions about who sings what — that is the job
+of karidentify.py. This module only moves notes, time and words around without
+losing anything.
 
-Nothing here makes editorial decisions about *who sings what* — that is the
-job of kar-to-musicxml.py. This module only moves notes and time around
-without losing anything.
-
-The archive files are uniformly 192 ticks per quarter and carry a real time
-signature map (294/298 files) and key signature map (271/298), so measures and
-barlines are recoverable rather than guessed.
+An earlier version of this file also WROTE MusicXML, reconstructing bars, note
+values, dots, tuplets and anacruses from the MIDI. It was ~250 lines and it
+produced scores that were unusable in Dorico, because notation is genuinely
+hard and Dorico already does it superbly from a plain MIDI file. Handing it
+MIDI and letting it notate deleted that entire class of bug. If notation ever
+seems necessary again, it isn't.
 """
 import struct, re
 
@@ -162,290 +162,84 @@ def read_kar(path):
 
 
 # ---------------------------------------------------------------------------
-# Measure grid
-# ---------------------------------------------------------------------------
-
-def measure_grid(sc, end_tick):
-    """[(start_tick, end_tick, num, den, is_new_sig, fifths_or_None)] covering
-       0..end_tick. A time-signature change starts a new measure at that tick,
-       which is how NoteWorthy writes them."""
-    bars = []
-    sigs = list(sc.timesigs)
-    keys = {t: f for t, f, _m in sc.keysigs}
-    for si, (stick, num, den) in enumerate(sigs):
-        nxt = sigs[si + 1][0] if si + 1 < len(sigs) else None
-        barlen = int(sc.division * 4 * num / den)
-        if barlen <= 0:
-            continue
-        t = stick
-        first = True
-        while t < end_tick and (nxt is None or t < nxt):
-            bend = t + barlen
-            if nxt is not None:
-                bend = min(bend, nxt)
-            bars.append([t, bend, num, den, first, None])
-            first = False
-            t = bend
-        if nxt is None and not bars:
-            bars.append([stick, stick + barlen, num, den, True, None])
-    # attach key changes to the bar they fall in
-    for kt, f in sorted(keys.items()):
-        for b in bars:
-            if b[0] <= kt < b[1]:
-                b[5] = f
-                break
-        else:
-            if bars and kt >= bars[-1][1]:
-                bars[-1][5] = f
-    if bars and not any(b[5] is not None for b in bars):
-        bars[0][5] = 0
-    elif bars and bars[0][5] is None:
-        bars[0][5] = 0
-    return bars
-
-
-# ---------------------------------------------------------------------------
-# Pitch spelling  (notation quality is explicitly not a goal; this just has to
-# be legal MusicXML that plays back on the right pitch)
-# ---------------------------------------------------------------------------
-
-SHARP = [("C", 0), ("C", 1), ("D", 0), ("D", 1), ("E", 0), ("F", 0),
-         ("F", 1), ("G", 0), ("G", 1), ("A", 0), ("A", 1), ("B", 0)]
-FLAT = [("C", 0), ("D", -1), ("D", 0), ("E", -1), ("E", 0), ("F", 0),
-        ("G", -1), ("G", 0), ("A", -1), ("A", 0), ("B", -1), ("B", 0)]
-
-
-def spell(midi, fifths):
-    step, alter = (FLAT if (fifths or 0) < 0 else SHARP)[midi % 12]
-    octave = midi // 12 - 1
-    return step, alter, octave
-
-
-# ---------------------------------------------------------------------------
-# Note-type naming (Dorico wants <type>; it need not match the duration well)
-# ---------------------------------------------------------------------------
-
-TYPES = [(4.0, "whole"), (2.0, "half"), (1.0, "quarter"), (0.5, "eighth"),
-         (0.25, "16th"), (0.125, "32nd"), (0.0625, "64th")]
-
-
-def note_type(dur, division):
-    q = dur / division
-    for val, name in TYPES:
-        if q >= val * 0.95:
-            return name
-    return "64th"
-
-
-def esc(s):
-    return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-             .replace('"', "&quot;"))
-
-
-# ---------------------------------------------------------------------------
-# Syllable boundaries
+# Standard MIDI File writer
 #
-# The archive encodes word ends as a TRAILING SPACE on the syllable
-# ("sound" + "ing; " -> "sounding;").  MusicXML wants <syllabic> instead, and
-# the inbound converter (musicxml-to-midi.py) reads <syllabic> to rebuild the
-# spacing.  Getting this wrong silently destroys every melisma, so it is done
-# in one place.
+# The output format that made this project work. MIDI carries onsets,
+# durations, pitches and lyrics — everything the app and Dorico actually need
+# — and carries NO notation, so the whole class of bugs that made the
+# MusicXML route unusable (articulation gaps read as rests, undeclared dots
+# and tuplets, anacruses, meter changes off the barline) cannot arise.
+#
+# Durations are written EXACTLY as the archive holds them, 94-tick eighths and
+# all. That is performance data; quantising it is Dorico's job and Dorico is
+# very good at it. The one thing we do impose is note-OFF before note-ON at a
+# shared tick, because the app's midi.js retriggers and would otherwise
+# silence a repeated pitch instantly.
 # ---------------------------------------------------------------------------
 
-def syllabify(raw_syllables):
-    """[raw archive syllable] -> [(clean_text, syllabic)] with syllabic in
-       single/begin/middle/end."""
-    out = []
-    starting = True                       # next syllable starts a word
-    for raw in raw_syllables:
-        ends_word = raw.endswith(" ")
-        text = raw.strip()
-        if not text:
-            out.append((None, None))
-            continue
-        if starting and ends_word:
-            syl = "single"
-        elif starting:
-            syl = "begin"
-        elif ends_word:
-            syl = "end"
-        else:
-            syl = "middle"
-        out.append((text, syl))
-        starting = ends_word
-    return out
+def _vlq_out(n):
+    out = bytearray([n & 0x7F])
+    n >>= 7
+    while n:
+        out.insert(0, (n & 0x7F) | 0x80)
+        n >>= 7
+    return bytes(out)
 
 
-# ---------------------------------------------------------------------------
-# MusicXML writer
-# ---------------------------------------------------------------------------
-
-def write_musicxml(path, sc, parts, work_title=None):
-    """parts: list of dicts
-         name   : part name (becomes the MIDI track name on the way back)
-         notes  : [(tick, dur, pitch, lyric)]  lyric = (text, syllabic) or None
-         flags  : [(tick, text)] editorial annotations, shown above the stave
-       Notes within a part may share an onset (chord); overlapping notes with
-       DIFFERENT onsets are truncated at the next onset, and the caller is
-       expected to have split real divisi into separate parts already."""
-    end = max([sc.end_tick] + [t + d for p in parts for (t, d, _, _) in p["notes"]])
-    bars = measure_grid(sc, max(end, 1))
-    div = sc.division
-
-    o = []
-    o.append('<?xml version="1.0" encoding="UTF-8"?>')
-    o.append('<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 4.0 '
-             'Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">')
-    o.append('<score-partwise version="4.0">')
-    if work_title:
-        o.append(f'  <work><work-title>{esc(work_title)}</work-title></work>')
-    o.append('  <identification><encoding>'
-             '<software>Learn-O-Matic kar-to-musicxml</software>'
-             '</encoding></identification>')
-    o.append('  <part-list>')
-    for i, p in enumerate(parts):
-        o.append(f'    <score-part id="P{i + 1}">'
-                 f'<part-name>{esc(p["name"])}</part-name></score-part>')
-    o.append('  </part-list>')
-
-    tempo_by_tick = {}
-    for t, bpm in sc.tempos:
-        tempo_by_tick.setdefault(t, bpm)
-
-    for pi, p in enumerate(parts):
-        o.append(f'  <part id="P{pi + 1}">')
-        notes = sorted(p["notes"], key=lambda n: (n[0], -n[2]))
-        flags = sorted(p.get("flags", []))
-        ni = fi = 0
-        carry = []                 # notes tied over the barline: (pitch, remaining)
-        prev_fifths = None
-        for bi, (bstart, bend, num, den, new_sig, fifths) in enumerate(bars):
-            o.append(f'    <measure number="{bi + 1}">')
-            attrs = []
-            if bi == 0 or (fifths is not None and fifths != prev_fifths):
-                f = fifths if fifths is not None else (prev_fifths or 0)
-                attrs.append(f'<key><fifths>{f}</fifths></key>')
-                prev_fifths = f
-            if bi == 0:
-                attrs.insert(0, f'<divisions>{div}</divisions>')
-            if new_sig or bi == 0:
-                attrs.append(f'<time><beats>{num}</beats>'
-                             f'<beat-type>{den}</beat-type></time>')
-            if bi == 0:
-                clef = _clef_for(p)
-                attrs.append(clef)
-            if attrs:
-                o.append('      <attributes>' + "".join(attrs) + '</attributes>')
-
-            # tempo marks landing in this bar (first part only — the inbound
-            # converter reads the tempo map from P1)
-            if pi == 0:
-                for tt in sorted(t for t in tempo_by_tick if bstart <= t < bend):
-                    o.append(f'      <direction placement="above"><direction-type>'
-                             f'<metronome><beat-unit>quarter</beat-unit>'
-                             f'<per-minute>{round(tempo_by_tick[tt])}</per-minute>'
-                             f'</metronome></direction-type>'
-                             f'<sound tempo="{tempo_by_tick[tt]:.2f}"/></direction>')
-
-            cursor = bstart
-
-            # notes tied in from the previous bar
-            if carry:
-                span = min(min(c[1] for c in carry), bend - bstart)
-                for k, (pitch, rem) in enumerate(carry):
-                    step, alter, octv = spell(pitch, prev_fifths)
-                    o.append(_note_xml(step, alter, octv, span, div,
-                                       chord=(k > 0), tie_stop=True,
-                                       tie_start=(rem > span), lyric=None))
-                carry = [(pitch, rem - span) for pitch, rem in carry if rem - span > 0]
-                cursor = bstart + span
-
-            while ni < len(notes) and notes[ni][0] < bend:
-                onset = notes[ni][0]
-                if onset < cursor:                   # overlap: caller's problem
-                    ni += 1
-                    continue
-                group = []
-                while ni < len(notes) and notes[ni][0] == onset:
-                    group.append(notes[ni]); ni += 1
-                nxt_onset = notes[ni][0] if ni < len(notes) else None
-
-                while fi < len(flags) and flags[fi][0] <= onset:
-                    o.append(_flag_xml(flags[fi][1])); fi += 1
-
-                if onset > cursor:
-                    o.append(_rest_xml(onset - cursor, div))
-                    cursor = onset
-
-                dur = max(n[1] for n in group)
-                if nxt_onset is not None:
-                    dur = min(dur, nxt_onset - onset)
-                dur = max(1, dur)
-                span = min(dur, bend - onset)
-                for k, (_t, _d, pitch, lyric) in enumerate(group):
-                    step, alter, octv = spell(pitch, prev_fifths)
-                    o.append(_note_xml(step, alter, octv, span, div,
-                                       chord=(k > 0), tie_stop=False,
-                                       tie_start=(dur > span),
-                                       lyric=(lyric if k == 0 else None)))
-                if dur > span:
-                    carry = [(n[2], dur - span) for n in group]
-                cursor = onset + span
-
-            while fi < len(flags) and flags[fi][0] < bend:
-                o.append(_flag_xml(flags[fi][1])); fi += 1
-
-            if cursor < bend:
-                o.append(_rest_xml(bend - cursor, div))
-            o.append('    </measure>')
-        o.append('  </part>')
-    o.append('</score-partwise>')
-
-    with open(path, "w", encoding="utf-8") as f:
-        f.write("\n".join(o) + "\n")
+def _meta(mt, data):
+    return b"\xff" + bytes([mt]) + _vlq_out(len(data)) + data
 
 
-def _clef_for(p):
-    pitches = [n[2] for n in p["notes"]]
-    avg = sum(pitches) / len(pitches) if pitches else 60
-    if avg < 55:
-        return '<clef><sign>F</sign><line>4</line></clef>'
-    return '<clef><sign>G</sign><line>2</line></clef>'
+def _latin1(s):
+    return (s.replace("\u2019", "'").replace("\u2018", "'")
+             .replace("\u201c", '"').replace("\u201d", '"')
+             .replace("\u2014", "--").replace("\u2013", "-")
+             .encode("latin-1", "replace"))
 
 
-def _flag_xml(text):
-    return ('      <direction placement="above"><direction-type>'
-            f'<words font-style="italic" color="#FF0000">{esc(text)}</words>'
-            '</direction-type></direction>')
+def _chunk(events):
+    """events: [(tick, priority, bytes)]; priority 0 meta, 1 note-off, 2 note-on."""
+    events.sort(key=lambda e: (e[0], e[1]))
+    body = bytearray()
+    prev = 0
+    for tick, _p, payload in events:
+        body += _vlq_out(tick - prev) + payload
+        prev = tick
+    body += _vlq_out(0) + _meta(0x2F, b"")
+    return b"MTrk" + struct.pack(">I", len(body)) + bytes(body)
 
 
-def _rest_xml(dur, div):
-    return (f'      <note><rest/><duration>{int(dur)}</duration>'
-            f'<voice>1</voice><type>{note_type(dur, div)}</type></note>')
+def write_smf(path, sc, parts, title=None):
+    """parts: [{name, notes:[(tick,dur,pitch,lyric_or_None)]}].
+       Keeps the source's tempo, time-signature and key-signature maps so a
+       notation program bars the music the way the engraver did."""
+    chunks = []
+    cond = [(0, 0, _meta(0x03, _latin1(title or "Conductor")))]
+    for tick, bpm in sc.tempos:
+        us = int(round(60_000_000 / bpm))
+        cond.append((tick, 0, _meta(0x51, struct.pack(">I", us)[1:])))
+    for tick, num, den in sc.timesigs:
+        p2 = max(0, den.bit_length() - 1)
+        cond.append((tick, 0, _meta(0x58, bytes([num, p2, 24, 8]))))
+    for tick, fifths, mode in sc.keysigs:
+        cond.append((tick, 0, _meta(0x59, struct.pack("b", fifths) + bytes([mode]))))
+    chunks.append(_chunk(cond))
 
+    for p in parts:
+        ev = [(0, 0, _meta(0x03, _latin1(p["name"])))]
+        for tick, text in p.get("raw_lyrics", ()):
+            ev.append((tick, 0, _meta(0x05, _latin1(text))))
+        for item in sorted(p["notes"]):
+            tick, dur, pitch = item[0], item[1], item[2]
+            lyric = item[3] if len(item) > 3 else None
+            if lyric:
+                text = lyric[0] if isinstance(lyric, tuple) else lyric
+                if text:
+                    ev.append((tick, 0, _meta(0x05, _latin1(text))))
+            ev.append((tick + max(1, dur), 1, bytes([0x80, pitch, 0])))
+            ev.append((tick, 2, bytes([0x90, pitch, 80])))
+        chunks.append(_chunk(ev))
 
-def _note_xml(step, alter, octv, dur, div, chord, tie_stop, tie_start, lyric):
-    x = ['      <note>']
-    if chord:
-        x.append('<chord/>')
-    x.append(f'<pitch><step>{step}</step>')
-    if alter:
-        x.append(f'<alter>{alter}</alter>')
-    x.append(f'<octave>{octv}</octave></pitch>')
-    x.append(f'<duration>{int(dur)}</duration>')
-    if tie_stop:
-        x.append('<tie type="stop"/>')
-    if tie_start:
-        x.append('<tie type="start"/>')
-    x.append(f'<voice>1</voice><type>{note_type(dur, div)}</type>')
-    if tie_stop:
-        x.append('<notations><tied type="stop"/></notations>')
-    if tie_start:
-        x.append('<notations><tied type="start"/></notations>')
-    if lyric and lyric[0]:
-        text, syl = lyric
-        x.append(f'<lyric number="1"><syllabic>{syl}</syllabic>'
-                 f'<text>{esc(text)}</text></lyric>')
-    x.append('</note>')
-    return "".join(x)
-
+    header = b"MThd" + struct.pack(">IHHH", 6, 1, len(chunks), sc.division)
+    with open(path, "wb") as f:
+        f.write(header + b"".join(chunks))

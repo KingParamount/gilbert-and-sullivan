@@ -26,7 +26,8 @@ TOL_NUM = 16          # onset match tolerance = division/TOL_NUM
 COLLECTIVE = {
     "ALL": "*", "TUTTI": "*", "ENSEMBLE": "*", "BOTH": "*", "TRIO": "*",
     "QUARTET": "*", "QUINTET": "*", "SEXTET": "*", "DUET": "*",
-    "CHORUS": "SATB", "FULL CHORUS": "SATB", "CHO": "SATB",
+    "CHORUS": "SATB", "FULL CHORUS": "SATB", "CHO": "SATB", "CH": "SATB",
+    "CHOR": "SATB", "SEMI-CHORUS": "SATB", "SEMICHORUS": "SATB",
     "MEN": "TB", "BOYS": "TB", "MALE CHORUS": "TB", "GENTLEMEN": "TB",
     "WOMEN": "SA", "GIRLS": "SA", "LADIES": "SA", "FEMALE CHORUS": "SA",
     "MAIDENS": "SA", "SOPRANOS": "S", "ALTOS": "A", "CONTRALTOS": "A",
@@ -53,8 +54,16 @@ SPLITTABLE = {
 PLURAL = {"Sopranos": "Soprano", "Altos": "Alto",
           "Tenors": "Tenor", "Basses": "Bass"}
 
-# A syllable-initial speaker tag: "[JUDGE] " or "JUDGE: " or "Kat. "
+# A syllable-initial speaker tag. Three forms occur in the archive:
+#   "[JUDGE] Some words"   bracketed  (Trial, Pinafore, most operas)
+#   "JUDGE: Some words"    colon
+#   "RUDOLPH Come "        BARE ALL-CAPS, no punctuation at all — the whole of
+#                          The Grand Duke, which is why it looked untagged.
+# The bare form cannot be matched on shape alone without eating capitalised
+# lyrics, so it is accepted only when the name is one we recognise.
 TAG_RE = re.compile(r'^\s*(?:\[([^\]]{1,40})\]|([A-Z][A-Za-z\'&.\s]{0,28}?)\s*:)\s*')
+BARE_RE = re.compile(r"^\s*([A-Z][A-Z'.\-]+(?:\s+[A-Z][A-Z'.\-]+){0,2})"
+                     r"(?:\s+(?=[A-Za-z])|[.\s]*$)")
 
 
 def norm(s):
@@ -121,7 +130,7 @@ def _near(sorted_onsets, tick, tol):
 # R1 — pull the lyric stave apart into speaker-attributed syllables
 # ---------------------------------------------------------------------------
 
-def segment_lyrics(lyric_track):
+def segment_lyrics(lyric_track, is_known=None):
     """[(tick, raw_syllable)] -> [(tick, raw_syllable, speaker_or_None)],
        with the bracketed/colon speaker tag stripped off the syllable text.
        The speaker persists until the next tag (or a line break resets nothing
@@ -140,6 +149,16 @@ def segment_lyrics(lyric_track):
                 raw = raw[m.end():]
                 if not raw.strip():
                     continue
+        elif is_known is not None:
+            b = BARE_RE.match(raw)
+            if b:
+                cand = b.group(1).strip().rstrip(".").strip()
+                # only strip it if it names somebody; otherwise it is a lyric
+                if len(cand) > 1 and is_known(cand):
+                    speaker = cand.upper()
+                    raw = raw[b.end():]
+                    if not raw.strip():
+                        continue
         out.append((tick, raw, speaker))
     return out
 
@@ -235,10 +254,14 @@ def split_chorus_stave(track, tol):
         target = tuple(f"{base} {i + 1}" for i in range(divisi))
     n = max(len(target), divisi)
     if n > len(target):
-        # e.g. "Girls" that divides three ways — Soprano/Alto isn't enough
+        # e.g. "Girls" dividing three ways — Soprano/Alto is not enough voices,
+        # and one short voice means every extra chord note is silently dropped.
         base = list(target)
-        base.append(f"{target[-1]} 2")
-        target = tuple(base[:n])
+        extra = 2
+        while len(base) < n:
+            base.append(f"{target[-1]} {extra}")
+            extra += 1
+        target = tuple(base)
     voices = [[] for _ in range(len(target))]
     guessed = _max_simultaneity(track, tol) > len(SPLITTABLE.get(key, ())) \
         if key in SPLITTABLE else False
