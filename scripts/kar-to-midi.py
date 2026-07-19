@@ -60,7 +60,8 @@ def convert(opera_dir, out_dir, libretto=None, score_pdf=None, abbrev=None):
     for p in cfg.get("parts", []):
         for c in p.get("candidates", []):
             aliases[c] = c
-        aliases[p["label"]] = p.get("candidates", [p["label"]])[0]
+        cands = p.get("candidates") or [p["label"]]
+        aliases[p["label"]] = cands[0]   # Utopia has a part with none listed
 
     report = [f"# {cfg['meta']['opera']} — per-singer MIDI", "",
               "Lyrics are COPIED from the merged lyric line, never invented. The",
