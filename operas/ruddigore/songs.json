@@ -16,9 +16,7 @@
     "Piano RH",
     "Piano LH"
   ],
-  "choralTracks": [
-    "Bridesmaids"
-  ],
+  "choralTracks": [],
   "soloistTracks": [],
   "parts": [
     {
@@ -33,7 +31,8 @@
       "id": "richard-dauntless",
       "label": "Richard Dauntless",
       "candidates": [
-        "Richard"
+        "Richard",
+        "Richard Dauntless"
       ]
     },
     {
@@ -48,7 +47,8 @@
       "id": "sir-roderic",
       "label": "Sir Roderic Murgatroyd",
       "candidates": [
-        "Sir Roderic"
+        "Sir Roderic",
+        "Roderic"
       ]
     },
     {
@@ -63,7 +63,8 @@
       "label": "Rose Maybud",
       "candidates": [
         "Rose",
-        "Rose / Zorah"
+        "Rose / Zorah",
+        "Rose Maybud"
       ]
     },
     {
@@ -90,39 +91,79 @@
       ]
     },
     {
-      "id": "soprano",
-      "label": "Soprano",
+      "id": "soprano-1",
+      "label": "Soprano 1",
       "candidates": [
         "Sopranos",
         "Sopranos I",
-        "Sopranos II",
-        "Bridesmaids"
+        "Soprano",
+        "Soprano 1"
       ]
     },
     {
-      "id": "alto",
-      "label": "Alto",
+      "id": "soprano-2",
+      "label": "Soprano 2",
+      "candidates": [
+        "Sopranos",
+        "Sopranos II",
+        "Soprano",
+        "Soprano 2"
+      ]
+    },
+    {
+      "id": "alto-1",
+      "label": "Alto 1",
       "candidates": [
         "Contraltos",
-        "Bridesmaids"
+        "Alto",
+        "Contraltos 1",
+        "Alto 1"
       ]
     },
     {
-      "id": "tenor",
-      "label": "Tenor",
+      "id": "alto-2",
+      "label": "Alto 2",
+      "candidates": [
+        "Contraltos",
+        "Alto",
+        "Contraltos 2",
+        "Alto 2"
+      ]
+    },
+    {
+      "id": "tenor-1",
+      "label": "Tenor 1",
       "candidates": [
         "Tenors",
-        "Tenors I",
-        "Tenors II"
+        "Tenor",
+        "Tenor 1"
       ]
     },
     {
-      "id": "bass",
-      "label": "Bass",
+      "id": "tenor-2",
+      "label": "Tenor 2",
+      "candidates": [
+        "Tenors",
+        "Tenor",
+        "Tenor 2"
+      ]
+    },
+    {
+      "id": "bass-1",
+      "label": "Bass 1",
       "candidates": [
         "Basses",
-        "Basses I",
-        "Basses II"
+        "Bass",
+        "Bass 1"
+      ]
+    },
+    {
+      "id": "bass-2",
+      "label": "Bass 2",
+      "candidates": [
+        "Basses",
+        "Bass",
+        "Bass 2"
       ]
     }
   ],
@@ -132,11 +173,12 @@
       "number": "1",
       "title": "Fair is Rose",
       "type": "Opening Chorus",
-      "file": "rudd01.kar",
+      "file": "rudd01.mid",
       "voiceTracks": [
         "Zorah",
         "Sopranos",
-        "Contraltos"
+        "Contraltos 1",
+        "Contraltos 2"
       ]
     },
     {
@@ -144,10 +186,11 @@
       "number": "2",
       "title": "Sir Rupert Murgatroyd",
       "type": "Song (Dame Hannah)",
-      "file": "rudd02.kar",
+      "file": "rudd02.mid",
       "voiceTracks": [
         "Hannah",
-        "Bridesmaids"
+        "Soprano 1",
+        "Soprano 2"
       ]
     },
     {
@@ -155,7 +198,7 @@
       "number": "3",
       "title": "If somebody there chanced to be",
       "type": "Song (Rose)",
-      "file": "rudd03.kar",
+      "file": "rudd03.mid",
       "voiceTracks": [
         "Rose"
       ]
@@ -165,7 +208,7 @@
       "number": "4",
       "title": "I know a youth who loves a little maid",
       "type": "Duet (Rose & Robin)",
-      "file": "rudd04.kar",
+      "file": "rudd04.mid",
       "voiceTracks": [
         "Rose",
         "Robin"
@@ -299,7 +342,7 @@
       "number": "16",
       "title": "I once was as meek as a new-born lamb",
       "type": "Duet (Robin & Adam)",
-      "file": "rudd16.kar",
+      "file": "rudd16.mid",
       "voiceTracks": [
         "Robin",
         "Adam"
@@ -310,12 +353,13 @@
       "number": "17",
       "title": "Happily coupled are we",
       "type": "Duet & Chorus",
-      "file": "rudd17.kar",
+      "file": "rudd17.mid",
       "voiceTracks": [
-        "Rose",
-        "Richard",
-        "Sopranos",
-        "Contraltos"
+        "Rose Maybud",
+        "Richard Dauntless",
+        "Soprano",
+        "Alto 1",
+        "Alto 2"
       ]
     },
     {
@@ -323,13 +367,14 @@
       "number": "18",
       "title": "In bygone days I had thy love",
       "type": "Madrigal",
-      "file": "rudd18.kar",
+      "file": "rudd18.mid",
       "voiceTracks": [
-        "Rose",
-        "Richard",
-        "Sir Ruthven",
-        "Sopranos",
-        "Contraltos"
+        "Rose Maybud",
+        "Richard Dauntless",
+        "Robin",
+        "Soprano",
+        "Alto 1",
+        "Alto 2"
       ]
     },
     {
@@ -337,14 +382,14 @@
       "number": "19",
       "title": "Painted emblems of a race",
       "type": "Chorus & Scene",
-      "file": "rudd19.kar",
+      "file": "rudd19.mid",
       "voiceTracks": [
-        "Sir Roderic",
-        "Tenors I",
-        "Tenors II",
-        "Basses I",
-        "Basses II",
-        "Staff-1"
+        "Robin",
+        "Roderic",
+        "Tenor 1",
+        "Tenor 2",
+        "Bass 1",
+        "Bass 2"
       ],
       "partTracks": {
         "robin-oakapple": [
@@ -357,11 +402,12 @@
       "number": "21",
       "title": "He yields! He yields!",
       "type": "Chorus",
-      "file": "rudd21.kar",
+      "file": "rudd21.mid",
       "voiceTracks": [
-        "Sir Ruthven",
-        "Tenors",
-        "Basses"
+        "Robin",
+        "Tenor 1",
+        "Tenor 2",
+        "Bass"
       ]
     },
     {
@@ -369,9 +415,9 @@
       "number": "22",
       "title": "Away, Remorse!",
       "type": "Recit. & Song (Robin)",
-      "file": "rudd22.kar",
+      "file": "rudd22.mid",
       "voiceTracks": [
-        "Vocal"
+        "Robin"
       ],
       "partTracks": {
         "robin-oakapple": [
@@ -384,9 +430,9 @@
       "number": "22",
       "title": "Away, Remorse!",
       "type": "Recit. & Song (Robin) — alternate version",
-      "file": "rudd22a.kar",
+      "file": "rudd22a.mid",
       "voiceTracks": [
-        "Vocal"
+        "Robin"
       ],
       "partTracks": {
         "robin-oakapple": [
@@ -399,10 +445,10 @@
       "number": "23",
       "title": "I once was a very abandoned person",
       "type": "Duet (Sir Despard & Mad Margaret)",
-      "file": "rudd23.kar",
+      "file": "rudd23.mid",
       "voiceTracks": [
         "Margaret",
-        "Sir Despard"
+        "Despard"
       ]
     },
     {
@@ -410,7 +456,7 @@
       "number": "24",
       "title": "My eyes are fully open",
       "type": "Patter Trio",
-      "file": "rudd24.kar",
+      "file": "rudd24.mid",
       "voiceTracks": [
         "Margaret",
         "Robin",
@@ -422,10 +468,10 @@
       "number": "26",
       "title": "There grew a little flower",
       "type": "Ballad (Dame Hannah)",
-      "file": "rudd25.kar",
+      "file": "rudd25.mid",
       "voiceTracks": [
-        "Dame Hannah",
-        "Sir Roderic"
+        "Hannah",
+        "Roderic"
       ]
     },
     {
@@ -433,17 +479,17 @@
       "number": "27",
       "title": "When a man has been a naughty baronet",
       "type": "Finale Act II (original version)",
-      "file": "rudd27.kar",
+      "file": "rudd27.mid",
       "voiceTracks": [
         "Rose",
         "Margaret",
         "Richard",
         "Robin",
         "Sir Despard",
-        "Sopranos",
-        "Contraltos",
-        "Tenors",
-        "Basses"
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Bass"
       ]
     }
   ]

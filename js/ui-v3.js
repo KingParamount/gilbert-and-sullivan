@@ -167,7 +167,7 @@ export function initApp(manifest) {
     $('lyrics').innerHTML = '<p class="loading">Loading the music…</p>';
     setPlayIcon(false);
 
-    player.loadUrl(state.cfg.baseUrl + '/' + song.file).then(() => {
+    player.loadUrl(state.cfg.baseUrl + '/' + song.file + '?v=4').then(() => {
       if (state.player !== player) return; // user moved on while loading
       const part = getPart(state.cfg, state.partId);
       state.lyrics = buildLyrics(player, matchedTracks(state.cfg, song, part), song.voiceTracks);

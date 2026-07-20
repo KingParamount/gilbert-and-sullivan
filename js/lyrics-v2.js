@@ -155,7 +155,7 @@ function multiPart(player, myTracks, withLyrics, voiceTracks) {
   blocks = mergeUnison(blocks);
   blocks.sort((a, b) => (a.start - b.start) ||
     (Math.min(...a.tracks.map(rank)) - Math.min(...b.tracks.map(rank))));
-  blocks = leadWithMyPart(blocks);
+  blocks = leadWithMyPart(blocks, player, myTracks);
 
   const syllables = [];               // YOUR syllables (shared with their lines)
   const lines = [];
@@ -163,9 +163,12 @@ function multiPart(player, myTracks, withLyrics, voiceTracks) {
   blocks.forEach((b) => {
     const slots = labelSlots(b.tracks, order, myTracks);
     // Between contiguous lines, only announce who JOINED (+) or LEFT (−) rather
-    // than restating the whole cast; a break in the singing forces a restatement.
+    // than restating the whole cast. A break in the singing normally forces a
+    // restatement — BUT if the very same singer simply carries on after a rest
+    // (a soloist phrasing their song), don't re-announce them every line.
     const contiguous = prevEnd != null && (b.start - prevEnd) <= RESTATE_GAP;
-    const showLabel = labelDelta(contiguous ? prevSlots : null, slots);
+    const sameCast = prevSlots && prevSlots.join('|') === slots.join('|');
+    const showLabel = labelDelta((contiguous || sameCast) ? prevSlots : null, slots);
     prevSlots = slots; prevEnd = b.end;
     if (b.mine) {
       const syls = b.syls.map((s) => {
@@ -185,23 +188,50 @@ function multiPart(player, myTracks, withLyrics, voiceTracks) {
   return { syllables, lines, hasLyrics: lines.length > 0 };
 }
 
-// "My part leads": your lines are always shown; another character's line is kept
-// only if it BEGINS while you are resting (a genuine turn-taking cue) and does
-// not overlap a cue already kept — so six voices in counterpoint never stack up.
-function leadWithMyPart(blocks) {
+// "My part leads": your lines are always shown. When you are NOT singing we show
+// exactly ONE other voice at a time — never a wall of nine counter-lines. An
+// other line qualifies if you are actually resting through a real part of it
+// (not merely if it happens to START in a rest — that dropped voices whose
+// phrase began under your singing and carried on past it), and it is kept only
+// if it does not overlap an other line we already kept (the one-at-a-time rule).
+function leadWithMyPart(blocks, player, myTracks) {
   const mine = blocks.filter((b) => b.mine);
   if (!mine.length) return blocks;                 // you don't sing here — show all
-  const busy = mergeIntervals(mine.map((b) => [b.start, b.end]));
+  // "Busy" = when you are ACTUALLY singing, taken from your notes — not from
+  // lyric-block end times, which over-run a phrase into the following rest (a
+  // held syllable's end scan grabs the next phrase's onset) and would wrongly
+  // mask another singer's verse sung during your silence.
+  const my = new Set(myTracks || []);
+  const notes = (player.events || []).filter((e) => my.has(e.track));
+  const busy = mergeIntervals(
+    notes.length ? notes.map((e) => [e.sec, e.sec + e.dur])
+                 : mine.map((b) => [b.start, b.end]));   // fallback if no note data
+  const voiceKey = (b) => [...new Set(b.tracks)].sort().join('|');
   const kept = [];
-  let lastOtherEnd = -Infinity;
+  let last = null;                                  // last OTHER block we kept
   for (const b of blocks) {                         // already sorted by start
     if (b.mine) { kept.push(b); continue; }
-    if (!within(b.start, busy) && b.start >= lastOtherEnd) {
-      kept.push(b);
-      lastOtherEnd = b.end;
-    }
+    if (uncovered([b.start, b.end], busy) < 0.5) continue;   // you sing over it — hide
+    // One voice at a time: skip a line only if a DIFFERENT voice is already
+    // showing across this moment. A singer's OWN consecutive lines never clash
+    // (the held note ending one phrase overlaps the next — that must not drop
+    // every other line), so a soloist's whole verse comes through intact.
+    if (last && b.start < last.end - 0.05 && voiceKey(b) !== voiceKey(last)) continue;
+    kept.push(b);
+    last = b;
   }
   return kept;
+}
+
+// Seconds of interval `iv` that lie OUTSIDE the (sorted, merged) `busy` set —
+// i.e. how long you are resting while this line sings.
+function uncovered(iv, busy) {
+  let free = iv[1] - iv[0];
+  for (const [s, e] of busy) {
+    const lo = Math.max(iv[0], s), hi = Math.min(iv[1], e);
+    if (hi > lo) free -= (hi - lo);
+  }
+  return free;
 }
 
 function mergeIntervals(intervals) {
@@ -227,7 +257,11 @@ function mergeUnison(blocks) {
   const out = [];
   sorted.forEach((b) => {
     const key = norm(b);
-    const hit = key && out.find((o) => o.key === key && Math.abs(o.start - b.start) < 1.2);
+    // Fold two voices' identical words when their lines actually OVERLAP in time
+    // (not just start close together) — two singers phrase the same patter with
+    // slightly different bar-lines, so a start-only test folded them in some
+    // places and not others, which is why a unison partner flickered in and out.
+    const hit = key && out.find((o) => o.key === key && o.start < b.end + 0.4 && b.start < o.end + 0.4);
     if (hit) {
       hit.tracks.push(...b.tracks);
       if (b.mine && !hit.mine) { hit.syls = b.syls; hit.end = b.end; }  // prefer your own timing
@@ -242,6 +276,9 @@ function mergeUnison(blocks) {
 const WOMEN = /^(Soprano|Mezzo|Alto|Contralto)/i;
 const MEN = /^(Tenor|Bariton|Bass)/i;
 const isChorusVoice = (t) => WOMEN.test(t) || MEN.test(t);
+// Fold a divisi stave onto its part name: "Alto 1"/"Alto 2" -> "Alto",
+// "Sopranos II" -> "Sopranos". Leaves undivided names ("Robin") untouched.
+const baseVoice = (t) => t.replace(/\s+(?:\d+|I{1,3}|IV|V)$/i, '').trim() || t;
 
 const RESTATE_GAP = 2.0;   // a silence longer than this restarts the cast label
 
@@ -253,11 +290,19 @@ const RESTATE_GAP = 2.0;   // a silence longer than this restarts the cast label
 function labelSlots(tracks, order, myTracks = []) {
   const uniq = [...new Set(tracks)].sort((a, b) => order.indexOf(a) - order.indexOf(b));
   const mine = uniq.filter((t) => myTracks.includes(t));
-  const others = uniq.filter((t) => !myTracks.includes(t));
+
+  // If YOU are singing this line, it is labelled with your part and nothing
+  // else — never your part plus whoever happens to sing it with you. You only
+  // ever see another name when someone sings while you are resting. Divisi fold
+  // so two staves of your line read as the part ("Alto", not "Alto 1, Alto 2").
+  if (mine.length) return [...new Set(mine.map(baseVoice))];
+
+  // Otherwise this is someone else's line, sung during your rest: name them,
+  // collapsed to a single group where they are a chorus.
+  const others = uniq;
   const principals = others.filter((t) => !isChorusVoice(t));
   const chorus = others.filter((t) => isChorusVoice(t));
-
-  const slots = [...mine];                          // your part, always first
+  const slots = [];
   if (principals.length === 1) slots.push(principals[0]);
   else if (principals.length === 2) slots.push(principals.join(' & '));
   else if (principals.length >= 3) slots.push('Principals');
@@ -265,19 +310,12 @@ function labelSlots(tracks, order, myTracks = []) {
   return slots;
 }
 
-// The label to actually show, given the previous line's slots. Unchanged cast ->
-// nothing; a pure join or departure -> "+ …" / "− …"; a wholly new group (or a
-// tangled change) -> the full cast restated.
+// The label to actually show, given the previous line's slots. If the singer(s)
+// are unchanged, say nothing; otherwise just name who is singing now. (No "+ …"
+// / "− …" running deltas — they read as noise.)
 function labelDelta(prev, curr) {
-  const join = (a) => a.join(', ');
-  if (!prev) return join(curr);
-  if (prev.join('|') === curr.join('|')) return null;      // same cast: say nothing
-  const added = curr.filter((s) => !prev.includes(s));
-  const removed = prev.filter((s) => !curr.includes(s));
-  if (!curr.some((s) => prev.includes(s))) return join(curr);   // no overlap: new group
-  if (added.length && !removed.length) return '+ ' + join(added);
-  if (removed.length && !added.length) return '− ' + join(removed);
-  return join(curr);                                        // messy change: restate
+  if (prev && prev.join('|') === curr.join('|')) return null;   // same singer(s): say nothing
+  return curr.join(', ');                                       // changed: name who sings now
 }
 
 function collapseChorus(parts) {

@@ -225,7 +225,15 @@ def write_smf(path, sc, parts, title=None):
         cond.append((tick, 0, _meta(0x59, struct.pack("b", fifths) + bytes([mode]))))
     chunks.append(_chunk(cond))
 
-    for p in parts:
+    # Give every track its OWN MIDI channel (skipping 9, the GM drum channel).
+    # Everything used to share channel 0, which made MuseScore merge tracks onto
+    # one staff and pile several singers' words onto verse 1 of the same notes
+    # ("smooshed" lyrics). Distinct channels keep the staves apart on import.
+    # The app routes by track name, not channel, so this is invisible to it, and
+    # Dorico imports channels cleanly too.
+    CHANS = [c for c in range(16) if c != 9]
+    for pi, p in enumerate(parts):
+        ch = CHANS[pi % len(CHANS)]
         ev = [(0, 0, _meta(0x03, _latin1(p["name"])))]
         for tick, text in p.get("raw_lyrics", ()):
             ev.append((tick, 0, _meta(0x05, _latin1(text))))
@@ -236,8 +244,8 @@ def write_smf(path, sc, parts, title=None):
                 text = lyric[0] if isinstance(lyric, tuple) else lyric
                 if text:
                     ev.append((tick, 0, _meta(0x05, _latin1(text))))
-            ev.append((tick + max(1, dur), 1, bytes([0x80, pitch, 0])))
-            ev.append((tick, 2, bytes([0x90, pitch, 80])))
+            ev.append((tick + max(1, dur), 1, bytes([0x80 | ch, pitch, 0])))
+            ev.append((tick, 2, bytes([0x90 | ch, pitch, 80])))
         chunks.append(_chunk(ev))
 
     header = b"MThd" + struct.pack(">IHHH", 6, 1, len(chunks), sc.division)
